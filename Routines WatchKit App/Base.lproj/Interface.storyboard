@@ -1,15 +1,151 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="14109" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Uqy-gE-xqF">
+    <device id="watch38" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="11055"/>
+        <deployment identifier="watchOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="14031"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
     </dependencies>
     <scenes>
-        <!--Interface Controller-->
-        <scene sceneID="aou-V4-d1y">
+        <!--Routines-->
+        <scene sceneID="ALF-Us-ytF">
             <objects>
-                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModuleProvider="target"/>
+                <controller title="Routines" id="Uqy-gE-xqF" customClass="RoutinesController" customModule="Routines_WatchKit_Extension">
+                    <items>
+                        <table alignment="left" id="Jcx-DA-3mn">
+                            <items>
+                                <tableRow identifier="Routine" id="NsI-A5-hHQ" customClass="RoutineRowController" customModule="Routines_WatchKit_Extension">
+                                    <group key="rootItem" width="1" height="0.0" alignment="left" layout="vertical" id="X7a-my-fZu">
+                                        <items>
+                                            <group width="1" alignment="left" id="hDF-c6-eAS">
+                                                <items>
+                                                    <label alignment="left" verticalAlignment="center" text="A " id="f6p-cE-Sg0">
+                                                        <color key="textColor" name="red"/>
+                                                        <fontDescription key="font" type="boldSystem" pointSize="40"/>
+                                                    </label>
+                                                    <label alignment="right" text="5" id="7Tf-HD-wzY">
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="font" type="boldSystem" pointSize="21"/>
+                                                    </label>
+                                                </items>
+                                            </group>
+                                            <label alignment="left" verticalAlignment="center" text="Upper Body" id="cik-yP-uCn"/>
+                                        </items>
+                                        <edgeInsets key="margins" left="6" right="6" top="6" bottom="6"/>
+                                        <connections>
+                                            <segue destination="P1U-o2-ugp" kind="modal" identifier="Routine" id="wKu-Jg-JmZ"/>
+                                        </connections>
+                                    </group>
+                                    <connections>
+                                        <outlet property="descriptionLabel" destination="cik-yP-uCn" id="o2v-9Q-LQR"/>
+                                        <outlet property="nameLabel" destination="f6p-cE-Sg0" id="Cpr-9N-CST"/>
+                                        <outlet property="numberOfItemsLabel" destination="7Tf-HD-wzY" id="yhK-0q-rYd"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                    <connections>
+                        <outlet property="table" destination="Jcx-DA-3mn" id="Wij-P3-E8D"/>
+                    </connections>
+                </controller>
             </objects>
+            <point key="canvasLocation" x="-502" y="31"/>
+        </scene>
+        <!--Exercises-->
+        <scene sceneID="Nrf-Ra-GAa">
+            <objects>
+                <controller identifier="Exercises" animationDuration="2" id="P1U-o2-ugp" customClass="ExercisesController" customModule="Routines_WatchKit_Extension">
+                    <items>
+                        <table alignment="center" verticalAlignment="center" id="Tas-pD-9MX">
+                            <items>
+                                <tableRow identifier="Exercise" id="D4Y-ob-k9W" customClass="ExerciseRowController" customModule="Routines_WatchKit_Extension">
+                                    <group key="rootItem" width="1" height="0.0" alignment="left" layout="vertical" spacing="5" id="uS6-iE-wDD">
+                                        <items>
+                                            <group width="1" alignment="left" id="15n-Dr-GqR">
+                                                <items>
+                                                    <label height="39" alignment="left" text="30" id="PLo-nb-NMC">
+                                                        <color key="textColor" name="red"/>
+                                                        <fontDescription key="font" type="boldSystem" pointSize="40"/>
+                                                    </label>
+                                                    <label alignment="right" text="1/20" id="PcK-1c-xYV">
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="font" type="boldSystem" pointSize="21"/>
+                                                    </label>
+                                                </items>
+                                            </group>
+                                            <label alignment="left" text="Remada máquina (F)" numberOfLines="0" id="bRu-pb-jRD">
+                                                <fontDescription key="font" type="system" pointSize="19"/>
+                                            </label>
+                                            <group width="1" height="20" alignment="left" verticalAlignment="bottom" id="X26-6J-NsE">
+                                                <items>
+                                                    <group alignment="left" spacing="6" id="9Ed-mK-eCQ">
+                                                        <items>
+                                                            <imageView height="20" alignment="left" image="Repetition" id="miE-2O-nUn">
+                                                                <color key="tintColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            </imageView>
+                                                            <label alignment="left" text="12/3" id="f9v-vq-Hjj">
+                                                                <color key="textColor" name="red"/>
+                                                                <fontDescription key="font" type="boldSystem" pointSize="16"/>
+                                                            </label>
+                                                            <imageView height="20" alignment="left" image="Weight" id="8uN-Kc-ik3">
+                                                                <color key="tintColor" name="teal"/>
+                                                            </imageView>
+                                                            <label alignment="left" text="26" id="auu-Ib-gfl">
+                                                                <color key="textColor" name="teal"/>
+                                                                <fontDescription key="font" type="boldSystem" pointSize="16"/>
+                                                            </label>
+                                                        </items>
+                                                    </group>
+                                                </items>
+                                            </group>
+                                        </items>
+                                        <edgeInsets key="margins" left="6" right="6" top="6" bottom="6"/>
+                                    </group>
+                                    <connections>
+                                        <outlet property="machineNameLabel" destination="bRu-pb-jRD" id="BAK-TQ-j0s"/>
+                                        <outlet property="machineNumberLabel" destination="PLo-nb-NMC" id="1SW-Mj-bAM"/>
+                                        <outlet property="repetitionLabel" destination="f9v-vq-Hjj" id="QhM-fS-s6l"/>
+                                        <outlet property="routineIndexCount" destination="PcK-1c-xYV" id="kMZ-3X-D12"/>
+                                        <outlet property="weightIconImage" destination="8uN-Kc-ik3" id="Nnt-7y-cmw"/>
+                                        <outlet property="weightLoadLabel" destination="auu-Ib-gfl" id="BTV-ui-cao"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                    <menu key="menu" id="p2Q-fa-z7E">
+                        <items>
+                            <menuItem title="Reset" icon="repeat" id="WXQ-uC-8P9">
+                                <connections>
+                                    <action selector="resetRoutine" destination="P1U-o2-ugp" id="jcl-ak-M7k"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Exit" icon="decline" id="Re5-XR-RtJ">
+                                <connections>
+                                    <action selector="exitRoutine" destination="P1U-o2-ugp" id="Reg-lQ-P7G"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
+                    <connections>
+                        <outlet property="table" destination="Tas-pD-9MX" id="gLF-sm-L0f"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="-226" y="31"/>
         </scene>
     </scenes>
+    <resources>
+        <namedColor name="red">
+            <color red="1" green="0.14900000393390656" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="teal">
+            <color red="0.0" green="0.98100000619888306" blue="0.875" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+    <color key="tintColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

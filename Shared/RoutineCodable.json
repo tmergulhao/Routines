@@ -1,0 +1,146 @@
+[
+    {
+        "name": "A",
+        "summary": "Back",
+        "items": [
+            {
+                "exercise": {
+                    "name": "Remada máquina (F)",
+                    "machine_identifier": "30"
+                },
+                "number_of_series": 3,
+                "repetitions": 12,
+                "weight_load": 25
+            },
+            {
+                "exercise": {
+                    "name": "Puchada polia barra frente",
+                    "machine_identifier": "34"
+                },
+                "number_of_series": 3,
+                "repetitions": 12,
+                "weight_load": 26
+            },
+            {
+                "exercise": {
+                    "name": "Supino máquina",
+                    "machine_identifier": "20"
+                },
+                "number_of_series": 3,
+                "repetitions": 12,
+                "weight_load": 25
+            },
+            {
+                "exercise": {
+                    "name": "Crucifixo máquina",
+                    "machine_identifier": "26"
+                },
+                "number_of_series": 3,
+                "repetitions": 12,
+                "weight_load": 35
+            },
+            {
+                "exercise": {
+                    "name": "Infra solo",
+                    "machine_identifier": null
+                },
+                "number_of_series": 3,
+                "repetitions": 15,
+                "weight_load": null
+            }
+        ]
+    },
+    {
+        "name": "B",
+        "summary": "Lower body",
+        "items": [
+            {
+                "exercise": {
+                    "name": "Leg Press",
+                    "machine_identifier": "01"
+                },
+                "number_of_series": 3,
+                "repetitions": 12,
+                "weight_load": 75
+            },
+            {
+                "exercise": {
+                    "name": "Cadeira Flexora",
+                    "machine_identifier": "03"
+                },
+                "number_of_series": 3,
+                "repetitions": 12,
+                "weight_load": 25
+            },
+            {
+                "exercise": {
+                    "name": "Cadeira Adutora",
+                    "machine_identifier": "05"
+                },
+                "number_of_series": 3,
+                "repetitions": 12,
+                "weight_load": 75
+            },
+            {
+                "exercise": {
+                    "name": "Gêmeos Máquina",
+                    "machine_identifier": "08"
+                },
+                "number_of_series": 3,
+                "repetitions": 15,
+                "weight_load": 35
+            },
+            {
+                "exercise": {
+                    "name": "Abdominal Máquina",
+                    "machine_identifier": "40"
+                },
+                "number_of_series": 3,
+                "repetitions": 15,
+                "weight_load": null
+            }
+        ]
+    },
+    {
+        "name": "C",
+        "summary": "Biceps",
+        "items": [
+            {
+                "exercise": {
+                    "name": "Tríceps Máquina",
+                    "machine_identifier": "52"
+                },
+                "number_of_series": 3,
+                "repetitions": 12,
+                "weight_load": 35
+            },
+            {
+                "exercise": {
+                    "name": "Bíceps Máquina",
+                    "machine_identifier": "53"
+                },
+                "number_of_series": 3,
+                "repetitions": 12,
+                "weight_load": 15
+            },
+            {
+                "exercise": {
+                    "name": "Rosca Inversa",
+                    "machine_identifier": "62"
+                },
+                "number_of_series": 3,
+                "repetitions": 12,
+                "weight_load": 7.5
+            },
+            {
+                "exercise": {
+                    "name": "Desenvolvimento Máquina (Aberto)",
+                    "machine_identifier": "50"
+                },
+                "number_of_series": 3,
+                "repetitions": 12,
+                "weight_load": 15
+            }
+        ]
+    }
+]

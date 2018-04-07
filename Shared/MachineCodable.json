@@ -1,0 +1,67 @@
+[
+    {
+        "name": null,
+        "identifier": "01",
+        "color_name": "teal"
+    },
+    {
+        "name": null,
+        "identifier": "03",
+        "color_name": "teal"
+    },
+    {
+        "name": null,
+        "identifier": "05",
+        "color_name": "teal"
+    },
+    {
+        "name": null,
+        "identifier": "08",
+        "color_name": "teal"
+    },
+    {
+        "name": null,
+        "identifier": "40",
+        "color_name": "red"
+    },
+    {
+        "name": null,
+        "identifier": "30",
+        "color_name": "orange"
+    },
+    {
+        "name": null,
+        "identifier": "34",
+        "color_name": "orange"
+    },
+    {
+        "name": null,
+        "identifier": "20",
+        "color_name": "orange"
+    },
+    {
+        "name": null,
+        "identifier": "26",
+        "color_name": "orange"
+    },
+    {
+        "name": null,
+        "identifier": "52",
+        "color_name": "green"
+    },
+    {
+        "name": null,
+        "identifier": "53",
+        "color_name": "green"
+    },
+    {
+        "name": null,
+        "identifier": "62",
+        "color_name": "green"
+    },
+    {
+        "name": null,
+        "identifier": "50",
+        "color_name": "green"
+    }
+]
