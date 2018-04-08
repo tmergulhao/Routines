@@ -18,8 +18,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
+    func applicationDidEnterBackground(_ application: UIApplication) {
+        try? CoreDataManager.shared.saveContext()
+    }
+
     func applicationWillTerminate(_ application: UIApplication) {
-        CoreDataManager.shared.saveContext()
+        try? CoreDataManager.shared.saveContext()
     }
 
     func application(_ application: UIApplication, handleWatchKitExtensionRequest userInfo: [AnyHashable : Any]?, reply: @escaping ([AnyHashable : Any]?) -> Void) {
