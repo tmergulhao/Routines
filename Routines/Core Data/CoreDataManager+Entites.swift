@@ -23,7 +23,11 @@ extension CoreDataManager {
         database.insertIntoArchived(routine, at: 0)
         database.removeFromActive(routine)
 
-        saveContext()
+        do {
+            try saveContext()
+        } catch {
+            fatalError("Unresolved error \(error), \(error.localizedDescription)")
+        }
     }
 
     func unarchive(_ routine : Routine) {
@@ -31,7 +35,11 @@ extension CoreDataManager {
         database.insertIntoActive(routine, at: 0)
         database.removeFromArchived(routine)
 
-        saveContext()
+        do {
+            try saveContext()
+        } catch {
+            fatalError("Unresolved error \(error), \(error.localizedDescription)")
+        }
     }
 
     func remove(_ routine : Routine) {
@@ -39,7 +47,11 @@ extension CoreDataManager {
         database.removeFromArchived(routine)
         context.delete(routine)
         
-        saveContext()
+        do {
+            try saveContext()
+        } catch {
+            fatalError("Unresolved error \(error), \(error.localizedDescription)")
+        }
     }
 
     func remove(_ item : Item, from routine : Routine) {
@@ -47,7 +59,11 @@ extension CoreDataManager {
         routine.removeFromItems(item)
         context.delete(item)
 
-        saveContext()
+        do {
+            try saveContext()
+        } catch {
+            fatalError("Unresolved error \(error), \(error.localizedDescription)")
+        }
     }
 
     @discardableResult

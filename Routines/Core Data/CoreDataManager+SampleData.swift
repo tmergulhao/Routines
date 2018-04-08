@@ -48,6 +48,6 @@ extension CoreDataManager {
             database.addToActive(routine)
         }
 
-        saveContext()
+        try? saveContext()
     }
 }
