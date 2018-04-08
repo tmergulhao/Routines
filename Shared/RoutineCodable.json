@@ -2,6 +2,7 @@
     {
         "name": "A",
         "summary": "Back",
+        "date": "2018-03-31T18:58:43-04:00",
         "items": [
             {
                 "exercise": {
@@ -53,6 +54,7 @@
     {
         "name": "B",
         "summary": "Lower body",
+        "date": "2018-03-31T18:58:43-04:00",
         "items": [
             {
                 "exercise": {
@@ -103,7 +105,8 @@
     },
     {
         "name": "C",
-        "summary": "Biceps",
+        "summary": "Bíceps",
+        "date": "2018-03-31T18:58:43-04:00",
         "items": [
             {
                 "exercise": {

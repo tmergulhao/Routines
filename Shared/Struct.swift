@@ -29,6 +29,7 @@ struct RoutineCodable : Codable {
     var name : String
     var summary : String
     var items : Array<ItemCodable>?
+    var date : Date
 }
 
 extension RoutineCodable {

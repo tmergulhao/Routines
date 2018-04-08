@@ -7,6 +7,22 @@
 //
 
 import CoreData
+import UIKit
+
+extension Item {
+
+    func configure(with item : ItemCodable, and machine : MachineCodable?) {
+
+        numberOfSeries = Int64(item.numberOfSeries)
+        repetitions = Int64(item.repetitions)
+        weightLoad = item.weightLoad ?? 0.0
+
+        name = item.exercise.name
+
+        equipment = machine?.identifier
+        color = UIColor(named: machine?.colorName ?? "green")
+    }
+}
 
 extension NSEntityDescription {
 
@@ -73,15 +89,15 @@ extension CoreDataManager {
 
         database.insertIntoActive(routine, at: 0)
 
+        routine.date = Date()
+
         return routine
     }
 
     @discardableResult
-    func insertItem(into routine : Routine) -> Item {
+    func insertItem() -> Item {
 
         let item : Item = NSEntityDescription.object(into: context)
-
-        routine.insertIntoItems(item, at: 0)
 
         return item
     }

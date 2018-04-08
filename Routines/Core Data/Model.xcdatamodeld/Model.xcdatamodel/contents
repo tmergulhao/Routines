@@ -5,21 +5,22 @@
         <relationship name="archived" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Routine" syncable="YES"/>
     </entity>
     <entity name="Item" representedClassName="Item" syncable="YES" codeGenerationType="class">
-        <attribute name="colorName" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="machineIdentifier" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="numberOfSeries" optional="YES" attributeType="Integer 64" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="repetitions" optional="YES" attributeType="Integer 64" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="color" optional="YES" attributeType="Transformable" customClassName="UIKit.UIColor" syncable="YES"/>
+        <attribute name="equipment" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" attributeType="String" minValueString="5" maxValueString="40" syncable="YES"/>
+        <attribute name="numberOfSeries" attributeType="Integer 64" defaultValueString="1" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="repetitions" attributeType="Integer 64" defaultValueString="1" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="weightLoad" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
     </entity>
     <entity name="Routine" representedClassName="Routine" syncable="YES" codeGenerationType="class">
-        <attribute name="name" attributeType="String" defaultValueString=" " syncable="YES"/>
+        <attribute name="date" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="name" attributeType="String" minValueString="1" maxValueString="40" defaultValueString=" " syncable="YES"/>
         <attribute name="summary" attributeType="String" syncable="YES"/>
         <relationship name="items" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="Item" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Item" positionX="-54" positionY="9" width="128" height="135"/>
-        <element name="Routine" positionX="-63" positionY="-18" width="128" height="90"/>
         <element name="DatabaseView" positionX="-45" positionY="54" width="128" height="75"/>
+        <element name="Item" positionX="-54" positionY="9" width="128" height="133"/>
+        <element name="Routine" positionX="-63" positionY="-18" width="128" height="103"/>
     </elements>
 </model>

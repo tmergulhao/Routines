@@ -21,7 +21,7 @@ class Sample {
         guard let data = try? Data(contentsOf: url) else { return nil }
 
         let decoder = JSONDecoder()
-        decoder.dateDecodingStrategy = .secondsSince1970
+        decoder.dateDecodingStrategy = .iso8601
         decoder.keyDecodingStrategy = .convertFromSnakeCase
 
         return try? decoder.decode(Array<T>.self, from: data)

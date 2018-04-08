@@ -21,6 +21,7 @@ extension CoreDataManager {
 
             routine.name = sampleRoutine.name
             routine.summary = sampleRoutine.summary
+            routine.date = sampleRoutine.date
 
             if let sampleItems = sampleRoutine.items {
 
@@ -28,18 +29,10 @@ extension CoreDataManager {
 
                     let item : Item = NSEntityDescription.object(into: context)
 
-                    item.numberOfSeries = Int64(sampleItem.numberOfSeries)
-                    item.repetitions = Int64(sampleItem.repetitions)
-                    item.weightLoad = sampleItem.weightLoad ?? 0.0
+                    let sampleMachineIdentifier = sampleItem.exercise.machineIdentifier
+                    let sampleMachine = sampleMachines[sampleMachineIdentifier ?? ""]
 
-                    item.name = sampleItem.exercise.name
-
-                    if let sampleMachineIdentifier = sampleItem.exercise.machineIdentifier,
-                        let sampleMachine = sampleMachines[sampleMachineIdentifier] {
-
-                        item.machineIdentifier = sampleMachine.identifier
-                        item.colorName = sampleMachine.colorName
-                    }
+                    item.configure(with: sampleItem, and: sampleMachine)
 
                     routine.addToItems(item)
                 }
