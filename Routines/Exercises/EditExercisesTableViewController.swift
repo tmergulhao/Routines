@@ -24,76 +24,84 @@ class EditExercisesTableViewController: UITableViewController {
 
     @IBOutlet var colorButtons : Array<UIButton>!
 
-    var routine : Routine?
-    var item : Item?
+    var color : UIColor = UIColor(named: "green")!
 
-    var dataIsValid : Bool {
+    @IBAction func didTapColorButton(_ sender: UIButton) {
 
-        guard let name = nameField.text?.trim(), name != "" else { return false }
-        guard let identifier = identifierField.text?.trim(), identifier != "" else { return false }
+        UIView.animate(withDuration: 0.25, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 1, options: .curveEaseInOut, animations: {
 
-        guard let numberOfSeriesString = identifierField.text?.trim(), let numberOfSeries = Int(numberOfSeriesString), numberOfSeries != 0 else { return false }
-        guard let repetitionsString = identifierField.text?.trim(), let repetitions = Int(repetitionsString), repetitions != 0 else { return false }
-        guard let weightString = weightField.text?.trim(), let _ = Int(weightString) else { return false }
+            for button in self.colorButtons {
 
-        return true
+                guard button != sender else { continue }
+
+                button.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
+                button.layer.opacity = 0.5
+            }
+
+            sender.transform = .identity
+            sender.layer.opacity = 1.0
+
+            self.color = sender.backgroundColor!
+
+        }, completion: nil)
     }
 
-    func saveData () {
+    var routine : Routine!
+    var item : Item!
+
+    @IBAction func saveButtonTapped(_ sender: Any) {
 
         if item == nil {
-            item = CoreDataManager.shared.insertItem(into: routine!)
+            item = CoreDataManager.shared.insertItem()
         } else {
             navigationItem.title = "Edit Routine"
         }
 
-        item?.name = nameField.text?.trim()
-        item?.machineIdentifier = identifierField.text?.trim()
-        item?.colorName = "teal"
+        guard let item = item else { return }
 
-        item?.numberOfSeries = Int64(Int(seriesField.text!.trim())!)
-        item?.repetitions = Int64(Int(repetitionsField.text!.trim())!)
-        item?.weightLoad = Double(weightField.text!.trim())!
+        item.name = nameField.text?.trim()
+        item.equipment = identifierField.text?.trim()
+        item.color = color
 
-        CoreDataManager.shared.saveContext()
+        item.numberOfSeries = Int64(Int(seriesField.text!.trim())!)
+        item.repetitions = Int64(Int(repetitionsField.text!.trim())!)
+        item.weightLoad = Double(weightField.text!.trim())!
+
+        routine.insertIntoItems(item, at: 0)
+
+        do {
+            try CoreDataManager.shared.saveContext()
+        } catch {
+            return
+        }
 
         dismiss(animated: true)
-    }
-
-    @IBAction func saveButtonTapped(_ sender: Any) {
-
-        guard dataIsValid else { return }
-
-        saveData()
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        [nameField, identifierField, seriesField, repetitionsField, weightField]
-            .forEach { (textField) in textField?.delegate = self }
-
         if item != nil {
 
-            nameField.text = "\(item!.name!)"
-            identifierField.text = "\(item!.machineIdentifier!)"
+            nameField.text = item.name
+            identifierField.text = item.equipment
 
-            seriesField.text = "\(item!.numberOfSeries)"
-            repetitionsField.text = "\(item!.repetitions)"
-            weightField.text = "\(item!.weightLoad)"
+            seriesField.text = "\(item.numberOfSeries)"
+            repetitionsField.text = "\(item.repetitions)"
+            weightField.text = "\(item.weightLoad)"
+
+            color = item.color ?? .clear
+        }
+
+        for button in colorButtons {
+            if button.backgroundColor != color {
+                button.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
+                button.layer.opacity = 0.5
+            }
         }
 
         seriesField.becomeFirstResponder()
     }
 
     override func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool { return false }
-}
-
-extension EditExercisesTableViewController : UITextFieldDelegate {
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-
-        navigationItem.rightBarButtonItem?.isEnabled = dataIsValid
-
-        return true
-    }
 }
