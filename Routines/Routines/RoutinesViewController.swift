@@ -54,8 +54,7 @@ class RoutinesViewController : UITableViewController {
             routine = Routine.archived[indexPath.row]
         }
 
-        cell.titleLabel?.text = routine?.name
-        cell.summaryLabel?.text = routine?.summary
+        cell.configure(with: routine!)
 
         return cell
     }

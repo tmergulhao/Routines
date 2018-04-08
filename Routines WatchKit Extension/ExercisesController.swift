@@ -34,6 +34,7 @@ class ExercisesController: WKInterfaceController {
         table.setNumberOfRows(items.count, withRowType: "Exercise")
 
         for i in 0..<items.count {
+
             let row = table.rowController(at: i) as! ExerciseRowController
 
             row.configure(item: items[i])
@@ -44,8 +45,6 @@ class ExercisesController: WKInterfaceController {
     override func table(_ table: WKInterfaceTable, didSelectRowAt rowIndex: Int) {
 
         let check = WKAlertAction(title: "Mark as Done", style: .default) {
-
-            print(self.items.count)
 
             if self.items.count == 1 { self.pop() }
 

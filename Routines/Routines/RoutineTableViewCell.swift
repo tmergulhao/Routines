@@ -10,9 +10,24 @@ import UIKit
 
 class RoutineTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var titleLabel : UILabel?
-    @IBOutlet weak var summaryLabel : UILabel?
-    @IBOutlet weak var countLabel : UILabel?
+    @IBOutlet weak var titleLabel : UILabel!
+    @IBOutlet weak var summaryLabel : UILabel!
+    @IBOutlet weak var countLabel : UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
+
+    func configure(with routine : Routine) {
+
+        titleLabel.text = routine.name
+        summaryLabel.text = routine.summary
+
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .none
+
+        dateFormatter.locale = Locale(identifier: "en_US")
+
+        dateLabel.text = dateFormatter.string(from: routine.date ?? Date())
+    }
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -24,5 +39,4 @@ class RoutineTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
 }

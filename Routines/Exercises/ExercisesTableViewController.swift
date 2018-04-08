@@ -62,22 +62,44 @@ class ExercisesTableViewController: UITableViewController {
         return true
     }
 
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
 
-        if editingStyle == .delete {
+        let delete = UITableViewRowAction(style: .default, title: "Delete", handler: { (action, indexPath) in
 
             tableView.beginUpdates()
 
-            let item = routine.items![indexPath.row] as! Item
-            CoreDataManager.shared.remove(item, from: routine)
+            let item = self.routine.items![indexPath.row] as! Item
+            CoreDataManager.shared.remove(item, from: self.routine)
 
             tableView.deleteRows(at: [indexPath], with: .top)
             tableView.endUpdates()
-        }
+        })
+
+        let edit = UITableViewRowAction(style: .default, title: "Edit", handler: { (action, indexPath) in
+
+            let item = self.routine.items![indexPath.row]
+
+            self.performSegue(withIdentifier: "Edit Item", sender: item)
+        })
+
+        edit.backgroundColor = UIColor(named: "blue")
+        
+        return [edit, delete]
+    }
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+        tableView.deselectRow(at: indexPath, animated: false)
     }
 
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: false)
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+
+        if segue.identifier == "Edit Item",
+            let item = sender as? Item,
+            let navigation = segue.destination as? UINavigationController,
+            let editItem = navigation.topViewController as? EditExercisesTableViewController {
+
+            editItem.item = item
+        }
     }
 
     // MARK: - Table view data source

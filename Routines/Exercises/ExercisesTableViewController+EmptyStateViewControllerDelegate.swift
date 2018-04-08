@@ -12,7 +12,7 @@ extension ExercisesTableViewController : EmptyStateViewControllerDelegate {
 
     func emptyStateControllerDidReceivePrimaryAction(sender: Any?) {
 
-        performSegue(withIdentifier: "Edit Exercise", sender: nil)
+        performSegue(withIdentifier: "Edit Item", sender: nil)
     }
 
     func configure(emptyState viewController: EmptyStateViewController, withIdentifier identifier: String) {
