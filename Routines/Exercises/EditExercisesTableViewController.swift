@@ -72,10 +72,16 @@ class EditExercisesTableViewController: UITableViewController {
         do {
             try CoreDataManager.shared.saveContext()
         } catch {
+            
+            informUser(about: error)
             return
         }
 
         dismiss(animated: true)
+    }
+
+    func informUser(about error : Error) {
+        // TODO: Inform user about data sanitization
     }
 
     override func viewDidLoad() {

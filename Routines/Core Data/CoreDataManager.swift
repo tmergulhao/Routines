@@ -46,7 +46,7 @@ class CoreDataManager {
         database = fetch()![0]
     }
 
-    func fetch<T : NSFetchRequestResult>(withSort sortDescriptor : NSSortDescriptor? = nil) -> Array<T>? {
+    func fetch<T : NSFetchRequestResult>(with sortDescriptor : NSSortDescriptor? = nil) -> Array<T>? {
 
         do {
             let request = NSFetchRequest<T>(entityName: String(describing: T.self))
@@ -54,6 +54,7 @@ class CoreDataManager {
 
             return try context.fetch(request)
         } catch {
+
             print(error)
         }
 

@@ -29,10 +29,16 @@ class EditRoutineViewController : UITableViewController {
         do {
             try CoreDataManager.shared.saveContext()
         } catch {
-            fatalError("Unresolved error \(error), \(error.localizedDescription)")
+
+            informUser(about: error)
+            return
         }
 
         dismiss(animated: true)
+    }
+
+    func informUser(about error : Error) {
+        // TODO: Inform user about data sanitization
     }
 
     override func viewDidLoad() {
