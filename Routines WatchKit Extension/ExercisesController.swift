@@ -46,7 +46,10 @@ class ExercisesController: WKInterfaceController {
 
         let check = WKAlertAction(title: "Mark as Done", style: .default) {
 
-            if self.items.count == 1 { self.pop() }
+            if self.items.count == 1 {
+                WKInterfaceDevice.current().play(.notification)
+                self.dismiss()
+            }
 
             self.items.remove(at: rowIndex)
             table.removeRows(at: IndexSet(integer: rowIndex))

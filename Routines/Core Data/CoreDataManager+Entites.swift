@@ -11,16 +11,15 @@ import UIKit
 
 extension Item {
 
-    func configure(with item : ItemCodable, and machine : MachineCodable?) {
+    func configure(with item : ItemCodable) {
 
         numberOfSeries = Int64(item.numberOfSeries)
         repetitions = Int64(item.repetitions)
         weightLoad = item.weightLoad ?? 0.0
+        name = item.name
 
-        name = item.exercise.name
-
-        equipment = machine?.identifier
-        color = UIColor(named: machine?.colorName ?? "green")
+        equipment = item.equipment
+        color = UIColor(named: item.colorName ?? "green")
     }
 }
 

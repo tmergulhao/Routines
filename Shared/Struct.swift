@@ -8,21 +8,14 @@
 
 import Foundation
 
-struct MachineCodable : Codable {
-    var identifier : String
-    var colorName : String
-}
-
-struct ExerciseCodable : Codable {
-    var name : String
-    var machineIdentifier : String?
-}
-
 struct ItemCodable : Codable {
-    var exercise : ExerciseCodable
     var numberOfSeries : Int
     var repetitions : Int
     var weightLoad : Double?
+
+    var colorName : String?
+    var equipment : String?
+    var name : String
 }
 
 struct RoutineCodable : Codable {

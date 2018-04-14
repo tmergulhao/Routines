@@ -13,7 +13,6 @@ extension CoreDataManager {
     func loadFromSample () {
 
         let sampleRoutines = Sample.shared.routines
-        let sampleMachines = Sample.shared.machinesDictionary
 
         for sampleRoutine in sampleRoutines {
 
@@ -29,10 +28,7 @@ extension CoreDataManager {
 
                     let item : Item = NSEntityDescription.object(into: context)
 
-                    let sampleMachineIdentifier = sampleItem.exercise.machineIdentifier
-                    let sampleMachine = sampleMachines[sampleMachineIdentifier ?? ""]
-
-                    item.configure(with: sampleItem, and: sampleMachine)
+                    item.configure(with: sampleItem)
 
                     routine.addToItems(item)
                 }

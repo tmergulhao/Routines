@@ -28,12 +28,4 @@ class Sample {
     }
 
     lazy var routines : Array<RoutineCodable> = { return load() ?? [] }()
-
-    lazy var machines : Array<MachineCodable> = { return load() ?? [] }()
-
-    lazy var machinesDictionary : Dictionary<String,MachineCodable> = {
-        return machines.reduce(into: [:], { (dictionary : inout Dictionary<String,MachineCodable>, machine : MachineCodable) in
-            dictionary[machine.identifier] = machine
-        })
-    }()
 }

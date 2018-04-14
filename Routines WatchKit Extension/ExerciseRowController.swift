@@ -16,21 +16,18 @@ class ExerciseRowController: NSObject {
     @IBOutlet weak var repetitionLabel: WKInterfaceLabel!
     @IBOutlet weak var weightLoadLabel: WKInterfaceLabel!
     @IBOutlet weak var weightIconImage: WKInterfaceImage!
-
-    static var machines : Dictionary<String,MachineCodable> = Sample.shared.machinesDictionary
     
     func configure(item : ItemCodable) {
 
-        if let machineIdentifier = item.exercise.machineIdentifier {
-            machineNumberLabel.setText(machineIdentifier)
-            let machine = ExerciseRowController.machines[machineIdentifier]!
-            machineNumberLabel.setTextColor(UIColor(named: machine.colorName))
+        if let equipment = item.equipment {
+            machineNumberLabel.setText(equipment)
+            machineNumberLabel.setTextColor(UIColor(named: item.colorName!))
         } else {
             machineNumberLabel.setText("n/a")
             machineNumberLabel.setTextColor(.darkGray)
         }
 
-        machineNameLabel.setText(item.exercise.name)
+        machineNameLabel.setText(item.name)
         repetitionLabel.setText("\(item.repetitions)/\(item.numberOfSeries)")
 
         if let weightLoad = item.weightLoad {

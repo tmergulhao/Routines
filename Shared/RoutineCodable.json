@@ -5,49 +5,44 @@
         "date": "2018-03-31T18:58:43-04:00",
         "items": [
             {
-                "exercise": {
-                    "name": "Remada máquina (F)",
-                    "machine_identifier": "30"
-                },
                 "number_of_series": 3,
                 "repetitions": 12,
-                "weight_load": 25
+                "weight_load": 25,
+                "name": "Remada máquina (F)",
+                "equipment": "30",
+                "color_name": "orange"
             },
             {
-                "exercise": {
-                    "name": "Puchada polia barra frente",
-                    "machine_identifier": "34"
-                },
                 "number_of_series": 3,
                 "repetitions": 12,
-                "weight_load": 26
+                "weight_load": 26,
+                "name": "Puchada polia barra frente",
+                "equipment": "34",
+                "color_name": "orange"
             },
             {
-                "exercise": {
-                    "name": "Supino máquina",
-                    "machine_identifier": "20"
-                },
                 "number_of_series": 3,
                 "repetitions": 12,
-                "weight_load": 25
+                "weight_load": 25,
+                "name": "Supino máquina",
+                "equipment": "20",
+                "color_name": "orange"
             },
             {
-                "exercise": {
-                    "name": "Crucifixo máquina",
-                    "machine_identifier": "26"
-                },
                 "number_of_series": 3,
                 "repetitions": 12,
-                "weight_load": 35
+                "weight_load": 35,
+                "name": "Crucifixo máquina",
+                "equipment": "26",
+                "color_name": "orange"
             },
             {
-                "exercise": {
-                    "name": "Infra solo",
-                    "machine_identifier": null
-                },
                 "number_of_series": 3,
                 "repetitions": 15,
-                "weight_load": null
+                "weight_load": null,
+                "name": "Infra solo",
+                "equipment": null,
+                "color_name": null
             }
         ]
     },
@@ -57,49 +52,44 @@
         "date": "2018-03-31T18:58:43-04:00",
         "items": [
             {
-                "exercise": {
-                    "name": "Leg Press",
-                    "machine_identifier": "01"
-                },
                 "number_of_series": 3,
                 "repetitions": 12,
-                "weight_load": 75
+                "weight_load": 75,
+                "name": "Leg Press",
+                "equipment": "01",
+                "color_name": "teal"
             },
             {
-                "exercise": {
-                    "name": "Cadeira Flexora",
-                    "machine_identifier": "03"
-                },
                 "number_of_series": 3,
                 "repetitions": 12,
-                "weight_load": 25
+                "weight_load": 25,
+                "name": "Cadeira Flexora",
+                "equipment": "03",
+                "color_name": "teal"
             },
             {
-                "exercise": {
-                    "name": "Cadeira Adutora",
-                    "machine_identifier": "05"
-                },
                 "number_of_series": 3,
                 "repetitions": 12,
-                "weight_load": 75
+                "weight_load": 75,
+                "name": "Cadeira Adutora",
+                "equipment": "05",
+                "color_name": "teal"
             },
             {
-                "exercise": {
-                    "name": "Gêmeos Máquina",
-                    "machine_identifier": "08"
-                },
                 "number_of_series": 3,
                 "repetitions": 15,
-                "weight_load": 35
+                "weight_load": 35,
+                "name": "Gêmeos Máquina",
+                "equipment": "08",
+                "color_name": "teal"
             },
             {
-                "exercise": {
-                    "name": "Abdominal Máquina",
-                    "machine_identifier": "40"
-                },
                 "number_of_series": 3,
                 "repetitions": 15,
-                "weight_load": null
+                "weight_load": null,
+                "name": "Abdominal Máquina",
+                "equipment": "40",
+                "color_name": "red"
             }
         ]
     },
@@ -109,40 +99,36 @@
         "date": "2018-03-31T18:58:43-04:00",
         "items": [
             {
-                "exercise": {
-                    "name": "Tríceps Máquina",
-                    "machine_identifier": "52"
-                },
                 "number_of_series": 3,
                 "repetitions": 12,
-                "weight_load": 35
+                "weight_load": 35,
+                "name": "Tríceps Máquina",
+                "equipment": "52",
+                "color_name": "green"
             },
             {
-                "exercise": {
-                    "name": "Bíceps Máquina",
-                    "machine_identifier": "53"
-                },
                 "number_of_series": 3,
                 "repetitions": 12,
-                "weight_load": 15
+                "weight_load": 15,
+                "name": "Bíceps Máquina",
+                "equipment": "53",
+                "color_name": "green"
             },
             {
-                "exercise": {
-                    "name": "Rosca Inversa",
-                    "machine_identifier": "62"
-                },
                 "number_of_series": 3,
                 "repetitions": 12,
-                "weight_load": 7.5
+                "weight_load": 7.5,
+                "name": "Rosca Inversa",
+                "equipment": "62",
+                "color_name": "green"
             },
             {
-                "exercise": {
-                    "name": "Desenvolvimento Máquina (Aberto)",
-                    "machine_identifier": "50"
-                },
                 "number_of_series": 3,
                 "repetitions": 12,
-                "weight_load": 15
+                "weight_load": 15,
+                "name": "Desenvolvimento Máquina (Aberto)",
+                "equipment": "50",
+                "color_name": "green"
             }
         ]
     }
