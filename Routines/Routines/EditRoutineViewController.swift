@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class EditRoutineViewController : UITableViewController {
 
@@ -18,11 +19,19 @@ class EditRoutineViewController : UITableViewController {
     @IBAction func saveButtonTapped(_ sender: Any) {
 
         if routine == nil {
-            routine = CoreDataManager.shared.insertRoutine()
+
+            let newRoutine : Routine = NSEntityDescription
+                .object(into: CoreDataManager.shared.context)
+
+            newRoutine.createdAt = Date()
+            newRoutine.id = UUID()
+
+            routine = newRoutine
         } else {
             navigationItem.title = "Edit Routine"
         }
 
+        routine.lastEdited = Date()
         routine.name = nameField.text?.trim()
         routine.summary = summaryField.text?.trim()
 

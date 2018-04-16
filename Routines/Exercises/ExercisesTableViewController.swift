@@ -58,9 +58,7 @@ class ExercisesTableViewController: UITableViewController {
         return cell
     }
 
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return true
-    }
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool { return true }
 
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
 
@@ -69,7 +67,11 @@ class ExercisesTableViewController: UITableViewController {
             tableView.beginUpdates()
 
             let item = self.routine.items![indexPath.row] as! Item
-            CoreDataManager.shared.remove(item, from: self.routine)
+
+            self.routine.removeFromItems(item)
+
+            CoreDataManager.shared.context.delete(item)
+            try! CoreDataManager.shared.saveContext()
 
             tableView.deleteRows(at: [indexPath], with: .top)
             tableView.endUpdates()

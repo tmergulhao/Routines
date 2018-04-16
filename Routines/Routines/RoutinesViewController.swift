@@ -11,32 +11,40 @@ import CoreData
 
 class RoutinesViewController : UITableViewController {
 
-    override func viewWillAppear(_ animated: Bool) {
+    enum SectionIndex : String {
+        case archived = "1", active = "0"
+    }
 
-        super.viewWillAppear(animated)
+    lazy var fetchedResultsController = setupFetchResultsController()
 
-        tableView.reloadData()
+    override func viewDidLoad() {
+
+        super.viewDidLoad()
+
+        do {
+            try fetchedResultsController.performFetch()
+        } catch {
+            fatalError(error.localizedDescription)
+        }
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
 
-        if Routine.active.isEmpty && Routine.archived.isEmpty {
+        guard let sections = fetchedResultsController.sections, sections.count != 0 else {
+
             setEmptyState(identifier: "Empty State", intoContainer: tableView)
-        } else {
-            removeEmptyState()
+            return 0
         }
 
-        return 2
+        removeEmptyState()
+        return sections.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
-        switch section {
-        case 0:
-            return Routine.active.count
-        default:
-            return Routine.archived.count
-        }
+        guard let info = fetchedResultsController.sections?[section] else { return 0 }
+
+        return info.numberOfObjects
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -45,49 +53,48 @@ class RoutinesViewController : UITableViewController {
             return UITableViewCell()
         }
 
-        var routine : Routine?
+        let routine : Routine = fetchedResultsController.object(at: indexPath)
 
-        switch indexPath.section {
-        case 0:
-            routine = Routine.active[indexPath.row]
-        default:
-            routine = Routine.archived[indexPath.row]
-        }
+        print(routine.archived)
 
-        cell.configure(with: routine!)
+        cell.configure(with: routine)
 
         return cell
     }
 
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
 
-        if section == 1 && !Routine.archived.isEmpty { return "Archived" }
-        return ""
+        guard let sectionIndex = SectionIndex(rawValue: fetchedResultsController.sectionIndexTitles[section]) else { return "" }
+
+        switch sectionIndex {
+        case .active: return ""
+        case .archived: return "Archived"
+        }
     }
 
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool { return true }
 
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
 
-        switch indexPath.section {
-        case 0:
+        guard let sectionIndex = SectionIndex(rawValue: fetchedResultsController.sectionIndexTitles[indexPath.section]) else { return nil }
+
+        switch sectionIndex {
+        case .active:
             let archive = UITableViewRowAction(style: .default, title: "Archive", handler: { (action, indexPath) in
 
-                tableView.beginUpdates()
+                let routine = self.fetchedResultsController.object(at: indexPath)
 
-                let routine = Routine.active[indexPath.row]
-                CoreDataManager.shared.archive(routine)
+                routine.archived = true
+                routine.archival = Date()
 
-                tableView.deleteRows(at: [indexPath], with: .top)
-                tableView.insertRows(at: [IndexPath(row: 0, section: 1)], with: .top)
-                tableView.endUpdates()
+                try! CoreDataManager.shared.saveContext()
             })
 
             archive.backgroundColor = .lightGray
 
             let edit = UITableViewRowAction(style: .default, title: "Edit", handler: { (action, indexPath) in
 
-                let routine = Routine.active[indexPath.row]
+                let routine = self.fetchedResultsController.object(at: indexPath)
 
                 self.performSegue(withIdentifier: "Edit Routine", sender: routine)
             })
@@ -95,29 +102,25 @@ class RoutinesViewController : UITableViewController {
             edit.backgroundColor = UIColor(named: "blue")
 
             return [edit, archive]
-        default:
+        case .archived:
             let unarchive = UITableViewRowAction(style: .default, title: "Unarchive", handler: { (action, indexPath) in
 
-                tableView.beginUpdates()
+                let routine = self.fetchedResultsController.object(at: indexPath)
 
-                let routine = Routine.archived[indexPath.row]
-                CoreDataManager.shared.unarchive(routine)
+                routine.archived = false
+                routine.archival = nil
 
-                tableView.moveRow(at: indexPath, to: IndexPath(row: 0, section: 0))
-                tableView.endUpdates()
+                try! CoreDataManager.shared.saveContext()
             })
 
             unarchive.backgroundColor = .lightGray
 
             let delete = UITableViewRowAction(style: .default, title: "Delete", handler: { (action, indexPath) in
 
-                tableView.beginUpdates()
+                let routine = self.fetchedResultsController.object(at: indexPath)
+                CoreDataManager.shared.context.delete(routine)
 
-                let routine = Routine.archived[indexPath.row]
-                CoreDataManager.shared.remove(routine)
-
-                tableView.deleteRows(at: [indexPath], with: .top)
-                tableView.endUpdates()
+                try! CoreDataManager.shared.saveContext()
             })
             
             return [unarchive,delete]
@@ -126,7 +129,10 @@ class RoutinesViewController : UITableViewController {
 
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
 
-        if let cell = sender as? UITableViewCell, let indexPath = tableView.indexPath(for: cell), indexPath.section == 1 {
+        if let cell = sender as? UITableViewCell,
+            let indexPath = tableView.indexPath(for: cell),
+            let sectionIndex = SectionIndex(rawValue: fetchedResultsController.sectionIndexTitles[indexPath.section]),
+            sectionIndex == .archived {
 
             return false
         }
@@ -140,7 +146,9 @@ class RoutinesViewController : UITableViewController {
             let indexPath = tableView.indexPath(for: cell),
             let exercises = segue.destination as? ExercisesTableViewController {
 
-            exercises.routine = Routine.active[indexPath.row]
+            let routine = self.fetchedResultsController.object(at: indexPath)
+
+            exercises.routine = routine
         }
 
         if segue.identifier == "Show Routine",

@@ -8,43 +8,9 @@
 
 import CoreData
 
-extension Routine {
-
-    static var active : Array<Routine> {
-        return CoreDataManager.shared.database.active?.array as? Array<Routine> ?? []
-    }
-
-    static var archived : Array<Routine> {
-        return CoreDataManager.shared.database.archived?.array as? Array<Routine> ?? []
-    }
-}
-
 class CoreDataManager {
 
     static let shared = CoreDataManager()
-
-    lazy var database : DatabaseView = {
-
-        if let databases : Array<DatabaseView> = fetch(), databases.count != 0 {
-
-            return databases[0]
-        }
-
-        let newDatabase : DatabaseView = NSEntityDescription.object(into: context)
-
-        do {
-            try saveContext()
-        } catch {
-            fatalError("Unresolved error \(error), \(error.localizedDescription)")
-        }
-
-        return newDatabase
-    }()
-
-    func reloadData () {
-
-        database = fetch()![0]
-    }
 
     func fetch<T : NSFetchRequestResult>(with sortDescriptor : NSSortDescriptor? = nil) -> Array<T>? {
 
@@ -77,7 +43,5 @@ class CoreDataManager {
     func saveContext () throws {
 
         if context.hasChanges { try context.save() }
-
-        reloadData()
     }
 }

@@ -26,7 +26,7 @@ class RoutineTableViewCell: UITableViewCell {
 
         dateFormatter.locale = Locale(identifier: "en_US")
 
-        dateLabel.text = dateFormatter.string(from: routine.date ?? Date())
+        dateLabel.text = dateFormatter.string(from: routine.createdAt!)
     }
 
     override func awakeFromNib() {

@@ -12,31 +12,34 @@ extension CoreDataManager {
 
     func loadFromSample () {
 
-        let sampleRoutines = Sample.shared.routines
+        let routines = Sample.shared.routines
 
-        for sampleRoutine in sampleRoutines {
+        routines.forEach {
+
+            (codable) in
 
             let routine : Routine = NSEntityDescription.object(into: context)
 
-            routine.name = sampleRoutine.name
-            routine.summary = sampleRoutine.summary
-            routine.date = sampleRoutine.date
+            routine.configure(with: codable)
 
-            if let sampleItems = sampleRoutine.items {
+            guard let items = codable.items else { return }
 
-                for sampleItem in sampleItems {
+            items.forEach {
 
-                    let item : Item = NSEntityDescription.object(into: context)
+                (codable) in
 
-                    item.configure(with: sampleItem)
+                let item : Item = NSEntityDescription.object(into: context)
 
-                    routine.addToItems(item)
-                }
+                item.configure(with: codable)
+
+                routine.addToItems(item)
             }
-
-            database.addToActive(routine)
         }
 
-        try? saveContext()
+        do {
+            try saveContext()
+        } catch {
+            print(error.localizedDescription)
+        }
     }
 }

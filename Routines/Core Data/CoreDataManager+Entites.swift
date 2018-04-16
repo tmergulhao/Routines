@@ -9,17 +9,33 @@
 import CoreData
 import UIKit
 
+extension Routine {
+
+    func configure(with codable : RoutineCodable) {
+
+        name = codable.name
+        summary = codable.summary
+        createdAt = codable.date
+
+        lastEdited = Date()
+        id = UUID()
+    }
+}
+
 extension Item {
 
-    func configure(with item : ItemCodable) {
+    func configure(with codable : ItemCodable) {
 
-        numberOfSeries = Int64(item.numberOfSeries)
-        repetitions = Int64(item.repetitions)
-        weightLoad = item.weightLoad ?? 0.0
-        name = item.name
+        numberOfSeries = Int64(codable.numberOfSeries)
+        repetitions = Int64(codable.repetitions)
+        weightLoad = codable.weightLoad ?? 0.0
+        name = codable.name
 
-        equipment = item.equipment
-        color = UIColor(named: item.colorName ?? "green")
+        lastEdited = Date()
+        id = UUID()
+
+        equipment = codable.equipment
+        color = UIColor(named: codable.colorName ?? "green")
     }
 }
 
@@ -28,76 +44,5 @@ extension NSEntityDescription {
     static func object<T : NSManagedObject>(into context : NSManagedObjectContext) -> T {
 
         return insertNewObject(forEntityName: String(describing: T.self), into: context) as! T
-    }
-}
-
-extension CoreDataManager {
-
-    func archive(_ routine : Routine) {
-
-        database.insertIntoArchived(routine, at: 0)
-        database.removeFromActive(routine)
-
-        do {
-            try saveContext()
-        } catch {
-            fatalError("Unresolved error \(error), \(error.localizedDescription)")
-        }
-    }
-
-    func unarchive(_ routine : Routine) {
-
-        database.insertIntoActive(routine, at: 0)
-        database.removeFromArchived(routine)
-
-        do {
-            try saveContext()
-        } catch {
-            fatalError("Unresolved error \(error), \(error.localizedDescription)")
-        }
-    }
-
-    func remove(_ routine : Routine) {
-
-        database.removeFromArchived(routine)
-        context.delete(routine)
-        
-        do {
-            try saveContext()
-        } catch {
-            fatalError("Unresolved error \(error), \(error.localizedDescription)")
-        }
-    }
-
-    func remove(_ item : Item, from routine : Routine) {
-
-        routine.removeFromItems(item)
-        context.delete(item)
-
-        do {
-            try saveContext()
-        } catch {
-            fatalError("Unresolved error \(error), \(error.localizedDescription)")
-        }
-    }
-
-    @discardableResult
-    func insertRoutine() -> Routine {
-
-        let routine : Routine = NSEntityDescription.object(into: context)
-
-        database.insertIntoActive(routine, at: 0)
-
-        routine.date = Date()
-
-        return routine
-    }
-
-    @discardableResult
-    func insertItem() -> Item {
-
-        let item : Item = NSEntityDescription.object(into: context)
-
-        return item
     }
 }

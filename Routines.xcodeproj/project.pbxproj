@@ -27,6 +27,7 @@
 		7934DBBD2070290D0072B1F8 /* RoutineRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7934DBBC2070263F0072B1F8 /* RoutineRowController.swift */; };
 		7934DBC020702E6C0072B1F8 /* ExercisesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7934DBBF20702E6C0072B1F8 /* ExercisesController.swift */; };
 		7934DBC220702EF40072B1F8 /* ExerciseRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7934DBC120702EF40072B1F8 /* ExerciseRowController.swift */; };
+		79391DE420852E920069C12A /* RoutinesViewController+NSFetchResultsControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79391DE320852E920069C12A /* RoutinesViewController+NSFetchResultsControllerDelegate.swift */; };
 		799C30C8207811CD0080A76B /* SampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799C30C7207811CD0080A76B /* SampleData.swift */; };
 		799C30C9207813710080A76B /* SampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799C30C7207811CD0080A76B /* SampleData.swift */; };
 		799C30CB207814B80080A76B /* CoreDataManager+SampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799C30CA207814B80080A76B /* CoreDataManager+SampleData.swift */; };
@@ -117,6 +118,7 @@
 		7934DBC120702EF40072B1F8 /* ExerciseRowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseRowController.swift; sourceTree = "<group>"; };
 		7934DBC3207034090072B1F8 /* RoutineCodable.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = RoutineCodable.json; sourceTree = "<group>"; };
 		7934DBC52070349F0072B1F8 /* Struct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Struct.swift; sourceTree = "<group>"; };
+		79391DE320852E920069C12A /* RoutinesViewController+NSFetchResultsControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RoutinesViewController+NSFetchResultsControllerDelegate.swift"; sourceTree = "<group>"; };
 		799C30C7207811CD0080A76B /* SampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleData.swift; sourceTree = "<group>"; };
 		799C30CA207814B80080A76B /* CoreDataManager+SampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreDataManager+SampleData.swift"; sourceTree = "<group>"; };
 		799C30CC2078177E0080A76B /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
@@ -249,6 +251,7 @@
 			isa = PBXGroup;
 			children = (
 				7934DB86207013890072B1F8 /* RoutinesViewController.swift */,
+				79391DE320852E920069C12A /* RoutinesViewController+NSFetchResultsControllerDelegate.swift */,
 				799C30D22078EBD00080A76B /* RoutinesViewController+EmptyStateViewControllerDelegate.swift */,
 				799C30E4207927B40080A76B /* RoutineTableViewCell.swift */,
 				79C848042072E8F300B6C907 /* EditRoutineViewController.swift */,
@@ -437,6 +440,7 @@
 				799C30C8207811CD0080A76B /* SampleData.swift in Sources */,
 				799C30CD2078177E0080A76B /* SettingsTableViewController.swift in Sources */,
 				799C30CF207821170080A76B /* EmptyStateViewController.swift in Sources */,
+				79391DE420852E920069C12A /* RoutinesViewController+NSFetchResultsControllerDelegate.swift in Sources */,
 				799C30D120782ACA0080A76B /* CoreDataManager+Entites.swift in Sources */,
 				799C30D7207914770080A76B /* EmptyStateViewControllerDelegate.swift in Sources */,
 				79C848052072E8F300B6C907 /* EditRoutineViewController.swift in Sources */,

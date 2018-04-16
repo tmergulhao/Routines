@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 extension String {
 
@@ -52,13 +53,19 @@ class EditExercisesTableViewController: UITableViewController {
     @IBAction func saveButtonTapped(_ sender: Any) {
 
         if item == nil {
-            item = CoreDataManager.shared.insertItem()
+            let newItem : Item = NSEntityDescription
+                .object(into: CoreDataManager.shared.context)
+
+            newItem.id = UUID()
+
+            item = newItem
         } else {
             navigationItem.title = "Edit Routine"
         }
 
         guard let item = item else { return }
 
+        item.lastEdited = Date()
         item.name = nameField.text?.trim()
         item.equipment = identifierField.text?.trim()
         item.color = color
