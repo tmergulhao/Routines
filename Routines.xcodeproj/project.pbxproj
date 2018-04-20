@@ -28,6 +28,7 @@
 		7934DBC020702E6C0072B1F8 /* ExercisesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7934DBBF20702E6C0072B1F8 /* ExercisesController.swift */; };
 		7934DBC220702EF40072B1F8 /* ExerciseRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7934DBC120702EF40072B1F8 /* ExerciseRowController.swift */; };
 		79391DE420852E920069C12A /* RoutinesViewController+NSFetchResultsControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79391DE320852E920069C12A /* RoutinesViewController+NSFetchResultsControllerDelegate.swift */; };
+		7991D9A82089F96D0023EAD7 /* RoutineController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7991D9A72089F96D0023EAD7 /* RoutineController.swift */; };
 		799C30C8207811CD0080A76B /* SampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799C30C7207811CD0080A76B /* SampleData.swift */; };
 		799C30C9207813710080A76B /* SampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799C30C7207811CD0080A76B /* SampleData.swift */; };
 		799C30CB207814B80080A76B /* CoreDataManager+SampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799C30CA207814B80080A76B /* CoreDataManager+SampleData.swift */; };
@@ -119,6 +120,7 @@
 		7934DBC3207034090072B1F8 /* RoutineCodable.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = RoutineCodable.json; sourceTree = "<group>"; };
 		7934DBC52070349F0072B1F8 /* Struct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Struct.swift; sourceTree = "<group>"; };
 		79391DE320852E920069C12A /* RoutinesViewController+NSFetchResultsControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RoutinesViewController+NSFetchResultsControllerDelegate.swift"; sourceTree = "<group>"; };
+		7991D9A72089F96D0023EAD7 /* RoutineController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineController.swift; sourceTree = "<group>"; };
 		799C30C7207811CD0080A76B /* SampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleData.swift; sourceTree = "<group>"; };
 		799C30CA207814B80080A76B /* CoreDataManager+SampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreDataManager+SampleData.swift"; sourceTree = "<group>"; };
 		799C30CC2078177E0080A76B /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
@@ -218,6 +220,7 @@
 				792B610020824EE200F74CE0 /* ComplicationDataSource.swift */,
 				7934DBA72070138B0072B1F8 /* RoutinesController.swift */,
 				7934DBBF20702E6C0072B1F8 /* ExercisesController.swift */,
+				7991D9A72089F96D0023EAD7 /* RoutineController.swift */,
 				7934DBBC2070263F0072B1F8 /* RoutineRowController.swift */,
 				7934DBC120702EF40072B1F8 /* ExerciseRowController.swift */,
 				7934DBA92070138B0072B1F8 /* ExtensionDelegate.swift */,
@@ -467,6 +470,7 @@
 				79C848032072DCDC00B6C907 /* Struct.swift in Sources */,
 				792B610120824EE200F74CE0 /* ComplicationDataSource.swift in Sources */,
 				7934DBAA2070138B0072B1F8 /* ExtensionDelegate.swift in Sources */,
+				7991D9A82089F96D0023EAD7 /* RoutineController.swift in Sources */,
 				7934DBA82070138B0072B1F8 /* RoutinesController.swift in Sources */,
 				799C30C9207813710080A76B /* SampleData.swift in Sources */,
 			);
