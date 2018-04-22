@@ -101,7 +101,7 @@
             {
                 "number_of_series": 3,
                 "repetitions": 12,
-                "weight_load": 35,
+                "weight_load": 55.0,
                 "name": "Tríceps Máquina",
                 "equipment": "52",
                 "color_name": "green"
@@ -117,7 +117,7 @@
             {
                 "number_of_series": 3,
                 "repetitions": 12,
-                "weight_load": 7.5,
+                "weight_load": 11.5,
                 "name": "Rosca Inversa",
                 "equipment": "62",
                 "color_name": "green"
@@ -125,7 +125,7 @@
             {
                 "number_of_series": 3,
                 "repetitions": 12,
-                "weight_load": 15,
+                "weight_load": 17.5,
                 "name": "Desenvolvimento Máquina (Aberto)",
                 "equipment": "50",
                 "color_name": "green"

@@ -16,8 +16,6 @@ class RoutineController: WKInterfaceController {
 
     var numberOfItems : Int = 0
 
-    @IBOutlet weak var imageView : WKInterfaceImage!
-
     override func awake(withContext context: Any?) {
 
         super.awake(withContext: context)
@@ -29,66 +27,62 @@ class RoutineController: WKInterfaceController {
         numberOfItems = items.count
 
         setTitle(routine.fullName)
-    }
-
-    override func willActivate() {
-
-        super.willActivate()
 
         guard let item = items.first else { dismiss(); return }
 
         self.item = item
 
         updateProgress()
+
         style(for: item)
-
-        imageView.setImageNamed("Metronome/frame-")
-
-        resetMetronome()
     }
 
     var count : Int = 0
     let maxFrame : Int = 299
 
-    override func willDisappear() {
-
-        super.willDisappear()
-    }
-
     var item : ItemCodable?
 
     @IBAction func skipItem () {
 
-        if let item = items.first {
+        guard items.count >= 2 else {
 
-            if let item = self.item {
-                items.append(item)
-            }
+            presentAlert(
+                withTitle: "This is your last item",
+                message: "You cannot skip to another on the last item.",
+                preferredStyle: .alert,
+                actions: [])
 
-            self.item = item
-            items.remove(at: 0)
-
-            style(for: item)
-        } else {
-
-            presentAlert(withTitle: "This is your last item", message: "You cannot skip to another on the last item.", preferredStyle: .alert, actions: [])
+            return
         }
+
+        let skipped = items.remove(at: 0)
+        items.append(skipped)
+
+        let item = items.first!
+
+        self.item = item
+
+        style(for: item)
     }
 
     @IBAction func markAsDone () {
 
-        if let item = items.first {
-
-            self.item = item
-            items.remove(at: 0)
-
-            updateProgress()
-            style(for: item)
-
-        } else {
+        guard items.count >= 2 else {
 
             dismiss()
+
+            return
         }
+
+        items.remove(at: 0)
+
+        let item = items.first!
+
+        self.item = item
+
+        style(for: item)
+
+        updateProgress()
     }
 
     @IBOutlet var identifierLabel: WKInterfaceLabel!
@@ -111,8 +105,9 @@ class RoutineController: WKInterfaceController {
         repetitionsLabel.setText("\(item.repetitions)/\(item.numberOfSeries)")
 
         if let weightLoad = item.weightLoad {
-            weightLabel.setText("\(weightLoad)")
+            weightImage.setTintColor(UIColor(named: "teal"))
             weightLabel.setTextColor(UIColor(named: "teal"))
+            weightLabel.setText("\(weightLoad)")
         } else {
             weightImage.setTintColor(.darkGray)
             weightLabel.setTextColor(.darkGray)
@@ -137,10 +132,10 @@ class RoutineController: WKInterfaceController {
         notDoneProgressGroup.setRelativeWidth(1.0 - relativeWidth, withAdjustment: 0.0)
     }
 
-    @IBAction func endRoutine() { dismiss() }
+    @IBAction func editItem() {
 
-    @IBAction func resetMetronome(_ sender: Any? = nil) {
-
-        imageView.startAnimatingWithImages(in: NSRange(location: 0, length: 299), duration: 40, repeatCount: -1)
+        presentController(withName: "Edit item", context: item)
     }
+
+    @IBAction func endRoutine() { dismiss() }
 }
