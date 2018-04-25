@@ -7,7 +7,7 @@
             {
                 "number_of_series": 3,
                 "repetitions": 12,
-                "weight_load": 25,
+                "weight_load": 35,
                 "name": "Remada máquina (F)",
                 "equipment": "30",
                 "color_name": "orange"
@@ -15,7 +15,7 @@
             {
                 "number_of_series": 3,
                 "repetitions": 12,
-                "weight_load": 26,
+                "weight_load": 40,
                 "name": "Puchada polia barra frente",
                 "equipment": "34",
                 "color_name": "orange"
@@ -23,7 +23,7 @@
             {
                 "number_of_series": 3,
                 "repetitions": 12,
-                "weight_load": 25,
+                "weight_load": 35,
                 "name": "Supino máquina",
                 "equipment": "20",
                 "color_name": "orange"
@@ -31,7 +31,7 @@
             {
                 "number_of_series": 3,
                 "repetitions": 12,
-                "weight_load": 35,
+                "weight_load": 55,
                 "name": "Crucifixo máquina",
                 "equipment": "26",
                 "color_name": "orange"
@@ -54,7 +54,7 @@
             {
                 "number_of_series": 3,
                 "repetitions": 12,
-                "weight_load": 75,
+                "weight_load": 85,
                 "name": "Leg Press",
                 "equipment": "01",
                 "color_name": "teal"
@@ -62,7 +62,7 @@
             {
                 "number_of_series": 3,
                 "repetitions": 12,
-                "weight_load": 25,
+                "weight_load": 40,
                 "name": "Cadeira Flexora",
                 "equipment": "03",
                 "color_name": "teal"
@@ -70,7 +70,7 @@
             {
                 "number_of_series": 3,
                 "repetitions": 12,
-                "weight_load": 75,
+                "weight_load": 92.5,
                 "name": "Cadeira Adutora",
                 "equipment": "05",
                 "color_name": "teal"
@@ -78,7 +78,7 @@
             {
                 "number_of_series": 3,
                 "repetitions": 15,
-                "weight_load": 35,
+                "weight_load": 45,
                 "name": "Gêmeos Máquina",
                 "equipment": "08",
                 "color_name": "teal"
