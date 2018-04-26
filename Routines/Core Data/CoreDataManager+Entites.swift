@@ -15,10 +15,16 @@ extension Routine {
 
         name = codable.name
         summary = codable.summary
-        createdAt = codable.date
+        createdAt = codable.createdAt
+        archival = codable.archival
+        lastEdited = codable.lastEdited
 
-        lastEdited = Date()
-        id = UUID()
+        archived = codable.archived ?? false
+        id = codable.id ?? UUID()
+    }
+
+    var fullName : String {
+        return name! + " (" + summary! + ")"
     }
 }
 
@@ -28,14 +34,13 @@ extension Item {
 
         numberOfSeries = Int64(codable.numberOfSeries)
         repetitions = Int64(codable.repetitions)
-        weightLoad = codable.weightLoad ?? 0.0
+        weightLoad = codable.weightLoad
         name = codable.name
-
-        lastEdited = Date()
-        id = UUID()
-
         equipment = codable.equipment
-        color = UIColor(named: codable.colorName ?? "green")
+
+        lastEdited = codable.lastEdited ?? Date()
+        id = codable.id ?? UUID()
+        color = UIColor(named: codable.colorName ?? "")
     }
 }
 

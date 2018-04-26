@@ -36,7 +36,7 @@ class EditRoutineViewController : UITableViewController {
         routine.summary = summaryField.text?.trim()
 
         do {
-            try CoreDataManager.shared.saveContext()
+            try CoreDataManager.saveContext()
         } catch {
 
             informUser(about: error)

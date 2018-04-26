@@ -10,15 +10,13 @@ import CoreData
 
 extension CoreDataManager {
 
-    func loadFromSample () {
-
-        let routines = Sample.shared.routines
+    class func load (_ routines : Array<RoutineCodable>) throws {
 
         routines.forEach {
 
             (codable) in
 
-            let routine : Routine = NSEntityDescription.object(into: context)
+            let routine : Routine = NSEntityDescription.object(into: shared.context)
 
             routine.configure(with: codable)
 
@@ -28,7 +26,7 @@ extension CoreDataManager {
 
                 (codable) in
 
-                let item : Item = NSEntityDescription.object(into: context)
+                let item : Item = NSEntityDescription.object(into: shared.context)
 
                 item.configure(with: codable)
 
@@ -36,10 +34,6 @@ extension CoreDataManager {
             }
         }
 
-        do {
-            try saveContext()
-        } catch {
-            print(error.localizedDescription)
-        }
+        try saveContext()
     }
 }

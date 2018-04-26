@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import WatchConnectivity
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -14,15 +15,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+
+        WatchConnectivityManager.begin()
+
         return true
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
-        try? CoreDataManager.shared.saveContext()
+        try? CoreDataManager.saveContext()
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
-        try? CoreDataManager.shared.saveContext()
+        try? CoreDataManager.saveContext()
     }
 }
-

@@ -77,7 +77,7 @@ class EditExercisesTableViewController: UITableViewController {
         routine.insertIntoItems(item, at: 0)
 
         do {
-            try CoreDataManager.shared.saveContext()
+            try CoreDataManager.saveContext()
         } catch {
             
             informUser(about: error)

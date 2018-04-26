@@ -71,7 +71,7 @@ class ExercisesTableViewController: UITableViewController {
             self.routine.removeFromItems(item)
 
             CoreDataManager.shared.context.delete(item)
-            try! CoreDataManager.shared.saveContext()
+            try! CoreDataManager.saveContext()
 
             tableView.deleteRows(at: [indexPath], with: .top)
             tableView.endUpdates()

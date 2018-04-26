@@ -21,7 +21,7 @@ class ExerciseRowController: NSObject {
 
         if let equipment = item.equipment {
             machineNumberLabel.setText(equipment)
-            machineNumberLabel.setTextColor(UIColor(named: item.colorName!))
+            machineNumberLabel.setTextColor(UIColor(named: item.colorName ?? ""))
         } else {
             machineNumberLabel.setText("n/a")
             machineNumberLabel.setTextColor(.darkGray)
@@ -30,8 +30,8 @@ class ExerciseRowController: NSObject {
         machineNameLabel.setText(item.name)
         repetitionLabel.setText("\(item.repetitions)/\(item.numberOfSeries)")
 
-        if let weightLoad = item.weightLoad {
-            weightLoadLabel.setText("\(weightLoad)")
+        if item.weightLoad != 0.0 {
+            weightLoadLabel.setText("\(item.weightLoad)")
             weightLoadLabel.setTextColor(UIColor(named: "teal"))
         } else {
             weightIconImage.setTintColor(.darkGray)

@@ -17,7 +17,9 @@ extension RoutinesViewController : EmptyStateViewControllerDelegate {
 
     func emptyStateControllerDidReceiveSecondaryAction(sender: Any?) {
 
-        CoreDataManager.shared.loadFromSample()
+        let sample = Sample.shared.routines
+
+        try? CoreDataManager.load(sample)
 
         tableView.reloadData()
     }

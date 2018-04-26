@@ -190,6 +190,11 @@
                                 <segue destination="8pJ-ob-ONG" kind="presentation" id="D9g-fJ-cMz"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Watch" id="rro-va-XMo">
+                            <connections>
+                                <action selector="watchButtonTapped:" destination="J7m-Pl-WjJ" id="wHN-cZ-ufJ"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
                 </tableViewController>

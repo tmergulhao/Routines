@@ -12,19 +12,28 @@ class ExercisesController: WKInterfaceController {
 
     @IBOutlet weak var table : WKInterfaceTable!
 
-    var routine : RoutineCodable!
+    var routine : Routine!
 
-    var items : Array<ItemCodable>!
+    var items : Array<Item>!
+
+    func assignItems () {
+
+        if let itemsSet = routine.items, let itemsArray = Array(itemsSet) as? Array<Item> {
+            items = itemsArray
+        } else {
+            items = []
+        }
+    }
 
     override func awake(withContext context: Any?) {
 
         super.awake(withContext: context)
 
-        routine = context as! RoutineCodable
+        routine = context as! Routine
 
         setTitle(routine.fullName)
 
-        items = routine.items
+        assignItems()
     }
 
     override func willActivate() {
@@ -62,7 +71,7 @@ class ExercisesController: WKInterfaceController {
 
     @IBAction func resetRoutine () {
 
-        items = routine.items
+        assignItems()
 
         willActivate()
     }

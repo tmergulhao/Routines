@@ -14,7 +14,7 @@ class RoutineRowController: NSObject {
     @IBOutlet weak var descriptionLabel: WKInterfaceLabel!
     @IBOutlet weak var numberOfItemsLabel: WKInterfaceLabel!
 
-    func configure(routine : RoutineCodable) {
+    func configure(routine : Routine) {
         nameLabel.setText(routine.name)
         descriptionLabel.setText(routine.summary)
 

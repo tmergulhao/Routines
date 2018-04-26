@@ -12,19 +12,13 @@ class CoreDataManager {
 
     static let shared = CoreDataManager()
 
-    func fetch<T : NSFetchRequestResult>(with sortDescriptor : NSSortDescriptor? = nil) -> Array<T>? {
+    class func fetch<T : NSFetchRequestResult>(with sortDescriptor : NSSortDescriptor? = nil, and predicate : NSPredicate? = nil) throws -> Array<T> {
 
-        do {
-            let request = NSFetchRequest<T>(entityName: String(describing: T.self))
-            request.sortDescriptors = [sortDescriptor].compactMap { $0 }
+        let request = NSFetchRequest<T>(entityName: String(describing: T.self))
+        request.sortDescriptors = [sortDescriptor].compactMap { $0 }
+        request.predicate = predicate
 
-            return try context.fetch(request)
-        } catch {
-
-            print(error)
-        }
-
-        return nil
+        return try shared.context.fetch(request)
     }
 
     lazy var persistentContainer: NSPersistentContainer = {
@@ -39,9 +33,28 @@ class CoreDataManager {
     }()
 
     var context : NSManagedObjectContext { return persistentContainer.viewContext }
+}
 
-    func saveContext () throws {
+#if os(iOS)
 
-        if context.hasChanges { try context.save() }
+extension CoreDataManager {
+    class func saveContext () throws {
+
+        if shared.context.hasChanges {
+            try shared.context.save()
+
+            let data = try serializeRoutines()
+            WatchConnectivityManager.shared.send(data)
+        }
     }
 }
+
+#else
+
+extension CoreDataManager {
+    class func saveContext () throws {
+        if shared.context.hasChanges { try shared.context.save() }
+    }
+}
+
+#endif

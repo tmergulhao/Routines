@@ -15,6 +15,11 @@ class RoutinesViewController : UITableViewController {
         case archived = "1", active = "0"
     }
 
+    @IBAction func watchButtonTapped(_ sender: Any) {
+
+        // WatchConnectivityManager.send(nil, completion: nil)
+    }
+
     lazy var fetchedResultsController = setupFetchResultsController()
 
     override func viewDidLoad() {
@@ -55,8 +60,6 @@ class RoutinesViewController : UITableViewController {
 
         let routine : Routine = fetchedResultsController.object(at: indexPath)
 
-        print(routine.archived)
-
         cell.configure(with: routine)
 
         return cell
@@ -87,7 +90,7 @@ class RoutinesViewController : UITableViewController {
                 routine.archived = true
                 routine.archival = Date()
 
-                try! CoreDataManager.shared.saveContext()
+                try! CoreDataManager.saveContext()
             })
 
             archive.backgroundColor = .lightGray
@@ -110,7 +113,7 @@ class RoutinesViewController : UITableViewController {
                 routine.archived = false
                 routine.archival = nil
 
-                try! CoreDataManager.shared.saveContext()
+                try! CoreDataManager.saveContext()
             })
 
             unarchive.backgroundColor = .lightGray
@@ -120,7 +123,7 @@ class RoutinesViewController : UITableViewController {
                 let routine = self.fetchedResultsController.object(at: indexPath)
                 CoreDataManager.shared.context.delete(routine)
 
-                try! CoreDataManager.shared.saveContext()
+                try! CoreDataManager.saveContext()
             })
             
             return [unarchive,delete]

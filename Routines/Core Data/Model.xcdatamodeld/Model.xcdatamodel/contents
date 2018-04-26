@@ -8,7 +8,8 @@
         <attribute name="name" attributeType="String" minValueString="5" maxValueString="40" syncable="YES"/>
         <attribute name="numberOfSeries" attributeType="Integer 64" defaultValueString="1" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="repetitions" attributeType="Integer 64" defaultValueString="1" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="weightLoad" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="weightLoad" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="routine" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Routine" inverseName="items" inverseEntity="Routine" syncable="YES"/>
     </entity>
     <entity name="Routine" representedClassName="Routine" syncable="YES" codeGenerationType="class">
         <attribute name="archival" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
@@ -18,10 +19,10 @@
         <attribute name="lastEdited" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="name" attributeType="String" minValueString="1" maxValueString="40" defaultValueString=" " syncable="YES"/>
         <attribute name="summary" attributeType="String" syncable="YES"/>
-        <relationship name="items" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="Item" syncable="YES"/>
+        <relationship name="items" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="Item" inverseName="routine" inverseEntity="Item" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Item" positionX="-54" positionY="9" width="128" height="165"/>
+        <element name="Item" positionX="-54" positionY="9" width="128" height="180"/>
         <element name="Routine" positionX="-63" positionY="-18" width="128" height="165"/>
     </elements>
 </model>

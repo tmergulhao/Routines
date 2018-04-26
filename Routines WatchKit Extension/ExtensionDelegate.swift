@@ -7,11 +7,19 @@
 //
 
 import WatchKit
+import WatchConnectivity
 
 class ExtensionDelegate: NSObject, WKExtensionDelegate {
 
     func applicationDidFinishLaunching() {
-        // Perform any final initialization of your application.
+
+        if WCSession.isSupported() {
+
+            let session = WCSession.default
+
+            session.delegate = self
+            session.activate()
+        }
     }
 
     func applicationDidBecomeActive() {
@@ -47,4 +55,32 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate {
         }
     }
 
+}
+
+extension ExtensionDelegate : WCSessionDelegate {
+
+    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+
+        print(activationState == .activated)
+        print(error?.localizedDescription)
+    }
+
+    func session(_ session: WCSession, didReceiveMessageData messageData: Data, replyHandler: @escaping (Data) -> Void) {
+
+        let string = String(data: messageData, encoding: .utf8)
+
+        UserDefaults.standard.set(string, forKey: "Message Data")
+
+        replyHandler(messageData)
+    }
+
+    func session(_ session: WCSession, didReceive file: WCSessionFile) {
+
+        do {
+            let data = try Data(contentsOf: file.fileURL)
+            try CoreDataManager.overrideFrom(serialized: data)
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
 }

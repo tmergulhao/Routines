@@ -10,23 +10,30 @@ import WatchKit
 
 class RoutineController: WKInterfaceController {
 
-    var routine : RoutineCodable!
+    var routine : Routine!
 
-    var items : Array<ItemCodable>!
+    var items : Array<Item>!
 
     var numberOfItems : Int = 0
+
+    func assignItems () {
+
+        if let itemsSet = routine.items, let itemsArray = Array(itemsSet) as? Array<Item> {
+            items = itemsArray
+        } else {
+            items = []
+        }
+    }
 
     override func awake(withContext context: Any?) {
 
         super.awake(withContext: context)
 
-        routine = context as! RoutineCodable
+        routine = context as! Routine
 
-        items = routine.items
+        assignItems()
 
         numberOfItems = items.count
-
-        setTitle(routine.fullName)
 
         guard let item = items.first else { dismiss(); return }
 
@@ -40,7 +47,7 @@ class RoutineController: WKInterfaceController {
     var count : Int = 0
     let maxFrame : Int = 299
 
-    var item : ItemCodable?
+    var item : Item?
 
     @IBAction func skipItem () {
 
@@ -91,11 +98,11 @@ class RoutineController: WKInterfaceController {
     @IBOutlet var weightLabel: WKInterfaceLabel!
     @IBOutlet var weightImage: WKInterfaceImage!
 
-    func style(for item : ItemCodable) {
+    func style(for item : Item) {
 
         if let equipment = item.equipment {
             identifierLabel.setText(equipment)
-            identifierLabel.setTextColor(UIColor(named: item.colorName!))
+            identifierLabel.setTextColor(item.color)
         } else {
             identifierLabel.setText("n/a")
             identifierLabel.setTextColor(.darkGray)
@@ -104,10 +111,10 @@ class RoutineController: WKInterfaceController {
         nameLabel.setText(item.name)
         repetitionsLabel.setText("\(item.repetitions)/\(item.numberOfSeries)")
 
-        if let weightLoad = item.weightLoad {
+        if item.weightLoad != 0.0 {
             weightImage.setTintColor(UIColor(named: "teal"))
             weightLabel.setTextColor(UIColor(named: "teal"))
-            weightLabel.setText("\(weightLoad)")
+            weightLabel.setText("\(item.weightLoad)")
         } else {
             weightImage.setTintColor(.darkGray)
             weightLabel.setTextColor(.darkGray)

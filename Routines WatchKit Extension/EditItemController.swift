@@ -44,7 +44,7 @@ class EditItemController : WKInterfaceController {
             return
         }
 
-        weightLoad = item.weightLoad ?? 0.0
+        weightLoad = item.weightLoad
     }
 
     let increment : Double = 0.25
