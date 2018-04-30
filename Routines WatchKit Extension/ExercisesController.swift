@@ -51,32 +51,30 @@ class ExercisesController: WKInterfaceController {
         }
     }
 
-    override func table(_ table: WKInterfaceTable, didSelectRowAt rowIndex: Int) {
+    override func contextForSegue(withIdentifier: String) -> Any? { return routine }
 
-        let check = WKAlertAction(title: "Mark as Done", style: .default) {
+//    override func table(_ table: WKInterfaceTable, didSelectRowAt rowIndex: Int) {
+//
+//        let check = WKAlertAction(title: "Mark as Done", style: .default) {
+//
+//            if self.items.count == 1 {
+//                WKInterfaceDevice.current().play(.notification)
+//                self.dismiss()
+//            }
+//
+//            self.items.remove(at: rowIndex)
+//            table.removeRows(at: IndexSet(integer: rowIndex))
+//        }
+//
+//        let cancel = WKAlertAction(title: "Cancel", style: .cancel) { return }
+//
+//        presentAlert(withTitle: "Mark as Done", message: "Remove item from the list for this session.", preferredStyle: .actionSheet, actions: [check, cancel])
+//    }
 
-            if self.items.count == 1 {
-                WKInterfaceDevice.current().play(.notification)
-                self.dismiss()
-            }
-
-            self.items.remove(at: rowIndex)
-            table.removeRows(at: IndexSet(integer: rowIndex))
-        }
-
-        let cancel = WKAlertAction(title: "Cancel", style: .cancel) { return }
-
-        presentAlert(withTitle: "Mark as Done", message: "Remove item from the list for this session.", preferredStyle: .actionSheet, actions: [check, cancel])
-    }
-
-    @IBAction func resetRoutine () {
-
-        assignItems()
-
-        willActivate()
-    }
-    @IBAction func exitRoutine() {
-
-        dismiss()
-    }
+//    @IBAction func resetRoutine () {
+//
+//        assignItems()
+//
+//        willActivate()
+//    }
 }

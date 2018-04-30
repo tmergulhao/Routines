@@ -9,25 +9,25 @@
 import WatchKit
 
 class ExerciseRowController: NSObject {
-    @IBOutlet weak var machineNumberLabel : WKInterfaceLabel!
-    @IBOutlet weak var machineNameLabel: WKInterfaceLabel!
+    @IBOutlet weak var identifierLabel : WKInterfaceLabel!
+    @IBOutlet weak var nameLabel: WKInterfaceLabel!
     @IBOutlet weak var routineIndexCount: WKInterfaceLabel!
 
     @IBOutlet weak var repetitionLabel: WKInterfaceLabel!
     @IBOutlet weak var weightLoadLabel: WKInterfaceLabel!
     @IBOutlet weak var weightIconImage: WKInterfaceImage!
     
-    func configure(item : ItemCodable) {
+    func configure(item : Item) {
 
-        if let equipment = item.equipment {
-            machineNumberLabel.setText(equipment)
-            machineNumberLabel.setTextColor(UIColor(named: item.colorName ?? ""))
+        if let equipment = item.equipment, equipment != "" {
+            identifierLabel.setText(item.equipment)
+            identifierLabel.setTextColor(item.color)
         } else {
-            machineNumberLabel.setText("n/a")
-            machineNumberLabel.setTextColor(.darkGray)
+            identifierLabel.setText("n/a")
+            identifierLabel.setTextColor(.darkGray)
         }
 
-        machineNameLabel.setText(item.name)
+        nameLabel.setText(item.name)
         repetitionLabel.setText("\(item.repetitions)/\(item.numberOfSeries)")
 
         if item.weightLoad != 0.0 {

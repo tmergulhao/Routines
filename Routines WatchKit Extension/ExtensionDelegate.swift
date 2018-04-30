@@ -79,6 +79,10 @@ extension ExtensionDelegate : WCSessionDelegate {
         do {
             let data = try Data(contentsOf: file.fileURL)
             try CoreDataManager.overrideFrom(serialized: data)
+
+            var lastUpdated = Default<Date>(key: "Last updated on Watch")
+            lastUpdated.value = Date()
+
         } catch {
             print(error.localizedDescription)
         }

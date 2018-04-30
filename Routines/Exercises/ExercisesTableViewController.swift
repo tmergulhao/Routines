@@ -53,7 +53,7 @@ class ExercisesTableViewController: UITableViewController {
         }
 
         cell.textLabel?.text = item.name
-        cell.detailTextLabel?.text = "\(item.repetitions)/\(item.numberOfSeries)"
+        cell.detailTextLabel?.text = "\(item.repetitions)/\(item.numberOfSeries)\t\(item.weightLoad)kg"
 
         return cell
     }
@@ -101,6 +101,7 @@ class ExercisesTableViewController: UITableViewController {
             let editItem = navigation.topViewController as? EditExercisesTableViewController {
 
             editItem.item = item
+            editItem.routine = routine
         }
     }
 

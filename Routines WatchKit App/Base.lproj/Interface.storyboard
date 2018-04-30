@@ -15,6 +15,10 @@
             <objects>
                 <controller title="Routines" id="Uqy-gE-xqF" customClass="RoutinesController" customModule="Routines_WatchKit_Extension">
                     <items>
+                        <label alignment="center" text="Updated 27 days ago" textAlignment="center" minimumScaleFactor="0.69999999999999996" id="vwt-i9-dWz">
+                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <fontDescription key="font" style="UICTFontTextStyleCaption2"/>
+                        </label>
                         <table alignment="left" id="Jcx-DA-3mn">
                             <items>
                                 <tableRow identifier="Routine" id="NsI-A5-hHQ" customClass="RoutineRowController" customModule="Routines_WatchKit_Extension">
@@ -40,24 +44,30 @@
                                         <outlet property="descriptionLabel" destination="cik-yP-uCn" id="o2v-9Q-LQR"/>
                                         <outlet property="nameLabel" destination="f6p-cE-Sg0" id="Cpr-9N-CST"/>
                                         <outlet property="numberOfItemsLabel" destination="7Tf-HD-wzY" id="yhK-0q-rYd"/>
-                                        <segue destination="xrM-Jg-skG" kind="modal" identifier="Routine" id="Jfw-Vf-63x"/>
+                                        <segue destination="P1U-o2-ugp" kind="push" id="auC-x2-y59"/>
                                     </connections>
                                 </tableRow>
                             </items>
                         </table>
                     </items>
                     <connections>
+                        <outlet property="lastUpdatedLabel" destination="vwt-i9-dWz" id="4OW-kl-KaK"/>
                         <outlet property="table" destination="Jcx-DA-3mn" id="Wij-P3-E8D"/>
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="-502" y="31"/>
+            <point key="canvasLocation" x="-478" y="332"/>
         </scene>
         <!--Exercises-->
         <scene sceneID="Nrf-Ra-GAa">
             <objects>
                 <controller identifier="Exercises" animationDuration="2" id="P1U-o2-ugp" customClass="ExercisesController" customModule="Routines_WatchKit_Extension">
                     <items>
+                        <button width="1" alignment="left" title="Start routine" id="ZMz-6B-m1X">
+                            <connections>
+                                <segue destination="xrM-Jg-skG" kind="modal" id="mLI-RT-6h3"/>
+                            </connections>
+                        </button>
                         <table alignment="center" verticalAlignment="center" id="Tas-pD-9MX">
                             <items>
                                 <tableRow identifier="Exercise" id="D4Y-ob-k9W" customClass="ExerciseRowController" customModule="Routines_WatchKit_Extension">
@@ -104,8 +114,8 @@
                                         <edgeInsets key="margins" left="6" right="6" top="6" bottom="6"/>
                                     </group>
                                     <connections>
-                                        <outlet property="machineNameLabel" destination="bRu-pb-jRD" id="BAK-TQ-j0s"/>
-                                        <outlet property="machineNumberLabel" destination="PLo-nb-NMC" id="1SW-Mj-bAM"/>
+                                        <outlet property="identifierLabel" destination="PLo-nb-NMC" id="1SW-Mj-bAM"/>
+                                        <outlet property="nameLabel" destination="bRu-pb-jRD" id="BAK-TQ-j0s"/>
                                         <outlet property="repetitionLabel" destination="f9v-vq-Hjj" id="QhM-fS-s6l"/>
                                         <outlet property="routineIndexCount" destination="PcK-1c-xYV" id="kMZ-3X-D12"/>
                                         <outlet property="weightIconImage" destination="8uN-Kc-ik3" id="Nnt-7y-cmw"/>
@@ -115,20 +125,6 @@
                             </items>
                         </table>
                     </items>
-                    <menu key="menu" id="p2Q-fa-z7E">
-                        <items>
-                            <menuItem title="Reset" icon="repeat" id="WXQ-uC-8P9">
-                                <connections>
-                                    <action selector="resetRoutine" destination="P1U-o2-ugp" id="jcl-ak-M7k"/>
-                                </connections>
-                            </menuItem>
-                            <menuItem title="Exit" icon="decline" id="Re5-XR-RtJ">
-                                <connections>
-                                    <action selector="exitRoutine" destination="P1U-o2-ugp" id="Reg-lQ-P7G"/>
-                                </connections>
-                            </menuItem>
-                        </items>
-                    </menu>
                     <connections>
                         <outlet property="table" destination="Tas-pD-9MX" id="gLF-sm-L0f"/>
                     </connections>
@@ -245,7 +241,7 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="-205" y="31"/>
+            <point key="canvasLocation" x="71" y="332"/>
         </scene>
         <!--Edit item-->
         <scene sceneID="74j-9r-pdP">
@@ -293,7 +289,7 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="71" y="31"/>
+            <point key="canvasLocation" x="331" y="332"/>
         </scene>
     </scenes>
     <resources>

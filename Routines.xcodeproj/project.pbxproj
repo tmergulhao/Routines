@@ -28,6 +28,8 @@
 		7934DBC220702EF40072B1F8 /* ExerciseRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7934DBC120702EF40072B1F8 /* ExerciseRowController.swift */; };
 		79391DE420852E920069C12A /* RoutinesViewController+NSFetchResultsControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79391DE320852E920069C12A /* RoutinesViewController+NSFetchResultsControllerDelegate.swift */; };
 		79437260208BE4D600A4BB2C /* EditItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7943725F208BE4D600A4BB2C /* EditItemController.swift */; };
+		795B2A642097776900529800 /* ExercisesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7934DBBF20702E6C0072B1F8 /* ExercisesController.swift */; };
+		795B2A6820977B9900529800 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 795B2A65209779DF00529800 /* Localizable.stringsdict */; };
 		7976E5D5208D3914004680DA /* WatchConnectivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7976E5D4208D3914004680DA /* WatchConnectivityManager.swift */; };
 		7991D9A82089F96D0023EAD7 /* RoutineController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7991D9A72089F96D0023EAD7 /* RoutineController.swift */; };
 		799C30C8207811CD0080A76B /* SampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799C30C7207811CD0080A76B /* SampleData.swift */; };
@@ -126,6 +128,7 @@
 		7934DBC3207034090072B1F8 /* RoutineCodable.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = RoutineCodable.json; sourceTree = "<group>"; };
 		79391DE320852E920069C12A /* RoutinesViewController+NSFetchResultsControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RoutinesViewController+NSFetchResultsControllerDelegate.swift"; sourceTree = "<group>"; };
 		7943725F208BE4D600A4BB2C /* EditItemController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditItemController.swift; sourceTree = "<group>"; };
+		795B2A65209779DF00529800 /* Localizable.stringsdict */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; path = Localizable.stringsdict; sourceTree = "<group>"; };
 		7976E5D4208D3914004680DA /* WatchConnectivityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchConnectivityManager.swift; sourceTree = "<group>"; };
 		7991D9A72089F96D0023EAD7 /* RoutineController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineController.swift; sourceTree = "<group>"; };
 		799C30C7207811CD0080A76B /* SampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleData.swift; sourceTree = "<group>"; };
@@ -229,6 +232,7 @@
 			children = (
 				792B610020824EE200F74CE0 /* ComplicationDataSource.swift */,
 				7934DBA72070138B0072B1F8 /* RoutinesController.swift */,
+				795B2A65209779DF00529800 /* Localizable.stringsdict */,
 				7934DBBF20702E6C0072B1F8 /* ExercisesController.swift */,
 				7991D9A72089F96D0023EAD7 /* RoutineController.swift */,
 				7934DBBC2070263F0072B1F8 /* RoutineRowController.swift */,
@@ -438,6 +442,7 @@
 			files = (
 				7934DBAC2070138C0072B1F8 /* Assets.xcassets in Resources */,
 				799C30DE207918800080A76B /* Assets.xcassets in Resources */,
+				795B2A6820977B9900529800 /* Localizable.stringsdict in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -479,6 +484,7 @@
 				79C848082072FCFB00B6C907 /* Defaultable.swift in Sources */,
 				79F0835A20924B3700CF8F49 /* CoreDataManager+Entites.swift in Sources */,
 				79F0835D20924D0700CF8F49 /* CoreDataManager+SampleData.swift in Sources */,
+				795B2A642097776900529800 /* ExercisesController.swift in Sources */,
 				79F0835C20924B4E00CF8F49 /* CoreDataManager+Encodable.swift in Sources */,
 				7934DBBD2070290D0072B1F8 /* RoutineRowController.swift in Sources */,
 				7934DBC220702EF40072B1F8 /* ExerciseRowController.swift in Sources */,

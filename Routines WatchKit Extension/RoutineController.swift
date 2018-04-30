@@ -100,7 +100,7 @@ class RoutineController: WKInterfaceController {
 
     func style(for item : Item) {
 
-        if let equipment = item.equipment {
+        if let equipment = item.equipment, equipment != "" {
             identifierLabel.setText(equipment)
             identifierLabel.setTextColor(item.color)
         } else {

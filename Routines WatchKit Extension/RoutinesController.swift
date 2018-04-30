@@ -15,10 +15,16 @@ class RoutinesController : WKInterfaceController {
 
     lazy var resultsController = setupFetchResultsController()
 
+    @IBOutlet var lastUpdatedLabel: WKInterfaceLabel!
+    let lastUpdated = Default<Date>(key: "Last updated on Watch")
+
     override func awake(withContext context: Any?) {
+
         super.awake(withContext: context)
-        
-        // Configure interface objects here.
+
+        let dateComponents = Calendar.current.dateComponents([.day], from: lastUpdated.value ?? Date(), to: Date())
+        let format = NSLocalizedString("Updated", comment: "")
+        lastUpdatedLabel.setText(String.localizedStringWithFormat(format, dateComponents.day!))
 
         let session = WCSession.default
 
