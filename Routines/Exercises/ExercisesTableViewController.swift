@@ -96,11 +96,10 @@ class ExercisesTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
         if segue.identifier == "Edit Item",
-            let item = sender as? Item,
             let navigation = segue.destination as? UINavigationController,
             let editItem = navigation.topViewController as? EditExercisesTableViewController {
 
-            editItem.item = item
+            editItem.item = sender as? Item
             editItem.routine = routine
         }
     }

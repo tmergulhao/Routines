@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		790B35A52097BA6000075E3A /* RoutinesController+NSFetchedResultsControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790B35A42097BA6000075E3A /* RoutinesController+NSFetchedResultsControllerDelegate.swift */; };
 		790C94722074D4E600C9D986 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C847FF2072D85300B6C907 /* CoreDataManager.swift */; };
 		790C94732074D63900C9D986 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 79C847F22072BE0000B6C907 /* Model.xcdatamodeld */; };
 		790C94752074E05500C9D986 /* ExercisesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790C94742074E05500C9D986 /* ExercisesTableViewController.swift */; };
@@ -103,6 +104,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		790B35A42097BA6000075E3A /* RoutinesController+NSFetchedResultsControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RoutinesController+NSFetchedResultsControllerDelegate.swift"; sourceTree = "<group>"; };
 		790C94742074E05500C9D986 /* ExercisesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisesTableViewController.swift; sourceTree = "<group>"; };
 		792B60FE20824E9A00F74CE0 /* ClockKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ClockKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS4.3.sdk/System/Library/Frameworks/ClockKit.framework; sourceTree = DEVELOPER_DIR; };
 		792B610020824EE200F74CE0 /* ComplicationDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationDataSource.swift; sourceTree = "<group>"; };
@@ -232,6 +234,7 @@
 			children = (
 				792B610020824EE200F74CE0 /* ComplicationDataSource.swift */,
 				7934DBA72070138B0072B1F8 /* RoutinesController.swift */,
+				790B35A42097BA6000075E3A /* RoutinesController+NSFetchedResultsControllerDelegate.swift */,
 				795B2A65209779DF00529800 /* Localizable.stringsdict */,
 				7934DBBF20702E6C0072B1F8 /* ExercisesController.swift */,
 				7991D9A72089F96D0023EAD7 /* RoutineController.swift */,
@@ -496,6 +499,7 @@
 				79F0835820924AF400CF8F49 /* CoreDataManager.swift in Sources */,
 				79F0835920924AFB00CF8F49 /* Model.xcdatamodeld in Sources */,
 				79F0835E20924D0F00CF8F49 /* SampleData.swift in Sources */,
+				790B35A52097BA6000075E3A /* RoutinesController+NSFetchedResultsControllerDelegate.swift in Sources */,
 				79437260208BE4D600A4BB2C /* EditItemController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

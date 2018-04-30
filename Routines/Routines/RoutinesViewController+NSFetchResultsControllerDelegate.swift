@@ -38,7 +38,7 @@ extension RoutinesViewController : NSFetchedResultsControllerDelegate {
 
         switch type {
         case .insert:
-            tableView.insertRows(at: [indexPath].compactMap{$0}, with: .top)
+            tableView.insertRows(at: [newIndexPath].compactMap{$0}, with: .top)
         case .delete:
             tableView.deleteRows(at: [indexPath].compactMap{$0}, with: .top)
         case .update:

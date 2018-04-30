@@ -63,7 +63,7 @@
             <objects>
                 <controller identifier="Exercises" animationDuration="2" id="P1U-o2-ugp" customClass="ExercisesController" customModule="Routines_WatchKit_Extension">
                     <items>
-                        <button width="1" alignment="left" title="Start routine" id="ZMz-6B-m1X">
+                        <button width="1" alignment="left" title="Start Routine" id="ZMz-6B-m1X">
                             <connections>
                                 <segue destination="xrM-Jg-skG" kind="modal" id="mLI-RT-6h3"/>
                             </connections>

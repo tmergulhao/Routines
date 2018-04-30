@@ -15,9 +15,7 @@ class RoutinesViewController : UITableViewController {
         case archived = "1", active = "0"
     }
 
-    @IBAction func watchButtonTapped(_ sender: Any) {
-
-        // WatchConnectivityManager.send(nil, completion: nil)
+    @IBAction func activityButtonTapped(_ sender: Any) {
     }
 
     lazy var fetchedResultsController = setupFetchResultsController()
@@ -42,6 +40,7 @@ class RoutinesViewController : UITableViewController {
         }
 
         removeEmptyState()
+
         return sections.count
     }
 

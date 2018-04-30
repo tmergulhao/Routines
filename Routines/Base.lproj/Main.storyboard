@@ -57,10 +57,10 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="bottom" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Y9y-jZ-Oed">
-                                                    <rect key="frame" x="215" y="39" width="112" height="24"/>
+                                                    <rect key="frame" x="215" y="47" width="112" height="16"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="njs-Sf-fBT">
-                                                            <rect key="frame" x="0.0" y="8" width="16" height="16"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="16" height="16"/>
                                                             <color key="backgroundColor" name="red"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="njs-Sf-fBT" secondAttribute="height" multiplier="1:1" id="Icz-OM-TiE"/>
@@ -73,7 +73,7 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hSD-tZ-q8F">
-                                                            <rect key="frame" x="24" y="8" width="16" height="16"/>
+                                                            <rect key="frame" x="24" y="0.0" width="16" height="16"/>
                                                             <color key="backgroundColor" name="red"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="16" id="Rct-wJ-ayJ"/>
@@ -86,11 +86,10 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BJj-HL-fyN">
-                                                            <rect key="frame" x="48" y="8" width="16" height="16"/>
+                                                            <rect key="frame" x="48" y="0.0" width="16" height="16"/>
                                                             <color key="backgroundColor" name="red"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="16" id="de3-xq-mnn"/>
-                                                                <constraint firstAttribute="width" secondItem="BJj-HL-fyN" secondAttribute="height" multiplier="1:1" id="g3s-Nk-kOZ"/>
                                                             </constraints>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -99,7 +98,7 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DDP-Yv-wkQ">
-                                                            <rect key="frame" x="72" y="8" width="16" height="16"/>
+                                                            <rect key="frame" x="72" y="0.0" width="16" height="16"/>
                                                             <color key="backgroundColor" name="red"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="16" id="KZg-kx-dUy"/>
@@ -112,7 +111,7 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1kp-S8-DJ8">
-                                                            <rect key="frame" x="96" y="8" width="16" height="16"/>
+                                                            <rect key="frame" x="96" y="0.0" width="16" height="16"/>
                                                             <color key="backgroundColor" name="red"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="16" id="IbR-Hi-RaO"/>
@@ -126,11 +125,7 @@
                                                         </view>
                                                     </subviews>
                                                     <constraints>
-                                                        <constraint firstItem="njs-Sf-fBT" firstAttribute="width" secondItem="njs-Sf-fBT" secondAttribute="height" multiplier="1:1" id="Bmc-a2-rhm"/>
-                                                        <constraint firstItem="DDP-Yv-wkQ" firstAttribute="width" secondItem="DDP-Yv-wkQ" secondAttribute="height" multiplier="1:1" id="Fqw-at-zJf"/>
                                                         <constraint firstItem="BJj-HL-fyN" firstAttribute="width" secondItem="BJj-HL-fyN" secondAttribute="height" multiplier="1:1" id="JH7-YL-0a3"/>
-                                                        <constraint firstItem="1kp-S8-DJ8" firstAttribute="width" secondItem="1kp-S8-DJ8" secondAttribute="height" multiplier="1:1" id="Qfp-8S-a7F"/>
-                                                        <constraint firstAttribute="height" constant="24" id="ebH-Jz-rwy"/>
                                                     </constraints>
                                                 </stackView>
                                             </subviews>
@@ -165,6 +160,7 @@
                                 <connections>
                                     <outlet property="countLabel" destination="tS1-fr-3lC" id="oYB-N1-XDd"/>
                                     <outlet property="dateLabel" destination="Cz2-bx-tak" id="PwX-7R-QBp"/>
+                                    <outlet property="itemsStack" destination="Y9y-jZ-Oed" id="Phd-CE-svA"/>
                                     <outlet property="summaryLabel" destination="XLX-3P-hww" id="YM7-vt-ACD"/>
                                     <outlet property="titleLabel" destination="W0f-zd-Vbf" id="fNH-VX-or7"/>
                                     <segue destination="rcH-rC-6Gb" kind="show" identifier="Show Routine" id="4kz-f7-N5X"/>
@@ -190,9 +186,9 @@
                                 <segue destination="8pJ-ob-ONG" kind="presentation" id="D9g-fJ-cMz"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Watch" id="rro-va-XMo">
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="rro-va-XMo">
                             <connections>
-                                <action selector="watchButtonTapped:" destination="J7m-Pl-WjJ" id="wHN-cZ-ufJ"/>
+                                <action selector="activityButtonTapped:" destination="J7m-Pl-WjJ" id="wHN-cZ-ufJ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -733,7 +729,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="o38-xH-KLR">
-                                                    <rect key="frame" x="118" y="7" width="198" height="30"/>
+                                                    <rect key="frame" x="118" y="7" width="240" height="30"/>
                                                     <subviews>
                                                         <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qUd-uz-0dS">
                                                             <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
@@ -795,6 +791,18 @@
                                                                 <action selector="didTapColorButton:" destination="amY-mb-VUJ" eventType="touchUpInside" id="J66-aI-1Zm"/>
                                                             </connections>
                                                         </button>
+                                                        <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D0I-I8-rD4">
+                                                            <rect key="frame" x="210" y="0.0" width="30" height="30"/>
+                                                            <state key="normal" image="Clear"/>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                    <integer key="value" value="15"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                            <connections>
+                                                                <action selector="didTapColorButton:" destination="amY-mb-VUJ" eventType="touchUpInside" id="jOl-Z3-sGN"/>
+                                                            </connections>
+                                                        </button>
                                                     </subviews>
                                                 </stackView>
                                             </subviews>
@@ -838,6 +846,7 @@
                         <outletCollection property="colorButtons" destination="uVl-wZ-Wbw" collectionClass="NSMutableArray" id="uRR-vM-9az"/>
                         <outletCollection property="colorButtons" destination="oXf-To-XPU" collectionClass="NSMutableArray" id="H3W-Ak-uTU"/>
                         <outletCollection property="colorButtons" destination="9T2-ZJ-zTh" collectionClass="NSMutableArray" id="EFb-HK-KCx"/>
+                        <outletCollection property="colorButtons" destination="D0I-I8-rD4" collectionClass="NSMutableArray" id="rV6-jQ-ygB"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vKz-mU-i99" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -870,6 +879,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Clear" width="30" height="30"/>
         <image name="Routine" width="100" height="100"/>
         <namedColor name="blue">
             <color red="0.10599999874830246" green="0.67799997329711914" blue="0.97299998998641968" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

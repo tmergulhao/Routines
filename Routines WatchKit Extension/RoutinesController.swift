@@ -22,9 +22,20 @@ class RoutinesController : WKInterfaceController {
 
         super.awake(withContext: context)
 
-        let dateComponents = Calendar.current.dateComponents([.day], from: lastUpdated.value ?? Date(), to: Date())
-        let format = NSLocalizedString("Updated", comment: "")
-        lastUpdatedLabel.setText(String.localizedStringWithFormat(format, dateComponents.day!))
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .short
+
+        dateFormatter.locale = Locale(identifier: "en_US")
+
+        let date = lastUpdated.value ?? Date()
+        let formattedDateString = dateFormatter.string(from: date)
+
+        lastUpdatedLabel.setText(formattedDateString)
+
+//        let dateComponents = Calendar.current.dateComponents([.day], from: lastUpdated.value ?? Date(), to: Date())
+//        let format = NSLocalizedString("Updated", comment: "")
+//        lastUpdatedLabel.setText(String.localizedStringWithFormat(format, dateComponents.day!))
 
         let session = WCSession.default
 
@@ -56,33 +67,5 @@ class RoutinesController : WKInterfaceController {
 
     override func contextForSegue(withIdentifier segueIdentifier: String, in table: WKInterfaceTable, rowIndex: Int) -> Any? {
         return resultsController.object(at: IndexPath(row: rowIndex, section: 0))
-    }
-}
-
-import CoreData
-
-extension RoutinesController : NSFetchedResultsControllerDelegate {
-
-    func setupFetchResultsController () -> NSFetchedResultsController<Routine> {
-
-        let request : NSFetchRequest = Routine.fetchRequest()
-
-        request.sortDescriptors = [
-            NSSortDescriptor(key: "name", ascending: true)
-        ]
-
-        let controller = NSFetchedResultsController(
-            fetchRequest: request,
-            managedObjectContext: CoreDataManager.shared.context,
-            sectionNameKeyPath: nil,
-            cacheName: nil)
-
-        controller.delegate = self
-
-        return controller
-    }
-
-    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        willActivate()
     }
 }

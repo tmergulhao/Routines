@@ -25,9 +25,11 @@ class EditExercisesTableViewController: UITableViewController {
 
     @IBOutlet var colorButtons : Array<UIButton>!
 
-    var color : UIColor = UIColor(named: "green")!
+    var color : UIColor?
 
     @IBAction func didTapColorButton(_ sender: UIButton) {
+
+        color = sender.backgroundColor
 
         UIView.animate(withDuration: 0.25, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 1, options: .curveEaseInOut, animations: {
 
@@ -41,8 +43,6 @@ class EditExercisesTableViewController: UITableViewController {
 
             sender.transform = .identity
             sender.layer.opacity = 1.0
-
-            self.color = sender.backgroundColor!
 
         }, completion: nil)
     }
@@ -70,9 +70,15 @@ class EditExercisesTableViewController: UITableViewController {
         item.equipment = identifierField.text?.trim()
         item.color = color
 
-        item.numberOfSeries = Int64(Int(seriesField.text!.trim())!)
-        item.repetitions = Int64(Int(repetitionsField.text!.trim())!)
-        item.weightLoad = Double(weightField.text!.trim())!
+        if let seriesText = seriesField.text?.trim(), let series = Int64(seriesText) {
+            item.numberOfSeries = series
+        }
+        if let repetitionsText = repetitionsField.text?.trim(), let repetitions = Int64(repetitionsText) {
+            item.repetitions = repetitions
+        }
+        if let weightLoadText = weightField.text?.trim(), let weightLoad = Double(weightLoadText) {
+            item.weightLoad = weightLoad
+        }
 
         routine.insertIntoItems(item, at: 0)
 
@@ -89,6 +95,12 @@ class EditExercisesTableViewController: UITableViewController {
 
     func informUser(about error : Error) {
         // TODO: Inform user about data sanitization
+
+        let alert = UIAlertController(title: "Unable to save", message: "There is something wrong with your form. Please, correct the following mistakes: \(error.localizedDescription)", preferredStyle: .alert)
+
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+
+        present(alert, animated: true)
     }
 
     override func viewDidLoad() {
