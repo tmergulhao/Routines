@@ -10,30 +10,32 @@ import CoreData
 
 extension CoreDataManager {
 
-    class func load (_ routines : Array<RoutineCodable>) throws {
+    @discardableResult
+    class func load (_ codable : RoutineCodable) -> Routine {
 
-        routines.forEach {
+        let routine : Routine = NSEntityDescription.object(into: shared.context)
+
+        routine.configure(with: codable)
+
+        guard let items = codable.items else { return routine }
+
+        items.forEach {
 
             (codable) in
 
-            let routine : Routine = NSEntityDescription.object(into: shared.context)
+            let item : Item = NSEntityDescription.object(into: shared.context)
 
-            routine.configure(with: codable)
+            item.configure(with: codable)
 
-            guard let items = codable.items else { return }
-
-            items.forEach {
-
-                (codable) in
-
-                let item : Item = NSEntityDescription.object(into: shared.context)
-
-                item.configure(with: codable)
-
-                routine.addToItems(item)
-            }
+            routine.addToItems(item)
         }
 
-        try saveContext()
+        return routine
+    }
+
+    @discardableResult
+    class func load (_ codables : Array<RoutineCodable>) -> Array<Routine> {
+
+        return codables.map { (codable) in return self.load(codable) }
     }
 }

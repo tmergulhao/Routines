@@ -42,7 +42,7 @@ class WatchConnectivityManager : NSObject {
         let manager = FileManager.default
         let directory = manager.urls(for: .documentDirectory, in: .userDomainMask)
 
-        guard let url = directory.first?.appendingPathComponent("Database.routines") else {
+        guard let url = directory.first?.appendingPathComponent("Database.routine") else {
             print("Unable to get file directory url")
             return
         }

@@ -12,6 +12,36 @@ class ExercisesTableViewController: UITableViewController {
 
     var routine : Routine!
 
+    @IBAction func activityButtonTapped(_ sender: UIBarButtonItem) {
+
+        let manager = FileManager.default
+        let directory = manager.urls(for: .documentDirectory, in: .userDomainMask)
+
+        guard let fileUrl = directory.first?.appendingPathComponent(routine.name! + ".routine") else {
+            print("Unable to get file directory url")
+            return
+        }
+
+        do {
+            let data = try CoreDataManager.serialize(routine)
+            try data.write(to: fileUrl)
+
+            let descriptiveMessage = "Here goes my \(routine.name!) routine."
+
+            let activity = UIActivityViewController(
+                activityItems: [descriptiveMessage, fileUrl],
+                applicationActivities: nil)
+
+            activity.popoverPresentationController?.barButtonItem = sender
+
+            present(activity, animated: true)
+
+        } catch {
+
+            print(error.localizedDescription)
+        }
+    }
+    
     override func viewDidLoad() {
 
         super.viewDidLoad()

@@ -4,6 +4,32 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<key>CFBundleDocumentTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeExtensions</key>
+			<array>
+				<string>routines</string>
+			</array>
+			<key>CFBundleTypeIconFiles</key>
+			<array>
+				<string>Document_icon_320.png</string>
+				<string>Document_icon_64.png</string>
+				<string>Document_icon_44.png</string>
+				<string>Document_icon_22.png</string>
+			</array>
+			<key>CFBundleTypeName</key>
+			<string>Workout Routine</string>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>LSHandlerRank</key>
+			<string>Owner</string>
+			<key>LSItemContentTypes</key>
+			<array>
+				<string>com.tmergulhao.Routines.routine</string>
+			</array>
+		</dict>
+	</array>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -40,6 +66,37 @@
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
+	</array>
+	<key>UTExportedTypeDeclarations</key>
+	<array>
+		<dict>
+			<key>UTTypeConformsTo</key>
+			<array>
+				<string>public.data</string>
+			</array>
+			<key>UTTypeDescription</key>
+			<string>Workout Routine</string>
+			<key>UTTypeIconFiles</key>
+			<array>
+				<string>Document_icon_320</string>
+				<string>Document_icon_64</string>
+				<string>Document_icon_44</string>
+				<string>Document_icon_22</string>
+			</array>
+			<key>UTTypeIdentifier</key>
+			<string>com.tmergulhao.Routines.routine</string>
+			<key>UTTypeTagSpecification</key>
+			<dict>
+				<key>public.filename-extension</key>
+				<array>
+					<string>routine</string>
+				</array>
+				<key>public.mime-type</key>
+				<array>
+					<string>application/routines</string>
+				</array>
+			</dict>
+		</dict>
 	</array>
 </dict>
 </plist>

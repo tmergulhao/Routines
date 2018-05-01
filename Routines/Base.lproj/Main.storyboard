@@ -389,7 +389,13 @@
                             </connections>
                         </barButtonItem>
                     </toolbarItems>
-                    <navigationItem key="navigationItem" title="A, Bíceps" largeTitleDisplayMode="always" id="z8S-WG-wDd"/>
+                    <navigationItem key="navigationItem" title="A, Bíceps" largeTitleDisplayMode="always" id="z8S-WG-wDd">
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="lT6-mR-uxd">
+                            <connections>
+                                <action selector="activityButtonTapped:" destination="rcH-rC-6Gb" id="6GY-cX-smt"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jqV-YD-FJE" userLabel="First Responder" sceneMemberID="firstResponder"/>

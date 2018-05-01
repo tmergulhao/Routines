@@ -77,6 +77,15 @@ extension CoreDataManager {
 
     // TODO: Generalize definition
 
+    class func serialize(_ routine : Routine) throws -> Data {
+
+        let encoder = JSONEncoder()
+        encoder.dateEncodingStrategy = .iso8601
+        encoder.keyEncodingStrategy = .convertToSnakeCase
+
+        return try encoder.encode(routine)
+    }
+
     class func serializeRoutines() throws -> Data {
 
         let notArchived = NSPredicate(format: "archived == false")

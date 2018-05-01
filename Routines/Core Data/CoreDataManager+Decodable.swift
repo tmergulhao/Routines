@@ -50,6 +50,8 @@ extension CoreDataManager {
         let oldValues : Array<Routine> = try fetch()
         oldValues.forEach(shared.context.delete(_:))
 
-        try load(routinesCodable)
+        load(routinesCodable)
+
+        try saveContext()
     }
 }

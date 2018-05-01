@@ -15,7 +15,34 @@ class RoutinesViewController : UITableViewController {
         case archived = "1", active = "0"
     }
 
-    @IBAction func activityButtonTapped(_ sender: Any) {
+    @IBAction func activityButtonTapped(_ sender: UIBarButtonItem) {
+
+        let manager = FileManager.default
+        let directory = manager.urls(for: .documentDirectory, in: .userDomainMask)
+
+        guard let fileUrl = directory.first?.appendingPathComponent("Database.routine") else {
+            print("Unable to get file directory url")
+            return
+        }
+
+        do {
+            let data = try CoreDataManager.serializeRoutines()
+            try data.write(to: fileUrl)
+
+            let descriptiveMessage = "Here goes all my routines."
+
+            let activity = UIActivityViewController(
+                activityItems: [descriptiveMessage, fileUrl],
+                applicationActivities: nil)
+
+            activity.popoverPresentationController?.barButtonItem = sender
+
+            present(activity, animated: true)
+
+        } catch {
+
+            print(error.localizedDescription)
+        }
     }
 
     lazy var fetchedResultsController = setupFetchResultsController()

@@ -19,7 +19,9 @@ extension RoutinesViewController : EmptyStateViewControllerDelegate {
 
         let sample = Sample.shared.routines
 
-        try? CoreDataManager.load(sample)
+        CoreDataManager.load(sample)
+
+        try? CoreDataManager.saveContext()
 
         tableView.reloadData()
     }
