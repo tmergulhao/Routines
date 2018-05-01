@@ -8,11 +8,20 @@
 
 import UIKit
 
+extension UIColor {
+
+    var keyRepresentation : String {
+        return self.cgColor.components?.reduce("", { (result, component) -> String in
+            return result + " \(component)"
+        }) ?? ""
+    }
+}
+
 fileprivate var colors = ["blue", "green", "orange", "red", "teal"]
-    .reduce(into: Dictionary<UIColor, String>(), {
-        (dictionary : inout Dictionary<UIColor, String>, name : String) in
-        guard let color = UIColor(named: name) else { return }
-        dictionary[color] = name
+    .reduce(into: Dictionary<String, String>(), {
+        (dictionary : inout Dictionary<String, String>, name : String) in
+        guard let key = UIColor(named: name)?.keyRepresentation else { return }
+        dictionary[key] = name
     })
 
 extension Routine : Encodable {
@@ -55,7 +64,7 @@ extension Item : Encodable {
         try container.encode(repetitions, forKey: .repetitions)
         try container.encode(weightLoad, forKey: .weightLoad)
 
-        if let color = color, let colorName = colors[color] {
+        if let key = color?.keyRepresentation, let colorName = colors[key] {
             try container.encode(colorName, forKey: .color)
         } else {
             let stringNil : String? = nil
