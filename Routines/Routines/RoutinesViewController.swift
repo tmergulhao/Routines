@@ -182,7 +182,8 @@ class RoutinesViewController : UITableViewController {
 
         if let cell = sender as? UITableViewCell,
             let indexPath = tableView.indexPath(for: cell),
-            let exercises = segue.destination as? ExercisesTableViewController {
+            let navigation = segue.destination as? UINavigationController,
+            let exercises = navigation.topViewController as? ExercisesTableViewController {
 
             let routine = self.fetchedResultsController.object(at: indexPath)
 
@@ -191,7 +192,8 @@ class RoutinesViewController : UITableViewController {
 
         if segue.identifier == "Show Routine",
             let routine = sender as? Routine,
-            let exercises = segue.destination as? ExercisesTableViewController {
+            let navigation = segue.destination as? UINavigationController,
+            let exercises = navigation.topViewController as? ExercisesTableViewController {
 
             exercises.routine = routine
         }

@@ -10,9 +10,11 @@ import UIKit
 
 class ExercisesTableViewController: UITableViewController {
 
-    var routine : Routine!
+    var routine : Routine?
 
     @IBAction func activityButtonTapped(_ sender: UIBarButtonItem) {
+
+        guard let routine = routine else { return }
 
         let manager = FileManager.default
         let directory = manager.urls(for: .documentDirectory, in: .userDomainMask)
@@ -46,13 +48,8 @@ class ExercisesTableViewController: UITableViewController {
 
         super.viewDidLoad()
 
-        var title : String = routine.name!
-
-        if let summary = routine.summary {
-            title = title + ", " + summary
-        }
-
-        navigationItem.title = title
+        navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
+        navigationItem.leftItemsSupplementBackButton = true
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -64,9 +61,21 @@ class ExercisesTableViewController: UITableViewController {
         ]
 
         tableView.reloadData()
+
+        guard let routine = routine else { return }
+
+        var title : String = routine.name!
+
+        if let summary = routine.summary {
+            title = title + ", " + summary
+        }
+
+        navigationItem.title = title
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+
+        guard let routine = routine else { return 0 }
 
         let count = routine.items?.count ?? 0
 
@@ -81,7 +90,7 @@ class ExercisesTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "Exercise"),
+        guard let routine = self.routine, let cell = tableView.dequeueReusableCell(withIdentifier: "Exercise"),
             let item = routine.items?[indexPath.row] as? Item else {
             return UITableViewCell()
         }
@@ -96,13 +105,17 @@ class ExercisesTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
 
+        guard routine != nil else { return nil }
+
         let delete = UITableViewRowAction(style: .default, title: "Delete", handler: { (action, indexPath) in
+
+            guard let routine = self.routine else { return }
 
             tableView.beginUpdates()
 
-            let item = self.routine.items![indexPath.row] as! Item
+            let item = routine.items![indexPath.row] as! Item
 
-            self.routine.removeFromItems(item)
+            routine.removeFromItems(item)
 
             CoreDataManager.shared.context.delete(item)
             try! CoreDataManager.saveContext()
@@ -113,7 +126,9 @@ class ExercisesTableViewController: UITableViewController {
 
         let edit = UITableViewRowAction(style: .default, title: "Edit", handler: { (action, indexPath) in
 
-            let item = self.routine.items![indexPath.row]
+            guard let routine = self.routine else { return }
+
+            let item = routine.items![indexPath.row]
 
             self.performSegue(withIdentifier: "Edit Item", sender: item)
         })
