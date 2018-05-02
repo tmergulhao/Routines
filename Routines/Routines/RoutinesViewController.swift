@@ -58,6 +58,15 @@ class RoutinesViewController : UITableViewController {
         }
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+
+        super.viewWillAppear(animated)
+
+        navigationController?.navigationBar.largeTitleTextAttributes = [
+            NSAttributedStringKey.foregroundColor : UIColor(named: "red")!
+        ]
+    }
+
     override func numberOfSections(in tableView: UITableView) -> Int {
 
         guard let sections = fetchedResultsController.sections, sections.count != 0 else {

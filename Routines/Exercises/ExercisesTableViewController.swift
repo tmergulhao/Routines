@@ -59,6 +59,10 @@ class ExercisesTableViewController: UITableViewController {
 
         super.viewWillAppear(animated)
 
+        navigationController?.navigationBar.largeTitleTextAttributes = [
+            NSAttributedStringKey.foregroundColor : UIColor(named: "red")!
+        ]
+
         tableView.reloadData()
     }
 
