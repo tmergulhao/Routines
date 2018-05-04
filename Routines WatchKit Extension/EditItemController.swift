@@ -28,7 +28,7 @@ class EditItemController : WKInterfaceController {
             }
 
             if weightLoad > 0 {
-                weightLabel.setText("\(weightLoad!)")
+                weightLabel.setText(String(format: "%.2f", weightLoad!))
                 weightLabel.setTextColor(.white)
             } else {
                 weightLabel.setText("n/a")
@@ -39,7 +39,7 @@ class EditItemController : WKInterfaceController {
 
     override func awake(withContext context: Any?) {
 
-        guard let item = context as? ItemCodable else {
+        guard let item = context as? Item else {
             dismiss()
             return
         }
@@ -65,18 +65,22 @@ class EditItemController : WKInterfaceController {
 
         dismiss()
     }
+
+    var accumulator : Double = 0.0
 }
 
 extension EditItemController : WKCrownDelegate {
 
-    var crownSensitivity : Double { return 0.5 }
+    var crownSensitivity : Double { return 0.3 }
 
     func crownDidRotate(_ crownSequencer: WKCrownSequencer?, rotationalDelta: Double) {
 
-        // TODO: Improve experience on crown increments
+        accumulator += rotationalDelta
 
-        guard let rotationsPerSecond = crownSequencer?.rotationsPerSecond else { return }
+        let crownTicks = (accumulator/crownSensitivity).rounded(.towardZero)
 
-        weightLoad = weightLoad + floor(rotationsPerSecond * crownSensitivity) * increment
+        weightLoad = weightLoad + crownTicks * increment
+
+        accumulator = accumulator.truncatingRemainder(dividingBy: crownSensitivity)
     }
 }
