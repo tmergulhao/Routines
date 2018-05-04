@@ -129,4 +129,15 @@ class EditExercisesTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool { return false }
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "Color Selector", sender: nil)
+        tableView.deselectRow(at: indexPath, animated: false)
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+
+        if segue.identifier == "Color Selection" {
+        }
+    }
 }

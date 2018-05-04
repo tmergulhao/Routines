@@ -29,11 +29,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         try? CoreDataManager.saveContext()
     }
 
+    func informFileNotLoaded (at url : URL) {
+
+        let alert = UIAlertController(title: "The file could not be loaded", message: "The \(url.lastPathComponent) file could not be loaded.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+
+        self.window?.rootViewController?.present(alert, animated: true)
+    }
+
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
 
-        guard url.pathExtension == "routine" else { return false }
+        guard url.pathExtension == "routine" else {
 
-        // TODO: Inform user it was not able to import routines from file
+            informFileNotLoaded(at: url)
+            return false
+        }
 
         do {
 
@@ -55,6 +65,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         } catch {
 
+            informFileNotLoaded(at: url)
             print(error.localizedDescription)
             return false
         }

@@ -76,8 +76,4 @@ extension UIViewController {
     @IBAction public func unwindToViewController (_ segue : UIStoryboardSegue) {
         dismiss(animated: true, completion: nil)
     }
-
-    @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
-        view.endEditing(true)
-    }
 }

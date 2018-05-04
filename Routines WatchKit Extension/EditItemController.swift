@@ -37,12 +37,16 @@ class EditItemController : WKInterfaceController {
         }
     }
 
+    var item : Item!
+
     override func awake(withContext context: Any?) {
 
         guard let item = context as? Item else {
             dismiss()
             return
         }
+
+        self.item = item
 
         weightLoad = item.weightLoad
     }
@@ -58,10 +62,12 @@ class EditItemController : WKInterfaceController {
 
     @IBAction func updateWeightLoad() {
 
-        // TODO: Create a new update entity to send back to the phone
-        // with references for the item UUID, the current date and
-        // the new value
-        // Conflicts will be mediated by the edit date
+        item.weightLoad = weightLoad
+        item.lastEdited = Date()
+
+        WatchConnectivityManager.updated(item)
+
+        try? CoreDataManager.saveContext()
 
         dismiss()
     }

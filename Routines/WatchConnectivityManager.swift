@@ -10,29 +10,25 @@ import WatchConnectivity
 
 class WatchConnectivityManager : NSObject {
 
+    static let watchSession = WCSession.default
+
     static var shared = WatchConnectivityManager()
 
     class func begin () {
 
         guard WCSession.isSupported() else { return }
 
-        let watchSession = WCSession.default
-
         watchSession.delegate = self.shared
 
         watchSession.activate()
     }
 
-    private func cancelTransfers () {
-
-        let watchSession = WCSession.default
+    private class func cancelTransfers () {
 
         watchSession.outstandingFileTransfers.forEach { $0.cancel() }
     }
 
-    func send (_ data : Data) {
-
-        let watchSession = WCSession.default
+    class func send (_ data : Data) {
 
         guard watchSession.activationState == .activated else {
             WatchConnectivityManager.begin()
@@ -81,7 +77,7 @@ extension WatchConnectivityManager : WCSessionDelegate {
 
             do {
                 let data = try CoreDataManager.serializeRoutines()
-                send(data)
+                WatchConnectivityManager.send(data)
             } catch {
                 print(error.localizedDescription)
             }
@@ -94,10 +90,40 @@ extension WatchConnectivityManager : WCSessionDelegate {
 
             do {
                 let data = try CoreDataManager.serializeRoutines()
-                send(data)
+                WatchConnectivityManager.send(data)
             } catch {
                 print(error.localizedDescription)
             }
+        }
+    }
+
+    func updateItem(with data : Data) throws {
+
+        print("Trying to update element")
+
+        let decoder = JSONDecoder()
+        let itemCodable = try decoder.decode(ItemCodable.self, from: data)
+
+        // TODO: Use predicates to determine UUID
+
+        guard let item : Item = (try CoreDataManager.fetch(with: nil, and: nil)).first(where: { (item : Item) -> Bool in
+            return item.id == itemCodable.id
+        }) else {
+            return
+        }
+
+        if item.lastEdited! < itemCodable.lastEdited! {
+            item.weightLoad = itemCodable.weightLoad
+
+            try CoreDataManager.saveContext(updading: false)
+        }
+    }
+
+    func session(_ session: WCSession, didReceiveUserInfo userInfo: [String : Any] = [:]) {
+
+        if let type = userInfo["type"] as? String, type == "Item updated", let data = userInfo["data"] as? Data {
+
+            try? updateItem(with: data)
         }
     }
 }

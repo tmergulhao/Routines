@@ -39,7 +39,8 @@ extension CoreDataManager {
 
     // TODO: Generalize definition
 
-    class func overrideFrom(serialized data : Data) throws {
+    @discardableResult
+    class func overrideFrom(serialized data : Data) throws -> Array<Routine> {
 
         let decoder = JSONDecoder()
         decoder.dateDecodingStrategy = .iso8601
@@ -50,8 +51,10 @@ extension CoreDataManager {
         let oldValues : Array<Routine> = try fetch()
         oldValues.forEach(shared.context.delete(_:))
 
-        load(routinesCodable)
+        let routines = load(routinesCodable)
 
         try saveContext()
+
+        return routines
     }
 }

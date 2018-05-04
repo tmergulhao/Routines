@@ -77,7 +77,6 @@ class RoutineController: WKInterfaceController {
         guard items.count >= 2 else {
 
             dismiss()
-
             return
         }
 
@@ -139,10 +138,7 @@ class RoutineController: WKInterfaceController {
         notDoneProgressGroup.setRelativeWidth(1.0 - relativeWidth, withAdjustment: 0.0)
     }
 
-    @IBAction func editItem() {
-
-        presentController(withName: "Edit item", context: item)
-    }
+    @IBAction func editItem() { presentController(withName: "Edit item", context: item) }
 
     @IBAction func endRoutine() { dismiss() }
 }

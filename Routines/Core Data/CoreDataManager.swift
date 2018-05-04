@@ -21,7 +21,7 @@ class CoreDataManager {
         return try shared.context.fetch(request)
     }
 
-    lazy var persistentContainer: NSPersistentContainer = {
+    fileprivate lazy var container: NSPersistentContainer = {
 
         let container = NSPersistentContainer(name: "Model")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
@@ -29,22 +29,27 @@ class CoreDataManager {
                 fatalError("Unresolved error \(error), \(error.userInfo)")
             }
         })
+        container.viewContext.name = "Shared context"
+
         return container
     }()
 
-    var context : NSManagedObjectContext { return persistentContainer.viewContext }
+    var context : NSManagedObjectContext { return container.viewContext }
 }
 
 #if os(iOS)
 
 extension CoreDataManager {
-    class func saveContext () throws {
+    class func saveContext (updading shouldUpdateWatch : Bool = false) throws {
 
         if shared.context.hasChanges {
             try shared.context.save()
 
-            let data = try serializeRoutines()
-            WatchConnectivityManager.shared.send(data)
+            if shouldUpdateWatch {
+
+                let data = try serializeRoutines()
+                WatchConnectivityManager.send(data)
+            }
         }
     }
 }
