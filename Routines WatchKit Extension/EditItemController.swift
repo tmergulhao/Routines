@@ -62,6 +62,8 @@ class EditItemController : WKInterfaceController {
 
     @IBAction func updateWeightLoad() {
 
+        // TODO: Update parent interface
+
         item.weightLoad = weightLoad
         item.lastEdited = Date()
 
@@ -77,16 +79,16 @@ class EditItemController : WKInterfaceController {
 
 extension EditItemController : WKCrownDelegate {
 
-    var crownSensitivity : Double { return 0.3 }
+    var crownResistence : Double { return 0.1 }
 
     func crownDidRotate(_ crownSequencer: WKCrownSequencer?, rotationalDelta: Double) {
 
         accumulator += rotationalDelta
 
-        let crownTicks = (accumulator/crownSensitivity).rounded(.towardZero)
+        let crownTicks = (accumulator/crownResistence).rounded(.towardZero)
 
         weightLoad = weightLoad + crownTicks * increment
 
-        accumulator = accumulator.truncatingRemainder(dividingBy: crownSensitivity)
+        accumulator = accumulator.truncatingRemainder(dividingBy: crownResistence)
     }
 }

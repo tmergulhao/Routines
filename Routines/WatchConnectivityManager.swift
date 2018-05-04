@@ -99,8 +99,6 @@ extension WatchConnectivityManager : WCSessionDelegate {
 
     func updateItem(with data : Data) throws {
 
-        print("Trying to update element")
-
         let decoder = JSONDecoder()
         let itemCodable = try decoder.decode(ItemCodable.self, from: data)
 
