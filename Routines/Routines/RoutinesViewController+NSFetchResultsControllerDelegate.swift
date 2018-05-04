@@ -42,10 +42,7 @@ extension RoutinesViewController : NSFetchedResultsControllerDelegate {
         case .delete:
             tableView.deleteRows(at: [indexPath].compactMap{$0}, with: .top)
         case .update:
-            guard let cell = tableView.cellForRow(at: indexPath!) as? RoutineTableViewCell else { return }
-            let routine : Routine = fetchedResultsController.object(at: indexPath!)
-
-            cell.configure(with: routine)
+            tableView.reloadRows(at: [indexPath].compactMap{$0}, with: .automatic)
         case .move:
             tableView.deleteRows(at: [indexPath].compactMap{$0}, with: .top)
             tableView.insertRows(at: [newIndexPath].compactMap{$0}, with: .top)
