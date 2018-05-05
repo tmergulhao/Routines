@@ -21,8 +21,29 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Archived header" rowHeight="71" id="pKR-tS-Zju">
+                                <rect key="frame" x="0.0" y="28" width="320" height="71"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pKR-tS-Zju" id="YOC-Pv-Zvo">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="71"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Archived" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F44-KW-ctl">
+                                            <rect key="frame" x="16" y="39" width="109" height="21"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
+                                            <color key="textColor" name="red"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="F44-KW-ctl" firstAttribute="leading" secondItem="YOC-Pv-Zvo" secondAttribute="leadingMargin" id="O0s-b5-T9v"/>
+                                        <constraint firstItem="F44-KW-ctl" firstAttribute="bottom" secondItem="YOC-Pv-Zvo" secondAttribute="bottomMargin" id="aQh-kO-yoR"/>
+                                        <constraint firstItem="F44-KW-ctl" firstAttribute="top" secondItem="YOC-Pv-Zvo" secondAttribute="topMargin" constant="28" id="fxg-Tr-Z4w"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                            </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Routine" rowHeight="101" id="siK-yA-ZkK" customClass="RoutineTableViewCell" customModule="Routines" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="320" height="101"/>
+                                <rect key="frame" x="0.0" y="99" width="320" height="101"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="siK-yA-ZkK" id="pt2-oO-IpW">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="101"/>
@@ -195,7 +216,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SyV-cD-qMj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2398" y="-707"/>
+            <point key="canvasLocation" x="2397.65625" y="-707.2265625"/>
         </scene>
         <!--New Routine-->
         <scene sceneID="QXE-aK-Q21">
@@ -1092,6 +1113,9 @@
         </namedColor>
         <namedColor name="orange">
             <color red="1" green="0.57800000910000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="red">
+            <color red="1" green="0.14900000393390656" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="red">
             <color red="1" green="0.14900000393390656" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

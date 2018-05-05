@@ -211,6 +211,20 @@ class RoutinesViewController : UITableViewController {
         tableView.deselectRow(at: indexPath, animated: false)
     }
 
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+
+        if section != 1 { return nil }
+
+        return tableView.dequeueReusableCell(withIdentifier: "Archived header")?.contentView
+    }
+
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+
+        if section != 1 { return 0 }
+
+        return 71
+    }
+
     // MARK: - Empty State View Controller
 
     var emptyStateViewController : UIViewController?
