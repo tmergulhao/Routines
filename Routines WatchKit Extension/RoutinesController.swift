@@ -25,7 +25,10 @@ class RoutinesController : WKInterfaceController {
 
         WatchConnectivityManager.shared.delegate = self
 
-        updateDateLabel(for: lastUpdated.value)
+        updateDateLabel(
+            for: lastUpdated.value,
+            numberOfUpdates: WatchConnectivityManager.watchSession.outstandingUserInfoTransfers.count
+        )
 
         try? resultsController.performFetch()
 
@@ -47,27 +50,73 @@ extension RoutinesController : WatchConnectivityManagerDelegate {
 
     func watchConnectivity(_ manager: WatchConnectivityManager, didUpdate routines: Array<Routine>, at date: Date) {
 
-        updateDateLabel(for: date)
+        updateDateLabel(for: date, numberOfUpdates: nil)
     }
 
-    func updateDateLabel(for date : Date?) {
+    func updateDateLabel(for date : Date?, numberOfUpdates : Int?) {
 
-        guard let date = date else {
-            lastUpdatedLabel.setText("Never")
-            return
+        let updateLabel : String!
+
+        if let date = date {
+
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateStyle = .medium
+            dateFormatter.timeStyle = .short
+            dateFormatter.locale = Locale(identifier: "en_US")
+
+            updateLabel = dateFormatter.string(from: date)
+
+        } else {
+
+            updateLabel = "Never updated"
         }
 
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .medium
-        dateFormatter.timeStyle = .short
-        dateFormatter.locale = Locale(identifier: "en_US")
+        lastUpdatedLabel.setText(updateLabel)
 
-        let formattedDateString = dateFormatter.string(from: date)
+        if let numberOfUpdates = numberOfUpdates {
 
-        lastUpdatedLabel.setText(formattedDateString)
+            scheduleUpdatesInformation(for: numberOfUpdates, returningTo: updateLabel)
+        }
+
+
 
 //      let dateComponents = Calendar.current.dateComponents([.day], from: lastUpdated.value ?? Date(), to: Date())
 //      let format = NSLocalizedString("Updated", comment: "")
 //      lastUpdatedLabel.setText(String.localizedStringWithFormat(format, dateComponents.day!))
+    }
+
+    func scheduleUpdatesInformation(for numberOfUpdates : Int, returningTo updateLabel : String) {
+
+        Timer.scheduledTimer(withTimeInterval: 5, repeats: false) { [weak self] (timer) in timer.invalidate()
+
+            guard self != nil else { return }
+
+            self!.animate(withDuration: 1) { self!.lastUpdatedLabel.setAlpha(0) }
+        }
+
+        Timer.scheduledTimer(withTimeInterval: 6, repeats: false) { [weak self] (timer) in timer.invalidate()
+
+            guard self != nil else { return }
+
+            self!.lastUpdatedLabel.setText("\(numberOfUpdates) queued updates")
+
+            self!.animate(withDuration: 1) { self!.lastUpdatedLabel.setAlpha(1) }
+        }
+
+        Timer.scheduledTimer(withTimeInterval: 7, repeats: false) { [weak self] (timer) in timer.invalidate()
+
+            guard self != nil else { return }
+
+            self!.animate(withDuration: 1) { self!.lastUpdatedLabel.setAlpha(0) }
+        }
+
+        Timer.scheduledTimer(withTimeInterval: 8, repeats: false) { [weak self] (timer) in timer.invalidate()
+
+            guard self != nil else { return }
+
+            self!.lastUpdatedLabel.setText(updateLabel)
+
+            self!.animate(withDuration: 1) { self!.lastUpdatedLabel.setAlpha(1) }
+        }
     }
 }

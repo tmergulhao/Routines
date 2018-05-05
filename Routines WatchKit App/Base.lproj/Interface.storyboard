@@ -88,27 +88,32 @@
                                             <label alignment="left" text="Remada máquina (F)" numberOfLines="0" id="bRu-pb-jRD">
                                                 <fontDescription key="font" type="system" pointSize="19"/>
                                             </label>
-                                            <group width="1" height="20" alignment="left" verticalAlignment="bottom" id="X26-6J-NsE">
+                                            <group width="1" height="20" alignment="left" verticalAlignment="bottom" id="o8B-DG-6dp">
                                                 <items>
-                                                    <group alignment="left" spacing="6" id="9Ed-mK-eCQ">
+                                                    <group width="0.5" alignment="left" spacing="4" id="fj4-FN-h0q">
                                                         <items>
-                                                            <imageView height="20" alignment="left" image="Repetition" id="miE-2O-nUn">
+                                                            <imageView width="16" height="16" alignment="left" verticalAlignment="center" image="Repetition" id="2ul-Yj-dBC">
                                                                 <color key="tintColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             </imageView>
-                                                            <label alignment="left" text="12/3" id="f9v-vq-Hjj">
+                                                            <label alignment="left" verticalAlignment="center" text="12/3" id="IBD-wW-Kfc">
                                                                 <color key="textColor" name="red"/>
                                                                 <fontDescription key="font" type="boldSystem" pointSize="16"/>
                                                             </label>
-                                                            <imageView height="20" alignment="left" image="Weight" id="8uN-Kc-ik3">
+                                                        </items>
+                                                    </group>
+                                                    <group width="0.5" alignment="left" spacing="4" id="Rhe-DK-afo">
+                                                        <items>
+                                                            <imageView width="16" height="16" alignment="left" verticalAlignment="center" image="Weight" id="OEq-oi-QW2">
                                                                 <color key="tintColor" name="teal"/>
                                                             </imageView>
-                                                            <label alignment="left" text="26" id="auu-Ib-gfl">
+                                                            <label alignment="left" verticalAlignment="center" text="26" id="7KL-sD-M4V">
                                                                 <color key="textColor" name="teal"/>
                                                                 <fontDescription key="font" type="boldSystem" pointSize="16"/>
                                                             </label>
                                                         </items>
                                                     </group>
                                                 </items>
+                                                <edgeInsets key="margins" left="6" right="6" top="0.0" bottom="0.0"/>
                                             </group>
                                         </items>
                                         <edgeInsets key="margins" left="6" right="6" top="6" bottom="6"/>
@@ -116,10 +121,10 @@
                                     <connections>
                                         <outlet property="identifierLabel" destination="PLo-nb-NMC" id="1SW-Mj-bAM"/>
                                         <outlet property="nameLabel" destination="bRu-pb-jRD" id="BAK-TQ-j0s"/>
-                                        <outlet property="repetitionLabel" destination="f9v-vq-Hjj" id="QhM-fS-s6l"/>
+                                        <outlet property="repetitionLabel" destination="IBD-wW-Kfc" id="XXQ-UZ-c3G"/>
                                         <outlet property="routineIndexCount" destination="PcK-1c-xYV" id="kMZ-3X-D12"/>
-                                        <outlet property="weightIconImage" destination="8uN-Kc-ik3" id="Nnt-7y-cmw"/>
-                                        <outlet property="weightLoadLabel" destination="auu-Ib-gfl" id="BTV-ui-cao"/>
+                                        <outlet property="weightIconImage" destination="OEq-oi-QW2" id="Z8x-K5-Efj"/>
+                                        <outlet property="weightLoadLabel" destination="7KL-sD-M4V" id="MXl-6C-cYf"/>
                                     </connections>
                                 </tableRow>
                             </items>
@@ -139,50 +144,49 @@
                     <items>
                         <group width="1" height="1" alignment="left" layout="vertical" id="frU-Z0-9zs">
                             <items>
-                                <group width="1" alignment="left" spacing="2" id="UYN-oa-psa">
+                                <group width="1" height="66" alignment="left" spacing="4" id="UYN-oa-psa">
                                     <items>
-                                        <label height="39" alignment="left" text="30" id="RYP-vd-UYw">
+                                        <label alignment="left" text="30" id="RYP-vd-UYw">
                                             <color key="textColor" name="red"/>
-                                            <fontDescription key="font" type="boldSystem" pointSize="40"/>
+                                            <fontDescription key="font" type="boldSystem" pointSize="52"/>
                                         </label>
+                                        <group height="1" heightAdjustment="-13" alignment="right" layout="vertical" id="209-3d-WOm">
+                                            <items>
+                                                <group height="0.5" alignment="left" spacing="4" id="h2R-fU-1bO">
+                                                    <items>
+                                                        <imageView width="16" height="16" alignment="left" verticalAlignment="center" image="Repetition" id="Lej-hg-V4J">
+                                                            <color key="tintColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </imageView>
+                                                        <label alignment="left" verticalAlignment="center" text="12/3" id="2qO-sI-OCU">
+                                                            <color key="textColor" name="red"/>
+                                                            <fontDescription key="font" type="boldSystem" pointSize="16"/>
+                                                        </label>
+                                                    </items>
+                                                </group>
+                                                <group height="0.5" alignment="left" spacing="4" id="0Og-qV-Omr">
+                                                    <items>
+                                                        <imageView width="16" height="16" alignment="left" verticalAlignment="center" image="Weight" id="bXd-Ho-yJE">
+                                                            <color key="tintColor" name="teal"/>
+                                                        </imageView>
+                                                        <label alignment="left" verticalAlignment="center" text="26,5" id="dHk-wu-fea">
+                                                            <color key="textColor" name="teal"/>
+                                                            <fontDescription key="font" type="boldSystem" pointSize="16"/>
+                                                        </label>
+                                                    </items>
+                                                </group>
+                                            </items>
+                                            <edgeInsets key="margins" left="0.0" right="0.0" top="10" bottom="0.0"/>
+                                        </group>
                                     </items>
-                                    <color key="backgroundColor" white="0.091145833333333329" alpha="1" colorSpace="calibratedWhite"/>
-                                    <edgeInsets key="margins" left="6" right="6" top="0.0" bottom="0.0"/>
+                                    <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="0.0"/>
                                 </group>
                                 <group width="1" alignment="left" id="RND-Mb-3p8">
                                     <items>
-                                        <label alignment="left" text="Remada máquina (F)" numberOfLines="0" id="N3F-dH-XJ6">
+                                        <label alignment="left" text="Remada máquina (Fechada)" numberOfLines="0" minimumScaleFactor="0.5" id="N3F-dH-XJ6">
                                             <fontDescription key="font" type="system" pointSize="19"/>
                                         </label>
                                     </items>
-                                    <edgeInsets key="margins" left="6" right="6" top="0.0" bottom="0.0"/>
-                                </group>
-                                <group width="1" height="20" alignment="left" verticalAlignment="bottom" id="209-3d-WOm">
-                                    <items>
-                                        <group width="0.5" alignment="left" id="h2R-fU-1bO">
-                                            <items>
-                                                <imageView height="20" alignment="left" image="Repetition" id="Lej-hg-V4J">
-                                                    <color key="tintColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                </imageView>
-                                                <label alignment="left" text="12/3" id="2qO-sI-OCU">
-                                                    <color key="textColor" name="red"/>
-                                                    <fontDescription key="font" type="boldSystem" pointSize="16"/>
-                                                </label>
-                                            </items>
-                                        </group>
-                                        <group width="0.5" alignment="left" id="0Og-qV-Omr">
-                                            <items>
-                                                <imageView height="20" alignment="left" image="Weight" id="bXd-Ho-yJE">
-                                                    <color key="tintColor" name="teal"/>
-                                                </imageView>
-                                                <label alignment="left" text="26" id="dHk-wu-fea">
-                                                    <color key="textColor" name="teal"/>
-                                                    <fontDescription key="font" type="boldSystem" pointSize="16"/>
-                                                </label>
-                                            </items>
-                                        </group>
-                                    </items>
-                                    <edgeInsets key="margins" left="6" right="6" top="0.0" bottom="0.0"/>
+                                    <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="0.0"/>
                                 </group>
                                 <group width="1" alignment="left" verticalAlignment="bottom" layout="vertical" spacing="0.0" id="Yui-xk-BZa">
                                     <items>
@@ -295,6 +299,12 @@
     <resources>
         <namedColor name="red">
             <color red="1" green="0.14900000393390656" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="red">
+            <color red="1" green="0.14900000390000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="teal">
+            <color red="0.0" green="0.98100000620000005" blue="0.875" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="teal">
             <color red="0.0" green="0.98100000619888306" blue="0.875" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

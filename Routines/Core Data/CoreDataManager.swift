@@ -40,7 +40,7 @@ class CoreDataManager {
 #if os(iOS)
 
 extension CoreDataManager {
-    class func saveContext (updading shouldUpdateWatch : Bool = false) throws {
+    class func saveContext (updading shouldUpdateWatch : Bool = true) throws {
 
         if shared.context.hasChanges {
             try shared.context.save()

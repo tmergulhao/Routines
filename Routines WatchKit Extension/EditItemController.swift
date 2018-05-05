@@ -28,7 +28,8 @@ class EditItemController : WKInterfaceController {
             }
 
             if weightLoad > 0 {
-                weightLabel.setText(String(format: "%.2f", weightLoad!))
+                let text = NSAttributedString(string: String(format: "%.2f", weightLoad!), attributes: [.font : monospacedFont])
+                weightLabel.setAttributedText(text)
                 weightLabel.setTextColor(.white)
             } else {
                 weightLabel.setText("n/a")
@@ -38,6 +39,8 @@ class EditItemController : WKInterfaceController {
     }
 
     var item : Item!
+
+    let monospacedFont = UIFont.monospacedDigitSystemFont(ofSize: 36.0, weight: .regular)
 
     override func awake(withContext context: Any?) {
 
