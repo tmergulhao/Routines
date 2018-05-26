@@ -27,7 +27,7 @@ fileprivate var colors = ["blue", "green", "orange", "red", "teal"]
 extension Routine : Encodable {
 
     enum CodingKeys : String, CodingKey {
-        case archival, archived, createdAt, id, lastEdited, name, summary, items
+        case archival, archived, createdAt, id, lastEdited, name, summary, items, records, latestRecord
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -40,10 +40,13 @@ extension Routine : Encodable {
         try container.encode(lastEdited, forKey: .lastEdited)
         try container.encode(name, forKey: .name)
         try container.encode(summary, forKey: .summary)
+        try container.encode(latestRecord, forKey: .latestRecord)
 
-        let items : Array<Item> = Array(self.items!) as! Array<Item>
-
+        let items = Array(self.items!) as! Array<Item>
         try container.encode(items, forKey: .items)
+
+        let records = Array(self.records!) as! Array<Record>
+        try container.encode(records, forKey: .records)
     }
 }
 
@@ -73,6 +76,18 @@ extension Item : Encodable {
     }
 }
 
+extension Record : Encodable {
+
+    enum CodingKeys : String, CodingKey {
+        case date
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(date, forKey: .date)
+    }
+}
+
 extension CoreDataManager {
 
     // TODO: Generalize definition
@@ -90,6 +105,8 @@ extension CoreDataManager {
 
         let notArchived = NSPredicate(format: "archived == false")
         let routines : Array<Routine> = try fetch(with: nil, and: notArchived)
+
+        print(routines.count)
 
         let encoder = JSONEncoder()
         encoder.dateEncodingStrategy = .iso8601

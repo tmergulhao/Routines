@@ -11,7 +11,6 @@ import WatchKit
 class ExerciseRowController: NSObject {
     @IBOutlet weak var identifierLabel : WKInterfaceLabel!
     @IBOutlet weak var nameLabel: WKInterfaceLabel!
-    @IBOutlet weak var routineIndexCount: WKInterfaceLabel!
 
     @IBOutlet weak var repetitionLabel: WKInterfaceLabel!
     @IBOutlet weak var weightLoadLabel: WKInterfaceLabel!

@@ -1,5 +1,5 @@
 //
-//  InterfaceController.swift
+//  WorkoutController.swift
 //  Routines WatchKit Extension
 //
 //  Created by Tiago Mergulhão on 31/03/18.
@@ -8,7 +8,7 @@
 
 import WatchKit
 
-class RoutineController: WKInterfaceController {
+class WorkoutController : WKInterfaceController {
 
     var routine : Routine!
 
@@ -76,7 +76,10 @@ class RoutineController: WKInterfaceController {
 
         guard items.count >= 2 else {
 
+            WatchConnectivityManager.record(self.routine)
+
             dismiss()
+
             return
         }
 
@@ -138,7 +141,19 @@ class RoutineController: WKInterfaceController {
         notDoneProgressGroup.setRelativeWidth(1.0 - relativeWidth, withAdjustment: 0.0)
     }
 
-    @IBAction func editItem() { presentController(withName: "Edit item", context: item) }
+    var observation : NSKeyValueObservation?
+
+    @IBAction func editItem() {
+
+        guard let item = item else { return }
+
+        observation = item.observe(\.weightLoad, options: .new) {
+            (item, change) in
+            self.style(for: item)
+        }
+
+        presentController(withName: "Edit item", context: item)
+    }
 
     @IBAction func endRoutine() { dismiss() }
 }

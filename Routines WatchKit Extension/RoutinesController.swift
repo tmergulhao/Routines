@@ -77,12 +77,6 @@ extension RoutinesController : WatchConnectivityManagerDelegate {
 
             scheduleUpdatesInformation(for: numberOfUpdates, returningTo: updateLabel)
         }
-
-
-
-//      let dateComponents = Calendar.current.dateComponents([.day], from: lastUpdated.value ?? Date(), to: Date())
-//      let format = NSLocalizedString("Updated", comment: "")
-//      lastUpdatedLabel.setText(String.localizedStringWithFormat(format, dateComponents.day!))
     }
 
     func scheduleUpdatesInformation(for numberOfUpdates : Int, returningTo updateLabel : String) {

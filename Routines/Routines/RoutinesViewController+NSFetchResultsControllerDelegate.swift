@@ -15,7 +15,8 @@ extension RoutinesViewController : NSFetchedResultsControllerDelegate {
         let request : NSFetchRequest = Routine.fetchRequest()
 
         request.sortDescriptors = [
-            NSSortDescriptor(key: "name", ascending: true)
+            NSSortDescriptor(key: "archived", ascending: true),
+            NSSortDescriptor(key: "name", ascending: true),
         ]
 
         let controller = NSFetchedResultsController(

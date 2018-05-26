@@ -18,8 +18,10 @@ struct RoutineCodable : Codable {
     var name : String
     var summary : String
     var lastEdited : Date
+    var latestRecord : Date?
 
     var items : Array<ItemCodable>?
+    var records : Array<RecordCodable>?
 }
 
 struct ItemCodable : Codable {
@@ -33,6 +35,11 @@ struct ItemCodable : Codable {
     var numberOfSeries : Int
     var repetitions : Int
     var weightLoad : Double
+}
+
+struct RecordCodable : Codable {
+
+    var date : Date
 }
 
 extension CoreDataManager {

@@ -15,7 +15,8 @@ extension RoutinesController : NSFetchedResultsControllerDelegate {
         let request : NSFetchRequest = Routine.fetchRequest()
 
         request.sortDescriptors = [
-            NSSortDescriptor(key: "name", ascending: true)
+            NSSortDescriptor(key: "latestRecord", ascending: true),
+            NSSortDescriptor(key: "name", ascending: true),
         ]
 
         let controller = NSFetchedResultsController(
@@ -46,6 +47,7 @@ extension RoutinesController : NSFetchedResultsControllerDelegate {
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
 
         // TODO: Better the update sequence
+        updateTableContent(with: controller as! NSFetchedResultsController<Routine>)
         return
 
         switch type {

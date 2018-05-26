@@ -2,6 +2,30 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>Last record</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@days_ago@</string>
+		<key>days_ago</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>d</string>
+			<key>zero</key>
+			<string>Just now</string>
+			<key>one</key>
+			<string>Yesterday</string>
+			<key>two</key>
+			<string>%d days ago</string>
+			<key>few</key>
+			<string>%d days ago</string>
+			<key>many</key>
+			<string>A long time ago</string>
+			<key>other</key>
+			<string>%d days ago</string>
+		</dict>
+	</dict>
 	<key>Updated</key>
 	<dict>
 		<key>NSStringLocalizedFormatKey</key>

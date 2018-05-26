@@ -82,9 +82,7 @@ class RoutinesViewController : UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
-        guard let info = fetchedResultsController.sections?[section] else { return 0 }
-
-        return info.numberOfObjects
+        return fetchedResultsController.sections?[section].numberOfObjects ?? 0
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

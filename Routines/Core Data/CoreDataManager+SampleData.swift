@@ -17,9 +17,7 @@ extension CoreDataManager {
 
         routine.configure(with: codable)
 
-        guard let items = codable.items else { return routine }
-
-        items.forEach {
+        codable.items?.forEach {
 
             (codable) in
 
@@ -29,6 +27,19 @@ extension CoreDataManager {
 
             routine.addToItems(item)
         }
+
+        codable.records?.forEach {
+
+            (codable) in
+
+            let record : Record = NSEntityDescription.object(into: shared.context)
+
+            record.date = codable.date
+
+            routine.addToRecords(record)
+        }
+
+        routine.latestRecord = codable.records?.first?.date
 
         return routine
     }

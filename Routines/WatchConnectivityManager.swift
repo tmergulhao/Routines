@@ -7,6 +7,7 @@
 //
 
 import WatchConnectivity
+import CoreData
 
 class WatchConnectivityManager : NSObject {
 
@@ -100,28 +101,65 @@ extension WatchConnectivityManager : WCSessionDelegate {
     func updateItem(with data : Data) throws {
 
         let decoder = JSONDecoder()
-        let itemCodable = try decoder.decode(ItemCodable.self, from: data)
+        let codable = try decoder.decode(ItemCodable.self, from: data)
 
         // TODO: Use predicates to determine UUID
 
         guard let item : Item = (try CoreDataManager.fetch(with: nil, and: nil)).first(where: { (item : Item) -> Bool in
-            return item.id == itemCodable.id
-        }) else {
-            return
-        }
+            return item.id == codable.id
+        }) else { return }
 
-        if item.lastEdited! < itemCodable.lastEdited! {
-            item.weightLoad = itemCodable.weightLoad
+        if item.lastEdited! < codable.lastEdited! {
+            item.weightLoad = codable.weightLoad
 
             try CoreDataManager.saveContext(updading: false)
         }
     }
 
+    func makeRecordForRoutine(with data : Data, on date : Date) throws {
+
+        let decoder = JSONDecoder()
+        let codable = try decoder.decode(RoutineCodable.self, from: data)
+
+        print("I tried to make record at \(date)")
+
+        // TODO: Use predicates to determine UUID
+
+        guard let routine : Routine = (try CoreDataManager.fetch(with: nil, and: nil)).first(where: { (routine : Routine) -> Bool in
+            return routine.id == codable.id
+        }) else { return }
+
+        if let latest = routine.latestRecord, Calendar.current.isDate(latest, equalTo: date, toGranularity: .day) {
+            print("Record already set")
+            return
+        }
+
+        let record : Record = NSEntityDescription
+            .object(into: CoreDataManager.shared.context)
+
+        record.date = date
+
+        routine.latestRecord = date
+        routine.insertIntoRecords(record, at: 0)
+
+        try CoreDataManager.saveContext(updading: false)
+    }
+
     func session(_ session: WCSession, didReceiveUserInfo userInfo: [String : Any] = [:]) {
 
-        if let type = userInfo["type"] as? String, type == "Item updated", let data = userInfo["data"] as? Data {
+        if let type = userInfo["type"] as? String,
+            type == "Item updated",
+            let data = userInfo["data"] as? Data {
 
             try? updateItem(with: data)
+        }
+
+        if let type = userInfo["type"] as? String,
+            type == "Routine record",
+            let data = userInfo["data"] as? Data,
+            let date = userInfo["date"] as? Date {
+
+            try? makeRecordForRoutine(with: data, on: date)
         }
     }
 }

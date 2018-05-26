@@ -21,13 +21,7 @@ class RoutineTableViewCell: UITableViewCell {
         titleLabel.text = routine.name
         summaryLabel.text = routine.summary
 
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .medium
-        dateFormatter.timeStyle = .none
-
-        dateFormatter.locale = Locale(identifier: "en_US")
-
-        dateLabel.text = dateFormatter.string(from: routine.createdAt!)
+        configureDateLabel(for: routine.createdAt!)
 
         if let items = routine.items {
 
@@ -49,6 +43,17 @@ class RoutineTableViewCell: UITableViewCell {
         }
     }
 
+    func configureDateLabel(for date : Date) {
+
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .none
+
+        dateFormatter.locale = Locale(identifier: "en_US")
+
+        dateLabel.text = "Created at " + dateFormatter.string(from: date)
+    }
+
     func configureItemStack(for items : NSOrderedSet) {
 
         let difference = items.count - itemsStack.subviews.count
@@ -59,8 +64,9 @@ class RoutineTableViewCell: UITableViewCell {
 
                 let view = UIView()
                 view.layer.cornerRadius = 8.0
+                view.translatesAutoresizingMaskIntoConstraints = false
                 let constraints = [view.heightAnchor.constraint(equalToConstant: 16.0),
-                                   view.heightAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.0)]
+                                   view.widthAnchor.constraint(equalTo: view.heightAnchor, multiplier: 1.0)]
 
                 itemsStack.addSubview(view)
                 NSLayoutConstraint.activate(constraints)

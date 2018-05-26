@@ -7,6 +7,7 @@
 //
 
 import WatchConnectivity
+import CoreData
 
 class WatchConnectivityManager : NSObject {
 
@@ -23,6 +24,30 @@ class WatchConnectivityManager : NSObject {
         watchSession.delegate = self.shared
 
         watchSession.activate()
+    }
+
+    class func record(_ routine : Routine) {
+
+        let encoder = JSONEncoder()
+        let date = Date()
+
+        guard let encoded = try? encoder.encode(routine) else { return }
+
+        let record : Record = NSEntityDescription
+            .object(into: CoreDataManager.shared.context)
+
+        record.date = date
+
+        routine.latestRecord = date
+        routine.insertIntoRecords(record, at: 0)
+
+        try? CoreDataManager.saveContext()
+
+        watchSession.transferUserInfo([
+            "type": "Routine record",
+            "data": encoded,
+            "date": date
+        ])
     }
 
     class func updated(_ item : Item) {

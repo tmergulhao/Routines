@@ -11,18 +11,25 @@
         <attribute name="weightLoad" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="routine" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Routine" inverseName="items" inverseEntity="Routine" syncable="YES"/>
     </entity>
+    <entity name="Record" representedClassName="Record" syncable="YES" codeGenerationType="class">
+        <attribute name="date" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <relationship name="routine" maxCount="1" deletionRule="Nullify" destinationEntity="Routine" inverseName="records" inverseEntity="Routine" syncable="YES"/>
+    </entity>
     <entity name="Routine" representedClassName="Routine" syncable="YES" codeGenerationType="class">
         <attribute name="archival" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="archived" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="createdAt" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="id" attributeType="UUID" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="lastEdited" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="latestRecord" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="name" attributeType="String" minValueString="1" maxValueString="40" defaultValueString=" " syncable="YES"/>
         <attribute name="summary" attributeType="String" syncable="YES"/>
         <relationship name="items" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="Item" inverseName="routine" inverseEntity="Item" syncable="YES"/>
+        <relationship name="records" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="Record" inverseName="routine" inverseEntity="Record" syncable="YES"/>
     </entity>
     <elements>
         <element name="Item" positionX="-54" positionY="9" width="128" height="180"/>
-        <element name="Routine" positionX="-63" positionY="-18" width="128" height="165"/>
+        <element name="Record" positionX="-63" positionY="72" width="128" height="75"/>
+        <element name="Routine" positionX="-63" positionY="-18" width="128" height="195"/>
     </elements>
 </model>
