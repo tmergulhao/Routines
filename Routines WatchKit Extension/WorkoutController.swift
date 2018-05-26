@@ -98,7 +98,7 @@ class WorkoutController : WKInterfaceController {
     @IBOutlet var nameLabel: WKInterfaceLabel!
     @IBOutlet var repetitionsLabel: WKInterfaceLabel!
     @IBOutlet var weightLabel: WKInterfaceLabel!
-    @IBOutlet var weightImage: WKInterfaceImage!
+    @IBOutlet var weightDescriptiveLabel: WKInterfaceLabel!
 
     func style(for item : Item) {
 
@@ -114,11 +114,11 @@ class WorkoutController : WKInterfaceController {
         repetitionsLabel.setText("\(item.repetitions)/\(item.numberOfSeries)")
 
         if item.weightLoad != 0.0 {
-            weightImage.setTintColor(UIColor(named: "teal"))
-            weightLabel.setTextColor(UIColor(named: "teal"))
+            weightDescriptiveLabel.setTextColor(.teal)
+            weightLabel.setTextColor(.teal)
             weightLabel.setText("\(item.weightLoad)")
         } else {
-            weightImage.setTintColor(.darkGray)
+            weightDescriptiveLabel.setTextColor(.darkGray)
             weightLabel.setTextColor(.darkGray)
             weightLabel.setText("n/a")
         }
@@ -154,6 +154,4 @@ class WorkoutController : WKInterfaceController {
 
         presentController(withName: "Edit item", context: item)
     }
-
-    @IBAction func endRoutine() { dismiss() }
 }

@@ -57,7 +57,7 @@ class ExercisesTableViewController: UITableViewController {
         super.viewWillAppear(animated)
 
         navigationController?.navigationBar.largeTitleTextAttributes = [
-            NSAttributedStringKey.foregroundColor : UIColor(named: "red")!
+            NSAttributedStringKey.foregroundColor : UIColor.red
         ]
 
         tableView.reloadData()
@@ -133,7 +133,7 @@ class ExercisesTableViewController: UITableViewController {
             self.performSegue(withIdentifier: "Edit Item", sender: item)
         })
 
-        edit.backgroundColor = UIColor(named: "blue")
+        edit.backgroundColor = .blue
         
         return [edit, delete]
     }

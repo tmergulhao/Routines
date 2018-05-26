@@ -63,21 +63,26 @@ class RoutinesViewController : UITableViewController {
         super.viewWillAppear(animated)
 
         navigationController?.navigationBar.largeTitleTextAttributes = [
-            NSAttributedStringKey.foregroundColor : UIColor(named: "red")!
+            NSAttributedStringKey.foregroundColor : UIColor.red
         ]
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
 
-        guard let sections = fetchedResultsController.sections, sections.count != 0 else {
+        let sections = fetchedResultsController.sections
+
+        let isEmptyState = !(sections != nil && sections!.count > 0)
+
+        navigationController?.navigationBar.topItem?.rightBarButtonItem?.isEnabled = !isEmptyState
+
+        guard !isEmptyState else {
 
             setEmptyState(identifier: "Empty State", intoContainer: tableView)
             return 0
         }
 
         removeEmptyState()
-
-        return sections.count
+        return sections!.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -135,7 +140,7 @@ class RoutinesViewController : UITableViewController {
                 self.performSegue(withIdentifier: "Edit Routine", sender: routine)
             })
 
-            edit.backgroundColor = UIColor(named: "blue")
+            edit.backgroundColor = .blue
 
             return [edit, archive]
         case .archived:

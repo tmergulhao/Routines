@@ -34,6 +34,11 @@ extension RoutinesController : NSFetchedResultsControllerDelegate {
 
         let count = controller.fetchedObjects?.count ?? 0
 
+        let isEmptyState = count == 0
+
+        emptyState.setHidden(!isEmptyState)
+        populatedState.setHidden(isEmptyState)
+
         table.setNumberOfRows(count, withRowType: "Routine")
 
         for rowIndex in 0..<count {

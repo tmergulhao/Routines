@@ -106,8 +106,6 @@ extension CoreDataManager {
         let notArchived = NSPredicate(format: "archived == false")
         let routines : Array<Routine> = try fetch(with: nil, and: notArchived)
 
-        print(routines.count)
-
         let encoder = JSONEncoder()
         encoder.dateEncodingStrategy = .iso8601
         encoder.keyEncodingStrategy = .convertToSnakeCase

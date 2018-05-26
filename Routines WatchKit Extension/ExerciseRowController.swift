@@ -14,7 +14,7 @@ class ExerciseRowController: NSObject {
 
     @IBOutlet weak var repetitionLabel: WKInterfaceLabel!
     @IBOutlet weak var weightLoadLabel: WKInterfaceLabel!
-    @IBOutlet weak var weightIconImage: WKInterfaceImage!
+    @IBOutlet weak var weightLoadDescriptiveLabel: WKInterfaceLabel!
     
     func configure(item : Item) {
 
@@ -31,9 +31,10 @@ class ExerciseRowController: NSObject {
 
         if item.weightLoad != 0.0 {
             weightLoadLabel.setText("\(item.weightLoad)")
-            weightLoadLabel.setTextColor(UIColor(named: "teal"))
+            weightLoadDescriptiveLabel.setTextColor(.teal)
+            weightLoadLabel.setTextColor(.teal)
         } else {
-            weightIconImage.setTintColor(.darkGray)
+            weightLoadDescriptiveLabel.setTextColor(.darkGray)
             weightLoadLabel.setTextColor(.darkGray)
             weightLoadLabel.setText("n/a")
         }

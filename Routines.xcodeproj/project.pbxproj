@@ -34,6 +34,8 @@
 		795B2A6820977B9900529800 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 795B2A65209779DF00529800 /* Localizable.stringsdict */; };
 		7976E5D5208D3914004680DA /* WatchConnectivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7976E5D4208D3914004680DA /* WatchConnectivityManager.swift */; };
 		7991D9A82089F96D0023EAD7 /* WorkoutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7991D9A72089F96D0023EAD7 /* WorkoutController.swift */; };
+		799BB07220B9D80D00811B78 /* UIColor+Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799BB07120B9D80D00811B78 /* UIColor+Colors.swift */; };
+		799BB07320B9D80D00811B78 /* UIColor+Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799BB07120B9D80D00811B78 /* UIColor+Colors.swift */; };
 		799C30C8207811CD0080A76B /* SampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799C30C7207811CD0080A76B /* SampleData.swift */; };
 		799C30CB207814B80080A76B /* CoreDataManager+SampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799C30CA207814B80080A76B /* CoreDataManager+SampleData.swift */; };
 		799C30CD2078177E0080A76B /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799C30CC2078177E0080A76B /* SettingsTableViewController.swift */; };
@@ -141,6 +143,7 @@
 		795B2A65209779DF00529800 /* Localizable.stringsdict */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; path = Localizable.stringsdict; sourceTree = "<group>"; };
 		7976E5D4208D3914004680DA /* WatchConnectivityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchConnectivityManager.swift; sourceTree = "<group>"; };
 		7991D9A72089F96D0023EAD7 /* WorkoutController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutController.swift; sourceTree = "<group>"; };
+		799BB07120B9D80D00811B78 /* UIColor+Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Colors.swift"; sourceTree = "<group>"; };
 		799C30C7207811CD0080A76B /* SampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleData.swift; sourceTree = "<group>"; };
 		799C30CA207814B80080A76B /* CoreDataManager+SampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreDataManager+SampleData.swift"; sourceTree = "<group>"; };
 		799C30CC2078177E0080A76B /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
@@ -318,6 +321,7 @@
 			isa = PBXGroup;
 			children = (
 				79C848062072FCE200B6C907 /* Defaultable.swift */,
+				799BB07120B9D80D00811B78 /* UIColor+Colors.swift */,
 				799C30DB207918800080A76B /* Assets.xcassets */,
 			);
 			path = Shared;
@@ -495,6 +499,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				79CA5F5C208FAE8C00956C85 /* CoreDataManager+Encodable.swift in Sources */,
+				799BB07220B9D80D00811B78 /* UIColor+Colors.swift in Sources */,
 				799C30E220791B680080A76B /* EditExercisesTableViewController.swift in Sources */,
 				799C30CB207814B80080A76B /* CoreDataManager+SampleData.swift in Sources */,
 				790C94722074D4E600C9D986 /* CoreDataManager.swift in Sources */,
@@ -534,6 +539,7 @@
 				7934DBC220702EF40072B1F8 /* ExerciseRowController.swift in Sources */,
 				792B610120824EE200F74CE0 /* ComplicationDataSource.swift in Sources */,
 				7934DBAA2070138B0072B1F8 /* ExtensionDelegate.swift in Sources */,
+				799BB07320B9D80D00811B78 /* UIColor+Colors.swift in Sources */,
 				7991D9A82089F96D0023EAD7 /* WorkoutController.swift in Sources */,
 				7934DBA82070138B0072B1F8 /* RoutinesController.swift in Sources */,
 				79F0835B20924B4A00CF8F49 /* CoreDataManager+Decodable.swift in Sources */,

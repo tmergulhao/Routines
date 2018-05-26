@@ -11,6 +11,9 @@ import WatchConnectivity
 
 class RoutinesController : WKInterfaceController {
 
+    @IBOutlet weak var emptyState : WKInterfaceGroup!
+    @IBOutlet weak var populatedState : WKInterfaceGroup!
+
     @IBOutlet weak var table : WKInterfaceTable!
 
     @IBOutlet var lastUpdatedLabel: WKInterfaceLabel!
@@ -18,6 +21,10 @@ class RoutinesController : WKInterfaceController {
     lazy var resultsController = setupFetchResultsController()
 
     let lastUpdated = Default<Date>(key: "Last updated on Watch")
+
+    @IBAction func openParentApp (_ sender : WKInterfaceButton) {
+        updateUserActivity("com.tmergulhao.Routines.addRoutineAction", userInfo: ["type" : "Add new routine"], webpageURL: nil)
+    }
 
     override func awake(withContext context: Any?) {
 
