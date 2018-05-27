@@ -6,7 +6,11 @@
 //  Copyright © 2018 Tiago Mergulhão. All rights reserved.
 //
 
+#if os(iOS)
 import UIKit
+#else
+import WatchKit
+#endif
 
 extension UIColor {
 
@@ -50,6 +54,12 @@ extension Routine : Encodable {
     }
 }
 
+extension Routine : CKRecordRepresentable {
+
+    public var recordTypeName : String { return "Routine" }
+    public var recordName : String { return id!.uuidString }
+}
+
 extension Item : Encodable {
 
     enum CodingKeys : String, CodingKey {
@@ -76,6 +86,12 @@ extension Item : Encodable {
     }
 }
 
+extension Item : CKRecordRepresentable {
+
+    public var recordTypeName : String { return "Item" }
+    public var recordName : String { return id!.uuidString }
+}
+
 extension Record : Encodable {
 
     enum CodingKeys : String, CodingKey {
@@ -86,6 +102,12 @@ extension Record : Encodable {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(date, forKey: .date)
     }
+}
+
+extension Record : CKRecordRepresentable {
+
+    public var recordTypeName : String { return "Item" }
+    public var recordName : String { return routine!.id!.uuidString + "\(date!)" }
 }
 
 extension CoreDataManager {

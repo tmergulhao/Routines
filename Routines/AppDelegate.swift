@@ -18,6 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         WatchConnectivityManager.begin()
 
+        _ = CloudKitService.default
+
         return true
     }
 

@@ -8,40 +8,6 @@
 
 import Foundation
 
-struct RoutineCodable : Codable {
-
-    var archival : Date?
-    var archived : Bool?
-    var id : UUID?
-
-    var createdAt : Date
-    var name : String
-    var summary : String
-    var lastEdited : Date
-    var latestRecord : Date?
-
-    var items : Array<ItemCodable>?
-    var records : Array<RecordCodable>?
-}
-
-struct ItemCodable : Codable {
-
-    var colorName : String?
-    var equipment : String?
-    var lastEdited : Date?
-    var id : UUID?
-
-    var name : String
-    var numberOfSeries : Int
-    var repetitions : Int
-    var weightLoad : Double
-}
-
-struct RecordCodable : Codable {
-
-    var date : Date
-}
-
 extension CoreDataManager {
 
     // TODO: Generalize definition

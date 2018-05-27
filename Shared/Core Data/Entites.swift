@@ -1,5 +1,5 @@
 //
-//  CoreDataManager+Entites.swift
+//  Entites.swift
 //  Routines
 //
 //  Created by Tiago Mergulhão on 06/04/18.
