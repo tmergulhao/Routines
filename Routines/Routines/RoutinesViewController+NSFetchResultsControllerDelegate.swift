@@ -12,7 +12,7 @@ extension RoutinesViewController : NSFetchedResultsControllerDelegate {
 
     func setupFetchResultsController () -> NSFetchedResultsController<Routine> {
 
-        let request : NSFetchRequest = Routine.fetchRequest()
+        let request : NSFetchRequest<Routine> = CoreDataManager.request()
 
         request.sortDescriptors = [
             NSSortDescriptor(key: "archived", ascending: true),

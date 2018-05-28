@@ -37,20 +37,29 @@ extension Routine : Encodable {
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
 
-        try container.encode(archival, forKey: .archival)
+
         try container.encode(archived, forKey: .archived)
         try container.encode(createdAt, forKey: .createdAt)
         try container.encode(id, forKey: .id)
-        try container.encode(lastEdited, forKey: .lastEdited)
         try container.encode(name, forKey: .name)
         try container.encode(summary, forKey: .summary)
         try container.encode(latestRecord, forKey: .latestRecord)
 
-        let items = Array(self.items!) as! Array<Item>
-        try container.encode(items, forKey: .items)
+        if let archival = archival {
+            try container.encode(archival, forKey: .archival)
+        }
 
-        let records = Array(self.records!) as! Array<Record>
-        try container.encode(records, forKey: .records)
+        if let lastEdited = lastEdited {
+            try container.encode(lastEdited, forKey: .lastEdited)
+        }
+
+        if let sequence = items, let items = Array(sequence) as? Array<Item> {
+            try container.encode(items, forKey: .items)
+        }
+
+        if let sequence = records, let records = Array(sequence) as? Array<Record> {
+            try container.encode(records, forKey: .records)
+        }
     }
 }
 

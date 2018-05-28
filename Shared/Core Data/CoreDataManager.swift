@@ -12,6 +12,10 @@ class CoreDataManager {
 
     static let shared = CoreDataManager()
 
+    class func request<T : NSFetchRequestResult>() -> NSFetchRequest<T> {
+        return NSFetchRequest<T>(entityName: String(describing: T.self))
+    }
+
     class func fetch<T : NSFetchRequestResult>(with sortDescriptor : NSSortDescriptor? = nil, and predicate : NSPredicate? = nil) throws -> Array<T> {
 
         let request = NSFetchRequest<T>(entityName: String(describing: T.self))

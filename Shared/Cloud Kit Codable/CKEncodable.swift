@@ -45,11 +45,7 @@ extension CKRecordRepresentable {
      */
     public var cloudKitSystemFields : Data? {
         get {
-            if let cloudKitSystemFields = objc_getAssociatedObject(self, &KeyValues.cloudKitSystemFields) as? Data {
-                return cloudKitSystemFields
-            }
-
-            return self.cloudKitSystemFields
+            return objc_getAssociatedObject(self, &KeyValues.cloudKitSystemFields) as? Data
         }
         set {
             objc_setAssociatedObject(self, &KeyValues.cloudKitSystemFields, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)

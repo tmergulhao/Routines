@@ -68,12 +68,12 @@ class CloudKitService {
 
     func manageConflict(between recordFound : CKRecord, and localValue : Routine) {
 
-        if recordFound.modificationDate! > localValue.lastEdited! {
+        if recordFound.modificationDate! > (localValue.lastEdited ?? localValue.createdAt ?? Date()) {
 
             localValue.imprint(with: recordFound)
             try? CoreDataManager.saveContext()
 
-        } else if recordFound.modificationDate! < localValue.lastEdited! {
+        } else if recordFound.modificationDate! < (localValue.lastEdited ?? localValue.createdAt ?? Date()) {
 
             localValue.configure(recordFound)
 
@@ -89,11 +89,32 @@ class CloudKitService {
         }
     }
 
+    func pushRecord(for routine : Routine) throws {
+
+        let recordID = CKRecordID(recordName: routine.id!.uuidString)
+
+        privateDatabase.fetch(withRecordID: recordID) {
+            (possibleRecord, error) in
+
+            if let record = possibleRecord {
+
+                self.manageConflict(between: record, and: routine)
+            } else {
+
+                do {
+                    try self.createRecord(for: routine)
+                } catch {
+                    print(error)
+                }
+            }
+        }
+    }
+
     func createRecord(for routine : Routine) throws {
 
         // UIApplication.shared.isNetworkActivityIndicatorVisible = false
 
-        let encoder = CloudKitRecordEncoder()
+        let encoder = CKRecordEncoder()
         let record = try encoder.encode(routine)
 
         privateDatabase.save(record) {
@@ -145,8 +166,8 @@ extension Routine {
     func imprint(with record : CKRecord) {
         archival = record["archival"] as? Date
         archived = (record["archived"] as? NSNumber) == 1
-        name = record["name"] as! String
-        summary = record["summary"] as! String
+        name = record["name"] as? String
+        summary = record["summary"] as? String
         latestRecord = record["latestRecord"] as? Date
 
         lastEdited = Date()
@@ -154,11 +175,11 @@ extension Routine {
 
     func configure(_ record : CKRecord) {
 
-        record["archival"] = archival as? CKRecordValue
-        record["archived"] = archived as? CKRecordValue
-        record["name"] = name as? CKRecordValue
-        record["summary"] = summary as? CKRecordValue
-        record["latestRecord"] = latestRecord as? CKRecordValue
+        record["archival"] = archival as CKRecordValue?
+        record["archived"] = archived as CKRecordValue
+        record["name"] = name! as CKRecordValue
+        record["summary"] = summary! as CKRecordValue
+        record["latestRecord"] = latestRecord as CKRecordValue?
     }
 }
 

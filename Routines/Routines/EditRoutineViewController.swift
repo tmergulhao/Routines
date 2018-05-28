@@ -18,7 +18,11 @@ class EditRoutineViewController : UITableViewController {
 
     @IBAction func saveButtonTapped(_ sender: Any) {
 
+        var isNewRecord = false
+
         if routine == nil {
+
+            isNewRecord = true
 
             let newRoutine : Routine = NSEntityDescription
                 .object(into: CoreDataManager.shared.context)
@@ -37,6 +41,12 @@ class EditRoutineViewController : UITableViewController {
 
         do {
             try CoreDataManager.saveContext()
+
+            if isNewRecord {
+                try CloudKitService.default.createRecord(for: routine)
+            } else {
+                try CloudKitService.default.pushRecord(for: routine)
+            }
         } catch {
 
             informUser(about: error)
@@ -47,7 +57,7 @@ class EditRoutineViewController : UITableViewController {
     }
 
     func informUser(about error : Error) {
-        // TODO: Inform user about data sanitization
+        print(error.localizedDescription)
     }
 
     override func viewDidLoad() {

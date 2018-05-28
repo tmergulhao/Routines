@@ -28,6 +28,14 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="71"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
+                                        <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z4J-gw-LM3">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="71"/>
+                                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="q7q-zV-jRA">
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="71"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            </view>
+                                            <blurEffect style="light"/>
+                                        </visualEffectView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Archived" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F44-KW-ctl">
                                             <rect key="frame" x="16" y="39" width="109" height="21"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
@@ -36,9 +44,13 @@
                                         </label>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="z4J-gw-LM3" firstAttribute="top" secondItem="YOC-Pv-Zvo" secondAttribute="top" id="2ZS-FE-ihs"/>
+                                        <constraint firstAttribute="trailing" secondItem="z4J-gw-LM3" secondAttribute="trailing" id="BKV-WZ-skE"/>
                                         <constraint firstItem="F44-KW-ctl" firstAttribute="leading" secondItem="YOC-Pv-Zvo" secondAttribute="leadingMargin" id="O0s-b5-T9v"/>
                                         <constraint firstItem="F44-KW-ctl" firstAttribute="bottom" secondItem="YOC-Pv-Zvo" secondAttribute="bottomMargin" id="aQh-kO-yoR"/>
                                         <constraint firstItem="F44-KW-ctl" firstAttribute="top" secondItem="YOC-Pv-Zvo" secondAttribute="topMargin" constant="28" id="fxg-Tr-Z4w"/>
+                                        <constraint firstItem="z4J-gw-LM3" firstAttribute="leading" secondItem="YOC-Pv-Zvo" secondAttribute="leading" id="h9b-EF-PLl"/>
+                                        <constraint firstAttribute="bottom" secondItem="z4J-gw-LM3" secondAttribute="bottom" id="w8Z-v0-0A2"/>
                                     </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -192,14 +204,7 @@
                             <outlet property="delegate" destination="J7m-Pl-WjJ" id="Kfw-Uz-nTQ"/>
                         </connections>
                     </tableView>
-                    <toolbarItems>
-                        <barButtonItem style="plain" systemItem="flexibleSpace" id="gOp-vp-rGW"/>
-                        <barButtonItem systemItem="add" id="jLv-iL-bnx">
-                            <connections>
-                                <segue destination="GqO-lh-Vie" kind="presentation" identifier="Edit Routine" modalPresentationStyle="formSheet" id="oJ4-oY-XME"/>
-                            </connections>
-                        </barButtonItem>
-                    </toolbarItems>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" title="Routines" id="Gpg-PF-iGu">
                         <barButtonItem key="leftBarButtonItem" enabled="NO" title="Settings" style="done" id="ddE-e9-Cn5">
                             <connections>
@@ -213,10 +218,27 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
+                    <connections>
+                        <outlet property="floatingActionButton" destination="vGf-SE-H42" id="xOu-Xx-cmQ"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SyV-cD-qMj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="vGf-SE-H42" customClass="FloatingActionButton" customModule="Routines" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="64" height="64"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" name="red"/>
+                    <state key="normal" image="Floating Plus"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="32"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <segue destination="GqO-lh-Vie" kind="presentation" modalPresentationStyle="formSheet" modalTransitionStyle="coverVertical" id="nQd-XN-kPJ"/>
+                    </connections>
+                </button>
             </objects>
-            <point key="canvasLocation" x="2397.65625" y="-707.2265625"/>
+            <point key="canvasLocation" x="2394" y="-850"/>
         </scene>
         <!--New Routine-->
         <scene sceneID="QXE-aK-Q21">
@@ -283,7 +305,6 @@
                         <connections>
                             <outlet property="dataSource" destination="mXQ-Uq-GdE" id="bAE-lQ-cnJ"/>
                             <outlet property="delegate" destination="mXQ-Uq-GdE" id="36Y-cZ-EoF"/>
-                            <outletCollection property="gestureRecognizers" destination="Ab5-es-U59" appends="YES" id="k1N-Ip-f3c"/>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="New Routine" id="m8H-Y5-5es">
@@ -304,11 +325,6 @@
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7aA-hM-ZBq" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="Ab5-es-U59">
-                    <connections>
-                        <action selector="dismissKeyboard:" destination="mXQ-Uq-GdE" id="xTC-tL-JZa"/>
-                    </connections>
-                </tapGestureRecognizer>
                 <exit id="5ot-jA-YPN" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="4260" y="-707"/>
@@ -367,7 +383,7 @@
             <objects>
                 <tableViewController id="rcH-rC-6Gb" customClass="ExercisesTableViewController" customModule="Routines" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="J6p-H2-xTA">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="320"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="364"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
@@ -401,14 +417,7 @@
                             <outlet property="delegate" destination="rcH-rC-6Gb" id="TBb-6n-aBz"/>
                         </connections>
                     </tableView>
-                    <toolbarItems>
-                        <barButtonItem style="plain" systemItem="flexibleSpace" id="pM5-wX-Hwq"/>
-                        <barButtonItem systemItem="add" id="3sA-8U-Kt1">
-                            <connections>
-                                <segue destination="LIA-8e-7rq" kind="presentation" identifier="Edit Item" modalPresentationStyle="formSheet" id="4Sm-h4-HTi"/>
-                            </connections>
-                        </barButtonItem>
-                    </toolbarItems>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" largeTitleDisplayMode="always" id="z8S-WG-wDd">
                         <barButtonItem key="rightBarButtonItem" title="Export" image="Export" id="lT6-mR-uxd">
                             <connections>
@@ -416,26 +425,42 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="floatingActionButton" destination="Mks-M8-ckz" id="8KU-1A-Mey"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jqV-YD-FJE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Mks-M8-ckz" customClass="FloatingActionButton" customModule="Routines" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="64" height="64"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" name="red"/>
+                    <state key="normal" image="Floating Plus"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="32"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <segue destination="LIA-8e-7rq" kind="presentation" modalPresentationStyle="formSheet" modalTransitionStyle="coverVertical" id="DrJ-8H-ia3"/>
+                    </connections>
+                </button>
             </objects>
-            <point key="canvasLocation" x="2398" y="-15"/>
+            <point key="canvasLocation" x="2396" y="164"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="mne-3R-kQ6">
             <objects>
-                <navigationController toolbarHidden="NO" id="t5V-TL-ORJ" sceneMemberID="viewController">
+                <navigationController id="t5V-TL-ORJ" sceneMemberID="viewController">
                     <toolbarItems/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" largeTitles="YES" id="LTZ-0a-kXy">
                         <rect key="frame" x="0.0" y="20" width="320" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="MBA-m1-LPo">
-                        <rect key="frame" x="0.0" y="436" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </toolbar>
                     <connections>
@@ -1079,17 +1104,16 @@
         <!--Navigation Controller-->
         <scene sceneID="kxA-0a-NYS">
             <objects>
-                <navigationController toolbarHidden="NO" id="9kz-0T-OJe" sceneMemberID="viewController">
+                <navigationController id="9kz-0T-OJe" sceneMemberID="viewController">
                     <toolbarItems/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" largeTitles="YES" id="1aa-SP-8Nv">
                         <rect key="frame" x="0.0" y="20" width="320" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="PSy-aT-1vr">
-                        <rect key="frame" x="0.0" y="436" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </toolbar>
                     <connections>
@@ -1104,6 +1128,7 @@
     <resources>
         <image name="Clear" width="30" height="30"/>
         <image name="Export" width="18" height="28"/>
+        <image name="Floating Plus" width="64" height="64"/>
         <image name="Routine" width="100" height="100"/>
         <namedColor name="blue">
             <color red="0.1059999987" green="0.67799997329999995" blue="0.97299999000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1113,6 +1138,12 @@
         </namedColor>
         <namedColor name="orange">
             <color red="1" green="0.57800000910000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="red">
+            <color red="1" green="0.14900000393390656" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="red">
+            <color red="1" green="0.14900000390000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="red">
             <color red="1" green="0.14900000393390656" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

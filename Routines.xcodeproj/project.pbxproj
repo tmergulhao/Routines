@@ -11,6 +11,7 @@
 		790C94722074D4E600C9D986 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C847FF2072D85300B6C907 /* CoreDataManager.swift */; };
 		790C94732074D63900C9D986 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 79C847F22072BE0000B6C907 /* Model.xcdatamodeld */; };
 		790C94752074E05500C9D986 /* ExercisesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790C94742074E05500C9D986 /* ExercisesTableViewController.swift */; };
+		791C48A220BC65F6000CD854 /* FloatingActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 791C48A120BC65F6000CD854 /* FloatingActionButton.swift */; };
 		792B60FF20824E9A00F74CE0 /* ClockKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 792B60FE20824E9A00F74CE0 /* ClockKit.framework */; };
 		792B610120824EE200F74CE0 /* ComplicationDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792B610020824EE200F74CE0 /* ComplicationDataSource.swift */; };
 		7934DB85207013890072B1F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7934DB84207013890072B1F8 /* AppDelegate.swift */; };
@@ -52,10 +53,10 @@
 		79A3BFFA20BAE143001DCF98 /* CloudKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A3BFF820BAE143001DCF98 /* CloudKit.swift */; };
 		79A3BFFC20BAE4D6001DCF98 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79A3BFFB20BAE4D6001DCF98 /* CloudKit.framework */; };
 		79A3BFFF20BAE4E1001DCF98 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79A3BFFE20BAE4E1001DCF98 /* CloudKit.framework */; };
-		79A3C01120BAEA7A001DCF98 /* CloudKitRecordEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A3C00F20BAE74B001DCF98 /* CloudKitRecordEncoder.swift */; };
-		79A3C01220BAEA7B001DCF98 /* CloudKitRecordEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A3C00F20BAE74B001DCF98 /* CloudKitRecordEncoder.swift */; };
-		79A3C01320BAEA7D001DCF98 /* CloudKitRecordDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A3C01020BAE74C001DCF98 /* CloudKitRecordDecoder.swift */; };
-		79A3C01420BAEA7E001DCF98 /* CloudKitRecordDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A3C01020BAE74C001DCF98 /* CloudKitRecordDecoder.swift */; };
+		79A3C01120BAEA7A001DCF98 /* CKRecordEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A3C00F20BAE74B001DCF98 /* CKRecordEncoder.swift */; };
+		79A3C01220BAEA7B001DCF98 /* CKRecordEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A3C00F20BAE74B001DCF98 /* CKRecordEncoder.swift */; };
+		79A3C01320BAEA7D001DCF98 /* CKRecordDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A3C01020BAE74C001DCF98 /* CKRecordDecoder.swift */; };
+		79A3C01420BAEA7E001DCF98 /* CKRecordDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A3C01020BAE74C001DCF98 /* CKRecordDecoder.swift */; };
 		79A3C01520BAEA80001DCF98 /* CKEncodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A3C00E20BAE749001DCF98 /* CKEncodable.swift */; };
 		79A3C01620BAEA80001DCF98 /* CKEncodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A3C00E20BAE749001DCF98 /* CKEncodable.swift */; };
 		79A3C01920BAF727001DCF98 /* RoutinesCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A3C01820BAF727001DCF98 /* RoutinesCodable.swift */; };
@@ -129,6 +130,7 @@
 /* Begin PBXFileReference section */
 		790B35A42097BA6000075E3A /* RoutinesController+NSFetchedResultsControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RoutinesController+NSFetchedResultsControllerDelegate.swift"; sourceTree = "<group>"; };
 		790C94742074E05500C9D986 /* ExercisesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisesTableViewController.swift; sourceTree = "<group>"; };
+		791C48A120BC65F6000CD854 /* FloatingActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingActionButton.swift; sourceTree = "<group>"; };
 		792B60FE20824E9A00F74CE0 /* ClockKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ClockKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS4.3.sdk/System/Library/Frameworks/ClockKit.framework; sourceTree = DEVELOPER_DIR; };
 		792B610020824EE200F74CE0 /* ComplicationDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationDataSource.swift; sourceTree = "<group>"; };
 		7934DB81207013890072B1F8 /* Routines.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Routines.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -173,8 +175,8 @@
 		79A3BFFD20BAE4DD001DCF98 /* Routines WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Routines WatchKit Extension.entitlements"; sourceTree = "<group>"; };
 		79A3BFFE20BAE4E1001DCF98 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS4.3.sdk/System/Library/Frameworks/CloudKit.framework; sourceTree = DEVELOPER_DIR; };
 		79A3C00E20BAE749001DCF98 /* CKEncodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKEncodable.swift; sourceTree = "<group>"; };
-		79A3C00F20BAE74B001DCF98 /* CloudKitRecordEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitRecordEncoder.swift; sourceTree = "<group>"; };
-		79A3C01020BAE74C001DCF98 /* CloudKitRecordDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitRecordDecoder.swift; sourceTree = "<group>"; };
+		79A3C00F20BAE74B001DCF98 /* CKRecordEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKRecordEncoder.swift; sourceTree = "<group>"; };
+		79A3C01020BAE74C001DCF98 /* CKRecordDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKRecordDecoder.swift; sourceTree = "<group>"; };
 		79A3C01820BAF727001DCF98 /* RoutinesCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutinesCodable.swift; sourceTree = "<group>"; };
 		79A3C01B20BAF753001DCF98 /* ItemCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCodable.swift; sourceTree = "<group>"; };
 		79A3C01E20BAF75E001DCF98 /* RecordCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordCodable.swift; sourceTree = "<group>"; };
@@ -255,6 +257,7 @@
 				799C30DF20791B2E0080A76B /* Routines */,
 				799C30E020791B520080A76B /* Exercises */,
 				799C30CC2078177E0080A76B /* SettingsTableViewController.swift */,
+				791C48A120BC65F6000CD854 /* FloatingActionButton.swift */,
 				7934DB88207013890072B1F8 /* Main.storyboard */,
 				7934DB8B2070138A0072B1F8 /* Assets.xcassets */,
 				7934DB8D2070138A0072B1F8 /* LaunchScreen.storyboard */,
@@ -355,8 +358,8 @@
 			isa = PBXGroup;
 			children = (
 				79A3C00E20BAE749001DCF98 /* CKEncodable.swift */,
-				79A3C01020BAE74C001DCF98 /* CloudKitRecordDecoder.swift */,
-				79A3C00F20BAE74B001DCF98 /* CloudKitRecordEncoder.swift */,
+				79A3C01020BAE74C001DCF98 /* CKRecordDecoder.swift */,
+				79A3C00F20BAE74B001DCF98 /* CKRecordEncoder.swift */,
 			);
 			path = "Cloud Kit Codable";
 			sourceTree = "<group>";
@@ -569,6 +572,7 @@
 				799BB07220B9D80D00811B78 /* UIColor+Colors.swift in Sources */,
 				799C30E220791B680080A76B /* EditExercisesTableViewController.swift in Sources */,
 				79A3C01620BAEA80001DCF98 /* CKEncodable.swift in Sources */,
+				791C48A220BC65F6000CD854 /* FloatingActionButton.swift in Sources */,
 				790C94722074D4E600C9D986 /* CoreDataManager.swift in Sources */,
 				79D75C67209A351C00FB65B1 /* SplitViewDelegate.swift in Sources */,
 				799C30C8207811CD0080A76B /* SampleData.swift in Sources */,
@@ -588,13 +592,13 @@
 				7934DB85207013890072B1F8 /* AppDelegate.swift in Sources */,
 				79A3BFF920BAE143001DCF98 /* CloudKit.swift in Sources */,
 				7976E5D5208D3914004680DA /* WatchConnectivityManager.swift in Sources */,
-				79A3C01420BAEA7E001DCF98 /* CloudKitRecordDecoder.swift in Sources */,
+				79A3C01420BAEA7E001DCF98 /* CKRecordDecoder.swift in Sources */,
 				799C30D32078EBD00080A76B /* RoutinesViewController+EmptyStateViewControllerDelegate.swift in Sources */,
 				799C30DA207915400080A76B /* ExercisesTableViewController+EmptyStateViewControllerDelegate.swift in Sources */,
 				79C848072072FCE200B6C907 /* Defaultable.swift in Sources */,
 				79A3C01920BAF727001DCF98 /* RoutinesCodable.swift in Sources */,
 				799C30E5207927B40080A76B /* RoutineTableViewCell.swift in Sources */,
-				79A3C01220BAEA7B001DCF98 /* CloudKitRecordEncoder.swift in Sources */,
+				79A3C01220BAEA7B001DCF98 /* CKRecordEncoder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -606,9 +610,9 @@
 				79F0835A20924B3700CF8F49 /* Entites.swift in Sources */,
 				795B2A642097776900529800 /* RoutineDetailController.swift in Sources */,
 				79A3C02020BAF75E001DCF98 /* RecordCodable.swift in Sources */,
-				79A3C01120BAEA7A001DCF98 /* CloudKitRecordEncoder.swift in Sources */,
+				79A3C01120BAEA7A001DCF98 /* CKRecordEncoder.swift in Sources */,
 				79A3BFFA20BAE143001DCF98 /* CloudKit.swift in Sources */,
-				79A3C01320BAEA7D001DCF98 /* CloudKitRecordDecoder.swift in Sources */,
+				79A3C01320BAEA7D001DCF98 /* CKRecordDecoder.swift in Sources */,
 				793CCF65209C9C88005BFC20 /* WatchConnectivityManager.swift in Sources */,
 				7934DBBD2070290D0072B1F8 /* RoutineRowController.swift in Sources */,
 				7934DBC220702EF40072B1F8 /* ExerciseRowController.swift in Sources */,

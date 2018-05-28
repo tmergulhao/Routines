@@ -47,20 +47,38 @@ class RoutinesViewController : UITableViewController {
 
     lazy var fetchedResultsController = setupFetchResultsController()
 
+    @IBOutlet weak var floatingActionButton : FloatingActionButton!
+
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+
+        view.bringSubview(toFront: floatingActionButton)
+    }
+
     override func viewDidLoad() {
 
         super.viewDidLoad()
+
+        view.insertSubview(floatingActionButton, at: 0)
+        view.bringSubview(toFront: floatingActionButton)
+
+        NSLayoutConstraint.activate([
+            floatingActionButton.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor, constant: -16),
+            floatingActionButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16)
+        ])
+
+        (view as! UITableView).contentInset.bottom = 32 * 2 + 32
+        (view as? UIScrollView)?.delegate = self
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+
+        super.viewWillAppear(animated)
 
         do {
             try fetchedResultsController.performFetch()
         } catch {
             fatalError(error.localizedDescription)
         }
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-
-        super.viewWillAppear(animated)
 
         navigationController?.navigationBar.largeTitleTextAttributes = [
             NSAttributedStringKey.foregroundColor : UIColor.red
@@ -97,7 +115,7 @@ class RoutinesViewController : UITableViewController {
         }
 
         let routine : Routine = fetchedResultsController.object(at: indexPath)
-
+        
         cell.configure(with: routine)
 
         return cell
@@ -159,7 +177,7 @@ class RoutinesViewController : UITableViewController {
             let delete = UITableViewRowAction(style: .default, title: "Delete", handler: { (action, indexPath) in
 
                 let routine = self.fetchedResultsController.object(at: indexPath)
-                CoreDataManager.shared.context.delete(routine)
+                routine.managedObjectContext?.delete(routine)
 
                 try! CoreDataManager.saveContext()
             })
@@ -232,3 +250,13 @@ class RoutinesViewController : UITableViewController {
 
     var emptyStateViewController : UIViewController?
 }
+//
+//extension RoutinesViewController {
+//
+//    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+//
+//        super.scrollViewDidScroll(scrollView)
+//
+//        // view.bringSubview(toFront: floatingActionButton)
+//    }
+//}
