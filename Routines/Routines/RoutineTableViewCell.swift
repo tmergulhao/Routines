@@ -65,10 +65,12 @@ class RoutineTableViewCell: UITableViewCell {
                 let view = UIView()
                 view.layer.cornerRadius = 8.0
                 view.translatesAutoresizingMaskIntoConstraints = false
-                let constraints = [view.heightAnchor.constraint(equalToConstant: 16.0),
-                                   view.widthAnchor.constraint(equalTo: view.heightAnchor, multiplier: 1.0)]
+                let constraints = [
+                    view.heightAnchor.constraint(equalToConstant: 16.0),
+                    view.widthAnchor.constraint(equalToConstant: 16),
+                ]
 
-                itemsStack.addSubview(view)
+                itemsStack.addArrangedSubview(view)
                 NSLayoutConstraint.activate(constraints)
             }
 
@@ -84,21 +86,5 @@ class RoutineTableViewCell: UITableViewCell {
         }
 
         itemsStack.setNeedsDisplay()
-    }
-
-    override func didMoveToSuperview() {
-        super.didMoveToSuperview()
-
-    }
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
 }
