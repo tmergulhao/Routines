@@ -103,11 +103,7 @@ extension WatchConnectivityManager : WCSessionDelegate {
         let decoder = JSONDecoder()
         let codable = try decoder.decode(ItemCodable.self, from: data)
 
-        // TODO: Use predicates to determine UUID
-
-        guard let item : Item = (try CoreDataManager.fetch(with: nil, and: nil)).first(where: { (item : Item) -> Bool in
-            return item.id == codable.id
-        }) else { return }
+        guard let item : Item = try CoreDataManager.fetch(with: codable.id!) else { return }
 
         if item.lastEdited! < codable.lastEdited! {
             item.weightLoad = codable.weightLoad
@@ -121,18 +117,9 @@ extension WatchConnectivityManager : WCSessionDelegate {
         let decoder = JSONDecoder()
         let codable = try decoder.decode(RoutineCodable.self, from: data)
 
-        print("I tried to make record at \(date)")
+        guard let routine : Routine = try CoreDataManager.fetch(with: codable.id!) else { return }
 
-        // TODO: Use predicates to determine UUID
-
-        guard let routine : Routine = (try CoreDataManager.fetch(with: nil, and: nil)).first(where: { (routine : Routine) -> Bool in
-            return routine.id == codable.id
-        }) else { return }
-
-        if let latest = routine.latestRecord, Calendar.current.isDate(latest, equalTo: date, toGranularity: .day) {
-            print("Record already set")
-            return
-        }
+        if let latest = routine.latestRecord, Calendar.current.isDate(latest, equalTo: date, toGranularity: .day) { return }
 
         let record : Record = NSEntityDescription
             .object(into: CoreDataManager.shared.context)

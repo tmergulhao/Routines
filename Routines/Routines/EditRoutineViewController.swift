@@ -31,8 +31,6 @@ class EditRoutineViewController : UITableViewController {
             newRoutine.id = UUID()
 
             routine = newRoutine
-        } else {
-            navigationItem.title = "Edit Routine"
         }
 
         routine.lastEdited = Date()
@@ -63,13 +61,14 @@ class EditRoutineViewController : UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if routine != nil {
-
-            nameField.text = routine.name
-            summaryField.text = routine.summary
-        }
-
         nameField.becomeFirstResponder()
+
+        guard let routine = routine else { return }
+
+        navigationItem.title = "Edit Routine"
+
+        nameField.text = routine.name
+        summaryField.text = routine.summary
     }
 
     override func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool { return false }

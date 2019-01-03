@@ -59,7 +59,6 @@ class RoutinesViewController : UITableViewController {
         super.viewDidLoad()
 
         view.insertSubview(floatingActionButton, at: 0)
-        view.bringSubview(toFront: floatingActionButton)
 
         NSLayoutConstraint.activate([
             floatingActionButton.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor, constant: -16),
@@ -83,6 +82,8 @@ class RoutinesViewController : UITableViewController {
         navigationController?.navigationBar.largeTitleTextAttributes = [
             NSAttributedStringKey.foregroundColor : UIColor.red
         ]
+
+        view.bringSubview(toFront: floatingActionButton)
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -186,18 +187,18 @@ class RoutinesViewController : UITableViewController {
         }
     }
 
-    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-
-        if let cell = sender as? UITableViewCell,
-            let indexPath = tableView.indexPath(for: cell),
-            let sectionIndex = SectionIndex(rawValue: fetchedResultsController.sectionIndexTitles[indexPath.section]),
-            sectionIndex == .archived {
-
-            return false
-        }
-
-        return true
-    }
+//    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+//
+//        if let cell = sender as? UITableViewCell,
+//            let indexPath = tableView.indexPath(for: cell),
+//            let sectionIndex = SectionIndex(rawValue: fetchedResultsController.sectionIndexTitles[indexPath.section]),
+//            sectionIndex == .archived {
+//
+//            return false
+//        }
+//
+//        return true
+//    }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
@@ -246,17 +247,9 @@ class RoutinesViewController : UITableViewController {
         return 71
     }
 
+    // override func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool { return false }
+
     // MARK: - Empty State View Controller
 
     var emptyStateViewController : UIViewController?
 }
-//
-//extension RoutinesViewController {
-//
-//    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
-//
-//        super.scrollViewDidScroll(scrollView)
-//
-//        // view.bringSubview(toFront: floatingActionButton)
-//    }
-//}

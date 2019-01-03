@@ -21,8 +21,7 @@ extension Double : BridgedType {}
 // Foundation codable types
 extension Data : BridgedType {}
 
-var appGroup : String { return "group.com.tmergulhao.Routines" }
-let defaults = UserDefaults(suiteName: appGroup)!
+let defaults = UserDefaults.standard
 
 extension Default {
 

@@ -7,14 +7,15 @@
 //
 
 import UIKit
+import CoreData
 
 class ExercisesTableViewController: UITableViewController {
 
-    var routine : Routine?
+    var fetchedResultsController : NSFetchedResultsController<Item>!
+
+    var routine : Routine!
 
     @IBAction func activityButtonTapped(_ sender: UIBarButtonItem) {
-
-        guard let routine = routine else { return }
 
         let manager = FileManager.default
         let directory = manager.urls(for: .documentDirectory, in: .userDomainMask)
@@ -55,8 +56,9 @@ class ExercisesTableViewController: UITableViewController {
 
         super.viewDidLoad()
 
+        fetchedResultsController = setupResultsController(for: routine)
+
         view.insertSubview(floatingActionButton, at: 0)
-        view.bringSubview(toFront: floatingActionButton)
 
         NSLayoutConstraint.activate([
             floatingActionButton.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor, constant: -16),
@@ -68,19 +70,24 @@ class ExercisesTableViewController: UITableViewController {
 
         navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
         navigationItem.leftItemsSupplementBackButton = true
+
+        do {
+            try fetchedResultsController.performFetch()
+            tableView.reloadData()
+        } catch {
+            fatalError(error.localizedDescription)
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
 
         super.viewWillAppear(animated)
 
+        view.bringSubview(toFront: floatingActionButton)
+
         navigationController?.navigationBar.largeTitleTextAttributes = [
             NSAttributedStringKey.foregroundColor : UIColor.red
         ]
-
-        tableView.reloadData()
-
-        guard let routine = routine else { return }
 
         var title : String = routine.name!
 
@@ -93,60 +100,49 @@ class ExercisesTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
-        guard let routine = routine else { return 0 }
+        guard let count = fetchedResultsController.fetchedObjects?.count, count > 0 else {
 
-        let count = routine.items?.count ?? 0
-
-        if count == 0 {
+            navigationController?.navigationBar.topItem?.rightBarButtonItem?.isEnabled = false
             setEmptyState(identifier: "Empty State", intoContainer: tableView)
-        } else {
-            removeEmptyState()
+            return 0
         }
 
+        navigationController?.navigationBar.topItem?.rightBarButtonItem?.isEnabled = true
+
+        removeEmptyState()
         return count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        guard let routine = self.routine, let cell = tableView.dequeueReusableCell(withIdentifier: "Exercise"),
-            let item = routine.items?[indexPath.row] as? Item else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "Exercise") as? ExercisesTableViewCell else {
             return UITableViewCell()
         }
 
-        cell.textLabel?.text = item.name
-        cell.detailTextLabel?.text = "\(item.repetitions)/\(item.numberOfSeries)\t\(item.weightLoad)kg"
+        let item : Item = fetchedResultsController.fetchedObjects![indexPath.row]
+
+        cell.configure(item: item)
 
         return cell
     }
 
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool { return true }
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool { return !routine.archived }
 
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
 
-        guard routine != nil else { return nil }
+        guard !routine.archived else { return nil }
 
         let delete = UITableViewRowAction(style: .default, title: "Delete", handler: { (action, indexPath) in
 
-            guard let routine = self.routine else { return }
-
-            tableView.beginUpdates()
-
-            let item = routine.items![indexPath.row] as! Item
-
-            routine.removeFromItems(item)
+            let item : Item = self.fetchedResultsController.fetchedObjects![indexPath.row]
 
             CoreDataManager.shared.context.delete(item)
             try! CoreDataManager.saveContext()
-
-            tableView.deleteRows(at: [indexPath], with: .top)
-            tableView.endUpdates()
         })
 
         let edit = UITableViewRowAction(style: .default, title: "Edit", handler: { (action, indexPath) in
 
-            guard let routine = self.routine else { return }
-
-            let item = routine.items![indexPath.row]
+            let item : Item = self.fetchedResultsController.fetchedObjects![indexPath.row]
 
             self.performSegue(withIdentifier: "Edit Item", sender: item)
         })
@@ -160,16 +156,7 @@ class ExercisesTableViewController: UITableViewController {
         tableView.deselectRow(at: indexPath, animated: false)
     }
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-
-        if segue.identifier == "Edit Item",
-            let navigation = segue.destination as? UINavigationController,
-            let editItem = navigation.topViewController as? EditExercisesTableViewController {
-
-            editItem.item = sender as? Item
-            editItem.routine = routine
-        }
-    }
+    override func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool { return false }
 
     // MARK: - Empty State View Controller
 

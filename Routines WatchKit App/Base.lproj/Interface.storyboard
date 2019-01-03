@@ -119,7 +119,7 @@
                         <table alignment="center" verticalAlignment="center" id="Tas-pD-9MX">
                             <items>
                                 <tableRow identifier="Exercise" id="D4Y-ob-k9W" customClass="ExerciseRowController" customModule="Routines_WatchKit_Extension">
-                                    <group key="rootItem" width="1" height="0.0" alignment="left" layout="vertical" spacing="5" id="uS6-iE-wDD">
+                                    <group key="rootItem" width="1" height="0.0" alignment="left" layout="vertical" spacing="0.0" id="uS6-iE-wDD">
                                         <items>
                                             <group width="1" alignment="left" id="15n-Dr-GqR">
                                                 <items>
@@ -129,36 +129,36 @@
                                                     </label>
                                                 </items>
                                             </group>
-                                            <group height="30" alignment="left" spacing="5" id="cy4-NF-yjz">
+                                            <group height="30" alignment="left" id="cy4-NF-yjz">
                                                 <items>
                                                     <imageView width="20" height="20" alignment="left" verticalAlignment="center" hidden="YES" image="Repetition" id="7sS-4J-Hol">
                                                         <color key="tintColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </imageView>
                                                     <label alignment="left" verticalAlignment="center" text="12/3" id="dQn-Kc-gl7">
-                                                        <color key="textColor" name="red"/>
+                                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="font" type="boldSystem" pointSize="30"/>
                                                     </label>
                                                     <label alignment="left" verticalAlignment="center" numberOfLines="0" id="ez3-tl-ldw">
                                                         <string key="text">SERIES
 REPETITION</string>
-                                                        <color key="textColor" name="red"/>
+                                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="font" type="boldSystem" pointSize="11"/>
                                                     </label>
                                                 </items>
                                             </group>
-                                            <group height="30" alignment="left" spacing="5" id="dvW-8O-ebj">
+                                            <group height="30" alignment="left" id="dvW-8O-ebj">
                                                 <items>
                                                     <imageView width="20" height="20" alignment="left" verticalAlignment="center" hidden="YES" image="Weight" id="j5x-Hd-fsk">
                                                         <color key="tintColor" name="teal"/>
                                                     </imageView>
                                                     <label alignment="left" verticalAlignment="center" text="26,5" id="cpX-09-e3d">
-                                                        <color key="textColor" name="teal"/>
+                                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="font" type="boldSystem" pointSize="30"/>
                                                     </label>
                                                     <label alignment="left" verticalAlignment="center" numberOfLines="0" id="O5U-VP-qBR">
                                                         <string key="text">WEIGHT
 LOAD</string>
-                                                        <color key="textColor" name="teal"/>
+                                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="font" type="boldSystem" pointSize="11"/>
                                                     </label>
                                                 </items>
@@ -199,42 +199,42 @@ LOAD</string>
                             <items>
                                 <group alignment="left" spacing="4" id="UYN-oa-psa">
                                     <items>
-                                        <label height="34" alignment="left" text="30" id="RYP-vd-UYw">
+                                        <label height="34" alignment="left" text="30" numberOfLines="0" id="RYP-vd-UYw">
                                             <color key="textColor" name="red"/>
-                                            <fontDescription key="font" type="boldSystem" pointSize="39"/>
+                                            <fontDescription key="font" type="boldSystem" pointSize="40"/>
                                         </label>
                                     </items>
                                 </group>
-                                <group height="30" alignment="left" spacing="5" id="h2R-fU-1bO">
+                                <group height="30" alignment="left" id="h2R-fU-1bO">
                                     <items>
                                         <imageView width="20" height="20" alignment="left" verticalAlignment="center" hidden="YES" image="Repetition" id="Lej-hg-V4J">
                                             <color key="tintColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </imageView>
                                         <label alignment="left" verticalAlignment="center" text="12/3" id="2qO-sI-OCU">
-                                            <color key="textColor" name="red"/>
+                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <fontDescription key="font" type="boldSystem" pointSize="30"/>
                                         </label>
                                         <label alignment="left" verticalAlignment="center" numberOfLines="0" id="FOz-xv-K9U">
                                             <string key="text">SERIES
 REPETITION</string>
-                                            <color key="textColor" name="red"/>
+                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <fontDescription key="font" type="boldSystem" pointSize="11"/>
                                         </label>
                                     </items>
                                 </group>
-                                <group height="30" alignment="left" spacing="5" id="0Og-qV-Omr">
+                                <group height="30" alignment="left" id="0Og-qV-Omr">
                                     <items>
                                         <imageView width="20" height="20" alignment="left" verticalAlignment="center" hidden="YES" image="Weight" id="bXd-Ho-yJE">
                                             <color key="tintColor" name="teal"/>
                                         </imageView>
                                         <label alignment="left" verticalAlignment="center" text="26,5" id="dHk-wu-fea">
-                                            <color key="textColor" name="teal"/>
+                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <fontDescription key="font" type="boldSystem" pointSize="30"/>
                                         </label>
                                         <label alignment="left" verticalAlignment="center" numberOfLines="0" id="yZE-0X-heE">
                                             <string key="text">WEIGHT
 LOAD</string>
-                                            <color key="textColor" name="teal"/>
+                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <fontDescription key="font" type="boldSystem" pointSize="11"/>
                                         </label>
                                     </items>

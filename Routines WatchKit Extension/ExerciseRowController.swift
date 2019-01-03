@@ -31,8 +31,8 @@ class ExerciseRowController: NSObject {
 
         if item.weightLoad != 0.0 {
             weightLoadLabel.setText("\(item.weightLoad)")
-            weightLoadDescriptiveLabel.setTextColor(.teal)
-            weightLoadLabel.setTextColor(.teal)
+            weightLoadDescriptiveLabel.setTextColor(.lightGray)
+            weightLoadLabel.setTextColor(.lightGray)
         } else {
             weightLoadDescriptiveLabel.setTextColor(.darkGray)
             weightLoadLabel.setTextColor(.darkGray)

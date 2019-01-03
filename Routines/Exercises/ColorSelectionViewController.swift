@@ -8,14 +8,38 @@
 
 import UIKit
 
+protocol ColorSelectionDelegate : class {
+
+    func colorSelection(didSelect color : UIColor)
+}
+
+extension EditExercisesTableViewController : ColorSelectionDelegate {
+
+    func colorSelection(didSelect color : UIColor) {
+
+        self.color = color
+        colorButton.backgroundColor = color
+        let image = color == .clear ? #imageLiteral(resourceName: "Clear") : nil
+        colorButton.setImage(image, for: .normal)
+    }
+}
+
 class ColorSelectionViewController : UIViewController {
+
+    weak var delegate : ColorSelectionDelegate?
+
+    @IBAction func didTap(_ button : UIButton) {
+
+        delegate?.colorSelection(didSelect: button.backgroundColor ?? .clear)
+        self.dismiss(animated: true)
+    }
 
     @IBOutlet var colorButtons : Array<UIButton>!
     @IBOutlet var cardView : UIView!
 
-    override func viewWillAppear(_ animated: Bool) {
+    override func viewWillLayoutSubviews() {
 
-        super.viewWillAppear(animated)
+        super.viewWillLayoutSubviews()
 
         cardView.layer.cornerRadius = cardView.frame.height / 2
 

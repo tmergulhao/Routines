@@ -1,5 +1,5 @@
 //
-//  CloudKit.swift
+//  CloudKitService.swift
 //  Routines
 //
 //  Created by Tiago Mergulhão on 27/05/18.
@@ -21,7 +21,6 @@ class CloudKitService {
 
     var container : CKContainer {
         return CKContainer(identifier: "iCloud.com.tmergulhao.Routines")
-        // return CKContainer.default
     }
 
     var privateDatabase : CKDatabase {

@@ -23,29 +23,9 @@ class EditExercisesTableViewController: UITableViewController {
     @IBOutlet weak var identifierField : UITextField!
     @IBOutlet weak var nameField : UITextField!
 
-    @IBOutlet var colorButtons : Array<UIButton>!
+    @IBOutlet weak var colorButton : UIButton!
 
-    var color : UIColor?
-
-    @IBAction func didTapColorButton(_ sender: UIButton) {
-
-        color = sender.backgroundColor
-
-        UIView.animate(withDuration: 0.25, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 1, options: .curveEaseInOut, animations: {
-
-            for button in self.colorButtons {
-
-                guard button != sender else { continue }
-
-                button.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
-                button.layer.opacity = 0.5
-            }
-
-            sender.transform = .identity
-            sender.layer.opacity = 1.0
-
-        }, completion: nil)
-    }
+    var color : UIColor = .clear
 
     var routine : Routine!
     var item : Item!
@@ -53,14 +33,13 @@ class EditExercisesTableViewController: UITableViewController {
     @IBAction func saveButtonTapped(_ sender: Any) {
 
         if item == nil {
+
             let newItem : Item = NSEntityDescription
                 .object(into: CoreDataManager.shared.context)
 
             newItem.id = UUID()
 
             item = newItem
-        } else {
-            navigationItem.title = "Edit Routine"
         }
 
         guard let item = item else { return }
@@ -70,13 +49,16 @@ class EditExercisesTableViewController: UITableViewController {
         item.equipment = identifierField.text?.trim()
         item.color = color
 
-        if let seriesText = seriesField.text?.trim(), let series = Int64(seriesText) {
+        if let seriesText = seriesField.text?.trim(),
+            let series = Int64(seriesText) {
             item.numberOfSeries = series
         }
-        if let repetitionsText = repetitionsField.text?.trim(), let repetitions = Int64(repetitionsText) {
+        if let repetitionsText = repetitionsField.text?.trim(),
+            let repetitions = Int64(repetitionsText) {
             item.repetitions = repetitions
         }
-        if let weightLoadText = weightField.text?.trim(), let weightLoad = Double(weightLoadText) {
+        if let weightLoadText = weightField.text?.trim(),
+            let weightLoad = Double(weightLoadText) {
             item.weightLoad = weightLoad
         }
 
@@ -94,6 +76,7 @@ class EditExercisesTableViewController: UITableViewController {
     }
 
     func informUser(about error : Error) {
+
         // TODO: Inform user about data sanitization
 
         let alert = UIAlertController(title: "Unable to save", message: "There is something wrong with your form. Please, correct the following mistakes: \(error.localizedDescription)", preferredStyle: .alert)
@@ -104,40 +87,32 @@ class EditExercisesTableViewController: UITableViewController {
     }
 
     override func viewDidLoad() {
+
         super.viewDidLoad()
 
-        if item != nil {
-
-            nameField.text = item.name
-            identifierField.text = item.equipment
-
-            seriesField.text = "\(item.numberOfSeries)"
-            repetitionsField.text = "\(item.repetitions)"
-            weightField.text = "\(item.weightLoad)"
-
-            color = item.color ?? .clear
-        }
-
-        for button in colorButtons {
-            if button.backgroundColor != color {
-                button.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
-                button.layer.opacity = 0.5
-            }
-        }
-
         seriesField.becomeFirstResponder()
+
+        guard let item = item else { return }
+
+        navigationItem.title = "Edit Item"
+
+        nameField.text = item.name
+        identifierField.text = item.equipment
+
+        seriesField.text = "\(item.numberOfSeries)"
+        repetitionsField.text = "\(item.repetitions)"
+        weightField.text = "\(item.weightLoad)"
+
+        colorSelection(didSelect: item.color ?? .clear)
     }
 
     override func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool { return false }
 
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "Color Selector", sender: nil)
-        tableView.deselectRow(at: indexPath, animated: false)
-    }
-
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
-        if segue.identifier == "Color Selection" {
+        if segue.identifier == "Color Selection", let colorSelection = segue.destination as? ColorSelectionViewController {
+
+            colorSelection.delegate = self
         }
     }
 }

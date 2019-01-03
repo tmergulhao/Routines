@@ -16,6 +16,14 @@ class CoreDataManager {
         return NSFetchRequest<T>(entityName: String(describing: T.self))
     }
 
+    class func fetch<T : NSFetchRequestResult>(with id : UUID) throws -> T? {
+
+        let request = NSFetchRequest<T>(entityName: String(describing: T.self))
+        request.predicate = NSPredicate(format: "id == %@", id.uuidString)
+
+        return try shared.context.fetch(request).first
+    }
+
     class func fetch<T : NSFetchRequestResult>(with sortDescriptor : NSSortDescriptor? = nil, and predicate : NSPredicate? = nil) throws -> Array<T> {
 
         let request = NSFetchRequest<T>(entityName: String(describing: T.self))
