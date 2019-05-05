@@ -48,7 +48,7 @@ class ExercisesTableViewController: UITableViewController {
 
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
 
-        view.bringSubview(toFront: floatingActionButton)
+        view.bringSubviewToFront(floatingActionButton)
     }
     
     override func viewDidLoad() {
@@ -56,7 +56,7 @@ class ExercisesTableViewController: UITableViewController {
         super.viewDidLoad()
 
         view.insertSubview(floatingActionButton, at: 0)
-        view.bringSubview(toFront: floatingActionButton)
+        view.bringSubviewToFront(floatingActionButton)
 
         NSLayoutConstraint.activate([
             floatingActionButton.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor, constant: -16),
@@ -75,7 +75,7 @@ class ExercisesTableViewController: UITableViewController {
         super.viewWillAppear(animated)
 
         navigationController?.navigationBar.largeTitleTextAttributes = [
-            NSAttributedStringKey.foregroundColor : UIColor.red
+            NSAttributedString.Key.foregroundColor : UIColor.red
         ]
 
         tableView.reloadData()

@@ -26,8 +26,8 @@ extension EmptyStateViewControllerDelegate where Self : UIViewController {
 
         if emptyStateViewController != nil {
 
-            emptyStateViewController!.willMove(toParentViewController: nil)
-            emptyStateViewController!.removeFromParentViewController()
+            emptyStateViewController!.willMove(toParent: nil)
+            emptyStateViewController!.removeFromParent()
             emptyStateViewController!.view.removeFromSuperview()
         }
     }
@@ -70,11 +70,11 @@ extension EmptyStateViewControllerDelegate where Self : UIViewController {
 
         layoutContraints(fromContainer: containerView, toContained: view)
 
-        addChildViewController(viewController)
+        addChild(viewController)
 
         emptyStateViewController = viewController
 
-        viewController.didMove(toParentViewController: self)
+        viewController.didMove(toParent: self)
 
         view.layer.opacity = 0.0
 

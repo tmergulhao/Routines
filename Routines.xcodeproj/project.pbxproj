@@ -7,36 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		790B35A52097BA6000075E3A /* RoutinesController+NSFetchedResultsControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790B35A42097BA6000075E3A /* RoutinesController+NSFetchedResultsControllerDelegate.swift */; };
+		60FC5296231E073EA8C244CA /* Pods_Routines.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E975D3515D83AAD515CA257 /* Pods_Routines.framework */; };
 		790C94722074D4E600C9D986 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C847FF2072D85300B6C907 /* CoreDataManager.swift */; };
 		790C94732074D63900C9D986 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 79C847F22072BE0000B6C907 /* Model.xcdatamodeld */; };
 		790C94752074E05500C9D986 /* ExercisesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790C94742074E05500C9D986 /* ExercisesTableViewController.swift */; };
 		791C48A220BC65F6000CD854 /* FloatingActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 791C48A120BC65F6000CD854 /* FloatingActionButton.swift */; };
-		792B60FF20824E9A00F74CE0 /* ClockKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 792B60FE20824E9A00F74CE0 /* ClockKit.framework */; };
-		792B610120824EE200F74CE0 /* ComplicationDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792B610020824EE200F74CE0 /* ComplicationDataSource.swift */; };
 		7934DB85207013890072B1F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7934DB84207013890072B1F8 /* AppDelegate.swift */; };
 		7934DB87207013890072B1F8 /* RoutinesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7934DB86207013890072B1F8 /* RoutinesViewController.swift */; };
 		7934DB8A207013890072B1F8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7934DB88207013890072B1F8 /* Main.storyboard */; };
 		7934DB8C2070138A0072B1F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7934DB8B2070138A0072B1F8 /* Assets.xcassets */; };
 		7934DB8F2070138A0072B1F8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7934DB8D2070138A0072B1F8 /* LaunchScreen.storyboard */; };
-		7934DB942070138A0072B1F8 /* Routines WatchKit App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 7934DB932070138A0072B1F8 /* Routines WatchKit App.app */; };
-		7934DB9A2070138A0072B1F8 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7934DB982070138A0072B1F8 /* Interface.storyboard */; };
-		7934DB9C2070138B0072B1F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7934DB9B2070138B0072B1F8 /* Assets.xcassets */; };
-		7934DBA32070138B0072B1F8 /* Routines WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 7934DBA22070138B0072B1F8 /* Routines WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		7934DBA82070138B0072B1F8 /* RoutinesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7934DBA72070138B0072B1F8 /* RoutinesController.swift */; };
-		7934DBAA2070138B0072B1F8 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7934DBA92070138B0072B1F8 /* ExtensionDelegate.swift */; };
-		7934DBAC2070138C0072B1F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7934DBAB2070138C0072B1F8 /* Assets.xcassets */; };
-		7934DBBD2070290D0072B1F8 /* RoutineRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7934DBBC2070263F0072B1F8 /* RoutineRowController.swift */; };
-		7934DBC220702EF40072B1F8 /* ExerciseRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7934DBC120702EF40072B1F8 /* ExerciseRowController.swift */; };
 		79391DE420852E920069C12A /* RoutinesViewController+NSFetchResultsControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79391DE320852E920069C12A /* RoutinesViewController+NSFetchResultsControllerDelegate.swift */; };
-		793CCF65209C9C88005BFC20 /* WatchConnectivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 793CCF64209C9C87005BFC20 /* WatchConnectivityManager.swift */; };
-		79437260208BE4D600A4BB2C /* EditItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7943725F208BE4D600A4BB2C /* EditItemController.swift */; };
-		795B2A642097776900529800 /* RoutineDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7934DBBF20702E6C0072B1F8 /* RoutineDetailController.swift */; };
-		795B2A6820977B9900529800 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 795B2A65209779DF00529800 /* Localizable.stringsdict */; };
 		7976E5D5208D3914004680DA /* WatchConnectivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7976E5D4208D3914004680DA /* WatchConnectivityManager.swift */; };
-		7991D9A82089F96D0023EAD7 /* WorkoutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7991D9A72089F96D0023EAD7 /* WorkoutController.swift */; };
 		799BB07220B9D80D00811B78 /* UIColor+Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799BB07120B9D80D00811B78 /* UIColor+Colors.swift */; };
-		799BB07320B9D80D00811B78 /* UIColor+Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799BB07120B9D80D00811B78 /* UIColor+Colors.swift */; };
 		799C30C8207811CD0080A76B /* SampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799C30C7207811CD0080A76B /* SampleData.swift */; };
 		799C30CD2078177E0080A76B /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799C30CC2078177E0080A76B /* SettingsTableViewController.swift */; };
 		799C30CF207821170080A76B /* EmptyStateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799C30CE207821170080A76B /* EmptyStateViewController.swift */; };
@@ -45,31 +28,19 @@
 		799C30D7207914770080A76B /* EmptyStateViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799C30D6207914770080A76B /* EmptyStateViewControllerDelegate.swift */; };
 		799C30DA207915400080A76B /* ExercisesTableViewController+EmptyStateViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799C30D9207915400080A76B /* ExercisesTableViewController+EmptyStateViewControllerDelegate.swift */; };
 		799C30DC207918800080A76B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 799C30DB207918800080A76B /* Assets.xcassets */; };
-		799C30DD207918800080A76B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 799C30DB207918800080A76B /* Assets.xcassets */; };
-		799C30DE207918800080A76B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 799C30DB207918800080A76B /* Assets.xcassets */; };
 		799C30E220791B680080A76B /* EditExercisesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799C30E120791B680080A76B /* EditExercisesTableViewController.swift */; };
 		799C30E5207927B40080A76B /* RoutineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799C30E4207927B40080A76B /* RoutineTableViewCell.swift */; };
 		79A3BFF920BAE143001DCF98 /* CloudKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A3BFF820BAE143001DCF98 /* CloudKit.swift */; };
-		79A3BFFA20BAE143001DCF98 /* CloudKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A3BFF820BAE143001DCF98 /* CloudKit.swift */; };
 		79A3BFFC20BAE4D6001DCF98 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79A3BFFB20BAE4D6001DCF98 /* CloudKit.framework */; };
-		79A3BFFF20BAE4E1001DCF98 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79A3BFFE20BAE4E1001DCF98 /* CloudKit.framework */; };
-		79A3C01120BAEA7A001DCF98 /* CKRecordEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A3C00F20BAE74B001DCF98 /* CKRecordEncoder.swift */; };
 		79A3C01220BAEA7B001DCF98 /* CKRecordEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A3C00F20BAE74B001DCF98 /* CKRecordEncoder.swift */; };
-		79A3C01320BAEA7D001DCF98 /* CKRecordDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A3C01020BAE74C001DCF98 /* CKRecordDecoder.swift */; };
 		79A3C01420BAEA7E001DCF98 /* CKRecordDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A3C01020BAE74C001DCF98 /* CKRecordDecoder.swift */; };
-		79A3C01520BAEA80001DCF98 /* CKEncodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A3C00E20BAE749001DCF98 /* CKEncodable.swift */; };
 		79A3C01620BAEA80001DCF98 /* CKEncodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A3C00E20BAE749001DCF98 /* CKEncodable.swift */; };
 		79A3C01920BAF727001DCF98 /* RoutinesCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A3C01820BAF727001DCF98 /* RoutinesCodable.swift */; };
-		79A3C01A20BAF727001DCF98 /* RoutinesCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A3C01820BAF727001DCF98 /* RoutinesCodable.swift */; };
 		79A3C01C20BAF753001DCF98 /* ItemCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A3C01B20BAF753001DCF98 /* ItemCodable.swift */; };
-		79A3C01D20BAF753001DCF98 /* ItemCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A3C01B20BAF753001DCF98 /* ItemCodable.swift */; };
 		79A3C01F20BAF75E001DCF98 /* RecordCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A3C01E20BAF75E001DCF98 /* RecordCodable.swift */; };
-		79A3C02020BAF75E001DCF98 /* RecordCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79A3C01E20BAF75E001DCF98 /* RecordCodable.swift */; };
-		79A3C02120BAF95D001DCF98 /* Encodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79DB619A208E96BA00D6182C /* Encodable.swift */; };
 		79C847F72072CA4600B6C907 /* RoutineCodable.json in Resources */ = {isa = PBXBuildFile; fileRef = 7934DBC3207034090072B1F8 /* RoutineCodable.json */; };
 		79C848052072E8F300B6C907 /* EditRoutineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C848042072E8F300B6C907 /* EditRoutineViewController.swift */; };
 		79C848072072FCE200B6C907 /* Defaultable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C848062072FCE200B6C907 /* Defaultable.swift */; };
-		79C848082072FCFB00B6C907 /* Defaultable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C848062072FCE200B6C907 /* Defaultable.swift */; };
 		79CA5F5C208FAE8C00956C85 /* Encodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79DB619A208E96BA00D6182C /* Encodable.swift */; };
 		79D75C67209A351C00FB65B1 /* SplitViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D75C66209A351C00FB65B1 /* SplitViewDelegate.swift */; };
 		79D75C69209B9BA700FB65B1 /* ColorSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D75C68209B9BA700FB65B1 /* ColorSelectionViewController.swift */; };
@@ -78,49 +49,15 @@
 		79EBD34420989F5200091FA8 /* Document_icon_22.png in Resources */ = {isa = PBXBuildFile; fileRef = 79EBD34020989F5200091FA8 /* Document_icon_22.png */; };
 		79EBD34520989F5200091FA8 /* Document_icon_64.png in Resources */ = {isa = PBXBuildFile; fileRef = 79EBD34120989F5200091FA8 /* Document_icon_64.png */; };
 		79F08357209246BD00CF8F49 /* Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F08356209246BD00CF8F49 /* Decodable.swift */; };
-		79F0835820924AF400CF8F49 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79C847FF2072D85300B6C907 /* CoreDataManager.swift */; };
-		79F0835920924AFB00CF8F49 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 79C847F22072BE0000B6C907 /* Model.xcdatamodeld */; };
-		79F0835A20924B3700CF8F49 /* Entites.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799C30D020782ACA0080A76B /* Entites.swift */; };
-		79F0835B20924B4A00CF8F49 /* Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F08356209246BD00CF8F49 /* Decodable.swift */; };
-		79F0835E20924D0F00CF8F49 /* SampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 799C30C7207811CD0080A76B /* SampleData.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		7934DB952070138A0072B1F8 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 7934DB79207013890072B1F8 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 7934DB922070138A0072B1F8;
-			remoteInfo = "Routines WatchKit App";
-		};
-		7934DBA42070138B0072B1F8 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 7934DB79207013890072B1F8 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 7934DBA12070138B0072B1F8;
-			remoteInfo = "Routines WatchKit Extension";
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXCopyFilesBuildPhase section */
-		7934DBB32070138C0072B1F8 /* Embed App Extensions */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 13;
-			files = (
-				7934DBA32070138B0072B1F8 /* Routines WatchKit Extension.appex in Embed App Extensions */,
-			);
-			name = "Embed App Extensions";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		7934DBB72070138C0072B1F8 /* Embed Watch Content */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
 			dstSubfolderSpec = 16;
 			files = (
-				7934DB942070138A0072B1F8 /* Routines WatchKit App.app in Embed Watch Content */,
 			);
 			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -128,11 +65,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		790B35A42097BA6000075E3A /* RoutinesController+NSFetchedResultsControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RoutinesController+NSFetchedResultsControllerDelegate.swift"; sourceTree = "<group>"; };
+		04B154D814ADEA0E7F4577BE /* Pods-Routines.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Routines.release.xcconfig"; path = "Target Support Files/Pods-Routines/Pods-Routines.release.xcconfig"; sourceTree = "<group>"; };
+		1E975D3515D83AAD515CA257 /* Pods_Routines.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Routines.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		790C94742074E05500C9D986 /* ExercisesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisesTableViewController.swift; sourceTree = "<group>"; };
 		791C48A120BC65F6000CD854 /* FloatingActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingActionButton.swift; sourceTree = "<group>"; };
 		792B60FE20824E9A00F74CE0 /* ClockKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ClockKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS4.3.sdk/System/Library/Frameworks/ClockKit.framework; sourceTree = DEVELOPER_DIR; };
-		792B610020824EE200F74CE0 /* ComplicationDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationDataSource.swift; sourceTree = "<group>"; };
 		7934DB81207013890072B1F8 /* Routines.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Routines.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7934DB84207013890072B1F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7934DB86207013890072B1F8 /* RoutinesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutinesViewController.swift; sourceTree = "<group>"; };
@@ -140,25 +77,9 @@
 		7934DB8B2070138A0072B1F8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7934DB8E2070138A0072B1F8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7934DB902070138A0072B1F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7934DB932070138A0072B1F8 /* Routines WatchKit App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Routines WatchKit App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		7934DB992070138A0072B1F8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
-		7934DB9B2070138B0072B1F8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		7934DB9D2070138B0072B1F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7934DBA22070138B0072B1F8 /* Routines WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Routines WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
-		7934DBA72070138B0072B1F8 /* RoutinesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutinesController.swift; sourceTree = "<group>"; };
-		7934DBA92070138B0072B1F8 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
-		7934DBAB2070138C0072B1F8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		7934DBAD2070138C0072B1F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7934DBBC2070263F0072B1F8 /* RoutineRowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineRowController.swift; sourceTree = "<group>"; };
-		7934DBBF20702E6C0072B1F8 /* RoutineDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineDetailController.swift; sourceTree = "<group>"; };
-		7934DBC120702EF40072B1F8 /* ExerciseRowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseRowController.swift; sourceTree = "<group>"; };
 		7934DBC3207034090072B1F8 /* RoutineCodable.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = RoutineCodable.json; sourceTree = "<group>"; };
 		79391DE320852E920069C12A /* RoutinesViewController+NSFetchResultsControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RoutinesViewController+NSFetchResultsControllerDelegate.swift"; sourceTree = "<group>"; };
-		793CCF64209C9C87005BFC20 /* WatchConnectivityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchConnectivityManager.swift; sourceTree = "<group>"; };
-		7943725F208BE4D600A4BB2C /* EditItemController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditItemController.swift; sourceTree = "<group>"; };
-		795B2A65209779DF00529800 /* Localizable.stringsdict */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; path = Localizable.stringsdict; sourceTree = "<group>"; };
 		7976E5D4208D3914004680DA /* WatchConnectivityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchConnectivityManager.swift; sourceTree = "<group>"; };
-		7991D9A72089F96D0023EAD7 /* WorkoutController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutController.swift; sourceTree = "<group>"; };
 		799BB07120B9D80D00811B78 /* UIColor+Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Colors.swift"; sourceTree = "<group>"; };
 		799C30C7207811CD0080A76B /* SampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleData.swift; sourceTree = "<group>"; };
 		799C30CC2078177E0080A76B /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
@@ -172,7 +93,6 @@
 		799C30E4207927B40080A76B /* RoutineTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutineTableViewCell.swift; sourceTree = "<group>"; };
 		79A3BFF820BAE143001DCF98 /* CloudKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKit.swift; sourceTree = "<group>"; };
 		79A3BFFB20BAE4D6001DCF98 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
-		79A3BFFD20BAE4DD001DCF98 /* Routines WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Routines WatchKit Extension.entitlements"; sourceTree = "<group>"; };
 		79A3BFFE20BAE4E1001DCF98 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS4.3.sdk/System/Library/Frameworks/CloudKit.framework; sourceTree = DEVELOPER_DIR; };
 		79A3C00E20BAE749001DCF98 /* CKEncodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKEncodable.swift; sourceTree = "<group>"; };
 		79A3C00F20BAE74B001DCF98 /* CKRecordEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CKRecordEncoder.swift; sourceTree = "<group>"; };
@@ -193,6 +113,7 @@
 		79EBD34020989F5200091FA8 /* Document_icon_22.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Document_icon_22.png; sourceTree = "<group>"; };
 		79EBD34120989F5200091FA8 /* Document_icon_64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Document_icon_64.png; sourceTree = "<group>"; };
 		79F08356209246BD00CF8F49 /* Decodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Decodable.swift; sourceTree = "<group>"; };
+		A2FFC75BD83CD12574FB9B15 /* Pods-Routines.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Routines.debug.xcconfig"; path = "Target Support Files/Pods-Routines/Pods-Routines.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -201,15 +122,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				79A3BFFC20BAE4D6001DCF98 /* CloudKit.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		7934DB9F2070138B0072B1F8 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				792B60FF20824E9A00F74CE0 /* ClockKit.framework in Frameworks */,
-				79A3BFFF20BAE4E1001DCF98 /* CloudKit.framework in Frameworks */,
+				60FC5296231E073EA8C244CA /* Pods_Routines.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -222,6 +135,7 @@
 				79A3BFFE20BAE4E1001DCF98 /* CloudKit.framework */,
 				79A3BFFB20BAE4D6001DCF98 /* CloudKit.framework */,
 				792B60FE20824E9A00F74CE0 /* ClockKit.framework */,
+				1E975D3515D83AAD515CA257 /* Pods_Routines.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -230,11 +144,9 @@
 			isa = PBXGroup;
 			children = (
 				7934DB83207013890072B1F8 /* Routines */,
-				7934DB972070138A0072B1F8 /* Routines WatchKit App */,
-				7934DBA62070138B0072B1F8 /* Routines WatchKit Extension */,
-				79C848022072DCA000B6C907 /* Shared */,
 				7934DB82207013890072B1F8 /* Products */,
 				792B60FD20824E9A00F74CE0 /* Frameworks */,
+				E39AAE1B89C3EDA0536F7516 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -242,8 +154,6 @@
 			isa = PBXGroup;
 			children = (
 				7934DB81207013890072B1F8 /* Routines.app */,
-				7934DB932070138A0072B1F8 /* Routines WatchKit App.app */,
-				7934DBA22070138B0072B1F8 /* Routines WatchKit Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -256,6 +166,7 @@
 				7976E5D4208D3914004680DA /* WatchConnectivityManager.swift */,
 				799C30DF20791B2E0080A76B /* Routines */,
 				799C30E020791B520080A76B /* Exercises */,
+				79C848022072DCA000B6C907 /* Shared */,
 				799C30CC2078177E0080A76B /* SettingsTableViewController.swift */,
 				791C48A120BC65F6000CD854 /* FloatingActionButton.swift */,
 				7934DB88207013890072B1F8 /* Main.storyboard */,
@@ -266,37 +177,6 @@
 				799C30D52079145B0080A76B /* Empty State */,
 			);
 			path = Routines;
-			sourceTree = "<group>";
-		};
-		7934DB972070138A0072B1F8 /* Routines WatchKit App */ = {
-			isa = PBXGroup;
-			children = (
-				7934DB982070138A0072B1F8 /* Interface.storyboard */,
-				7934DB9B2070138B0072B1F8 /* Assets.xcassets */,
-				7934DB9D2070138B0072B1F8 /* Info.plist */,
-			);
-			path = "Routines WatchKit App";
-			sourceTree = "<group>";
-		};
-		7934DBA62070138B0072B1F8 /* Routines WatchKit Extension */ = {
-			isa = PBXGroup;
-			children = (
-				79A3BFFD20BAE4DD001DCF98 /* Routines WatchKit Extension.entitlements */,
-				792B610020824EE200F74CE0 /* ComplicationDataSource.swift */,
-				7934DBA72070138B0072B1F8 /* RoutinesController.swift */,
-				790B35A42097BA6000075E3A /* RoutinesController+NSFetchedResultsControllerDelegate.swift */,
-				7934DBBC2070263F0072B1F8 /* RoutineRowController.swift */,
-				795B2A65209779DF00529800 /* Localizable.stringsdict */,
-				7934DBBF20702E6C0072B1F8 /* RoutineDetailController.swift */,
-				7934DBC120702EF40072B1F8 /* ExerciseRowController.swift */,
-				7991D9A72089F96D0023EAD7 /* WorkoutController.swift */,
-				7943725F208BE4D600A4BB2C /* EditItemController.swift */,
-				7934DBA92070138B0072B1F8 /* ExtensionDelegate.swift */,
-				793CCF64209C9C87005BFC20 /* WatchConnectivityManager.swift */,
-				7934DBAB2070138C0072B1F8 /* Assets.xcassets */,
-				7934DBAD2070138C0072B1F8 /* Info.plist */,
-			);
-			path = "Routines WatchKit Extension";
 			sourceTree = "<group>";
 		};
 		799C30D52079145B0080A76B /* Empty State */ = {
@@ -399,6 +279,15 @@
 			path = "Document Icons";
 			sourceTree = "<group>";
 		};
+		E39AAE1B89C3EDA0536F7516 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A2FFC75BD83CD12574FB9B15 /* Pods-Routines.debug.xcconfig */,
+				04B154D814ADEA0E7F4577BE /* Pods-Routines.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -406,54 +295,21 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7934DBB82070138C0072B1F8 /* Build configuration list for PBXNativeTarget "Routines" */;
 			buildPhases = (
+				FFFA3F27761EB304A5E57CB4 /* [CP] Check Pods Manifest.lock */,
 				7934DB7D207013890072B1F8 /* Sources */,
 				7934DB7E207013890072B1F8 /* Frameworks */,
 				7934DB7F207013890072B1F8 /* Resources */,
 				7934DBB72070138C0072B1F8 /* Embed Watch Content */,
+				0AD41263A2506D2FE17F5B84 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				7934DB962070138A0072B1F8 /* PBXTargetDependency */,
 			);
 			name = Routines;
 			productName = Routines;
 			productReference = 7934DB81207013890072B1F8 /* Routines.app */;
 			productType = "com.apple.product-type.application";
-		};
-		7934DB922070138A0072B1F8 /* Routines WatchKit App */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 7934DBB42070138C0072B1F8 /* Build configuration list for PBXNativeTarget "Routines WatchKit App" */;
-			buildPhases = (
-				7934DB912070138A0072B1F8 /* Resources */,
-				7934DBB32070138C0072B1F8 /* Embed App Extensions */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				7934DBA52070138B0072B1F8 /* PBXTargetDependency */,
-			);
-			name = "Routines WatchKit App";
-			productName = "Routines WatchKit App";
-			productReference = 7934DB932070138A0072B1F8 /* Routines WatchKit App.app */;
-			productType = "com.apple.product-type.application.watchapp2";
-		};
-		7934DBA12070138B0072B1F8 /* Routines WatchKit Extension */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 7934DBB02070138C0072B1F8 /* Build configuration list for PBXNativeTarget "Routines WatchKit Extension" */;
-			buildPhases = (
-				7934DB9E2070138B0072B1F8 /* Sources */,
-				7934DB9F2070138B0072B1F8 /* Frameworks */,
-				7934DBA02070138B0072B1F8 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Routines WatchKit Extension";
-			productName = "Routines WatchKit Extension";
-			productReference = 7934DBA22070138B0072B1F8 /* Routines WatchKit Extension.appex */;
-			productType = "com.apple.product-type.watchkit2-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -467,29 +323,7 @@
 				TargetAttributes = {
 					7934DB80207013890072B1F8 = {
 						CreatedOnToolsVersion = 9.3;
-						SystemCapabilities = {
-							com.apple.ApplicationGroups.iOS = {
-								enabled = 0;
-							};
-							com.apple.Push = {
-								enabled = 1;
-							};
-							com.apple.iCloud = {
-								enabled = 1;
-							};
-						};
-					};
-					7934DB922070138A0072B1F8 = {
-						CreatedOnToolsVersion = 9.3;
-						LastSwiftMigration = 0930;
-						SystemCapabilities = {
-							com.apple.ApplicationGroups.iOS = {
-								enabled = 0;
-							};
-						};
-					};
-					7934DBA12070138B0072B1F8 = {
-						CreatedOnToolsVersion = 9.3;
+						LastSwiftMigration = 1020;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 0;
@@ -518,8 +352,6 @@
 			projectRoot = "";
 			targets = (
 				7934DB80207013890072B1F8 /* Routines */,
-				7934DB922070138A0072B1F8 /* Routines WatchKit App */,
-				7934DBA12070138B0072B1F8 /* Routines WatchKit Extension */,
 			);
 		};
 /* End PBXProject section */
@@ -541,27 +373,58 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7934DB912070138A0072B1F8 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				7934DB9C2070138B0072B1F8 /* Assets.xcassets in Resources */,
-				799C30DD207918800080A76B /* Assets.xcassets in Resources */,
-				7934DB9A2070138A0072B1F8 /* Interface.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		7934DBA02070138B0072B1F8 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				7934DBAC2070138C0072B1F8 /* Assets.xcassets in Resources */,
-				799C30DE207918800080A76B /* Assets.xcassets in Resources */,
-				795B2A6820977B9900529800 /* Localizable.stringsdict in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0AD41263A2506D2FE17F5B84 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Routines/Pods-Routines-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxRelay/RxRelay.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxRelay.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Routines/Pods-Routines-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FFFA3F27761EB304A5E57CB4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Routines-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		7934DB7D207013890072B1F8 /* Sources */ = {
@@ -602,52 +465,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7934DB9E2070138B0072B1F8 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				79C848082072FCFB00B6C907 /* Defaultable.swift in Sources */,
-				79F0835A20924B3700CF8F49 /* Entites.swift in Sources */,
-				795B2A642097776900529800 /* RoutineDetailController.swift in Sources */,
-				79A3C02020BAF75E001DCF98 /* RecordCodable.swift in Sources */,
-				79A3C01120BAEA7A001DCF98 /* CKRecordEncoder.swift in Sources */,
-				79A3BFFA20BAE143001DCF98 /* CloudKit.swift in Sources */,
-				79A3C01320BAEA7D001DCF98 /* CKRecordDecoder.swift in Sources */,
-				793CCF65209C9C88005BFC20 /* WatchConnectivityManager.swift in Sources */,
-				7934DBBD2070290D0072B1F8 /* RoutineRowController.swift in Sources */,
-				7934DBC220702EF40072B1F8 /* ExerciseRowController.swift in Sources */,
-				792B610120824EE200F74CE0 /* ComplicationDataSource.swift in Sources */,
-				7934DBAA2070138B0072B1F8 /* ExtensionDelegate.swift in Sources */,
-				799BB07320B9D80D00811B78 /* UIColor+Colors.swift in Sources */,
-				79A3C01520BAEA80001DCF98 /* CKEncodable.swift in Sources */,
-				79A3C02120BAF95D001DCF98 /* Encodable.swift in Sources */,
-				7991D9A82089F96D0023EAD7 /* WorkoutController.swift in Sources */,
-				7934DBA82070138B0072B1F8 /* RoutinesController.swift in Sources */,
-				79F0835B20924B4A00CF8F49 /* Decodable.swift in Sources */,
-				79F0835820924AF400CF8F49 /* CoreDataManager.swift in Sources */,
-				79A3C01D20BAF753001DCF98 /* ItemCodable.swift in Sources */,
-				79A3C01A20BAF727001DCF98 /* RoutinesCodable.swift in Sources */,
-				79F0835920924AFB00CF8F49 /* Model.xcdatamodeld in Sources */,
-				79F0835E20924D0F00CF8F49 /* SampleData.swift in Sources */,
-				790B35A52097BA6000075E3A /* RoutinesController+NSFetchedResultsControllerDelegate.swift in Sources */,
-				79437260208BE4D600A4BB2C /* EditItemController.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		7934DB962070138A0072B1F8 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 7934DB922070138A0072B1F8 /* Routines WatchKit App */;
-			targetProxy = 7934DB952070138A0072B1F8 /* PBXContainerItemProxy */;
-		};
-		7934DBA52070138B0072B1F8 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 7934DBA12070138B0072B1F8 /* Routines WatchKit Extension */;
-			targetProxy = 7934DBA42070138B0072B1F8 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		7934DB88207013890072B1F8 /* Main.storyboard */ = {
@@ -664,14 +482,6 @@
 				7934DB8E2070138A0072B1F8 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		7934DB982070138A0072B1F8 /* Interface.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7934DB992070138A0072B1F8 /* Base */,
-			);
-			name = Interface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -791,112 +601,14 @@
 			};
 			name = Release;
 		};
-		7934DBB12070138C0072B1F8 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
-				CODE_SIGN_ENTITLEMENTS = "Routines WatchKit Extension/Routines WatchKit Extension.entitlements";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6CSUU74W7V;
-				INFOPLIST_FILE = "Routines WatchKit Extension/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.tmergulhao.Routines.watchkitapp.watchkitextension;
-				PRODUCT_NAME = "${TARGET_NAME}";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 4.3;
-			};
-			name = Debug;
-		};
-		7934DBB22070138C0072B1F8 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
-				CODE_SIGN_ENTITLEMENTS = "Routines WatchKit Extension/Routines WatchKit Extension.entitlements";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6CSUU74W7V;
-				INFOPLIST_FILE = "Routines WatchKit Extension/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.tmergulhao.Routines.watchkitapp.watchkitextension;
-				PRODUCT_NAME = "${TARGET_NAME}";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 4.3;
-			};
-			name = Release;
-		};
-		7934DBB52070138C0072B1F8 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6CSUU74W7V;
-				IBSC_MODULE = Routines_WatchKit_Extension;
-				INFOPLIST_FILE = "Routines WatchKit App/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/../Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.tmergulhao.Routines.watchkitapp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "Routines WatchKit App/Routines WatchKit App-Bridging-Header.h";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 4.0;
-			};
-			name = Debug;
-		};
-		7934DBB62070138C0072B1F8 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6CSUU74W7V;
-				IBSC_MODULE = Routines_WatchKit_Extension;
-				INFOPLIST_FILE = "Routines WatchKit App/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/../Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.tmergulhao.Routines.watchkitapp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "Routines WatchKit App/Routines WatchKit App-Bridging-Header.h";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 4.0;
-			};
-			name = Release;
-		};
 		7934DBB92070138C0072B1F8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A2FFC75BD83CD12574FB9B15 /* Pods-Routines.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Routines/Routines.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6CSUU74W7V;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Routines/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -905,18 +617,19 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.tmergulhao.Routines;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
 		7934DBBA2070138C0072B1F8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 04B154D814ADEA0E7F4577BE /* Pods-Routines.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Routines/Routines.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6CSUU74W7V;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Routines/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -925,7 +638,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.tmergulhao.Routines;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -938,24 +651,6 @@
 			buildConfigurations = (
 				7934DBAE2070138C0072B1F8 /* Debug */,
 				7934DBAF2070138C0072B1F8 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		7934DBB02070138C0072B1F8 /* Build configuration list for PBXNativeTarget "Routines WatchKit Extension" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				7934DBB12070138C0072B1F8 /* Debug */,
-				7934DBB22070138C0072B1F8 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		7934DBB42070138C0072B1F8 /* Build configuration list for PBXNativeTarget "Routines WatchKit App" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				7934DBB52070138C0072B1F8 /* Debug */,
-				7934DBB62070138C0072B1F8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
